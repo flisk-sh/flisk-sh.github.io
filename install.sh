@@ -3,10 +3,10 @@ set -eu
 
 OWNER="flisk-sh"
 REPO="releases"
-BIN_NAME="tdk"
+BIN_NAME="flisk"
 
 fail() {
-  echo "tdk install: $*" >&2
+  echo "flisk install: $*" >&2
   exit 1
 }
 
@@ -36,13 +36,13 @@ case "$arch" in
   *) fail "unsupported CPU: $arch" ;;
 esac
 
-asset="tdk-${platform}-${cpu}"
+asset="flisk-${platform}-${cpu}"
 url="https://github.com/${OWNER}/${REPO}/releases/latest/download/${asset}"
 
 # Fixed filename (no version in it), so this always resolves to whatever
 # release is currently "latest" - unlike the per-release zip, which is
 # named with its own tag and can't be found this way.
-engine_asset="tdk-cli-engine.tar.gz"
+engine_asset="flisk-cli-engine.tar.gz"
 engine_url="https://github.com/${OWNER}/${REPO}/releases/latest/download/${engine_asset}"
 
 checksums_url="https://github.com/${OWNER}/${REPO}/releases/latest/download/checksums.txt"
@@ -59,9 +59,9 @@ else
   install_dir="${HOME}/.local/bin"
   mkdir -p "$install_dir"
 fi
-tmp="${TMPDIR:-/tmp}/tdk.$$"
-engine_tmp="${TMPDIR:-/tmp}/tdk-engine.$$.tar.gz"
-sums_tmp="${TMPDIR:-/tmp}/tdk-checksums.$$.txt"
+tmp="${TMPDIR:-/tmp}/flisk.$$"
+engine_tmp="${TMPDIR:-/tmp}/flisk-engine.$$.tar.gz"
+sums_tmp="${TMPDIR:-/tmp}/flisk-checksums.$$.txt"
 trap 'rm -f "$tmp" "$engine_tmp" "$sums_tmp"' EXIT
 
 download() {
@@ -108,9 +108,9 @@ download "$url" "$tmp" || fail "download failed: $url"
 chmod +x "$tmp"
 
 # The compiled binary has no source checkout to find engine/ in, so it
-# looks for a tdk-cli/ folder next to itself (see
+# looks for a flisk/ folder next to itself (see
 # cli/src/generator/template-engine.ts, vendorTdkExtension). Without this,
-# `tdk project`/`tdk up` fail with "TDK extension not found".
+# `flisk project`/`flisk up` fail with "Flisk extension not found".
 echo "Installing bundled engine..."
 download "$engine_url" "$engine_tmp" || fail "download failed: $engine_url"
 
@@ -120,9 +120,9 @@ verify "$tmp" "$asset" required
 verify "$engine_tmp" "$engine_asset" optional
 
 mv "$tmp" "${install_dir}/${BIN_NAME}"
-rm -rf "${install_dir}/tdk-cli"
-mkdir -p "${install_dir}/tdk-cli"
-tar -xzf "$engine_tmp" -C "${install_dir}/tdk-cli" --strip-components=1
+rm -rf "${install_dir}/flisk"
+mkdir -p "${install_dir}/flisk"
+tar -xzf "$engine_tmp" -C "${install_dir}/flisk" --strip-components=1
 rm -f "$engine_tmp"
 
 echo "Installed: ${install_dir}/${BIN_NAME}"
@@ -141,6 +141,6 @@ case ":${PATH}:" in
     echo "  export PATH=\"${install_dir}:\$PATH\""
     ;;
 esac
-echo "Next: tdk doctor"
-echo "For AI agents, configure your MCP client to launch tdk mcp over local stdio:"
+echo "Next: flisk doctor"
+echo "For AI agents, configure your MCP client to launch flisk mcp over local stdio:"
 echo "  https://github.com/flisk-sh/flisk/blob/main/docs/agent-tooling/README.md"
