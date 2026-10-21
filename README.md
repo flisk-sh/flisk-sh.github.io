@@ -41,7 +41,7 @@ Resource config schema, referenced from every `service.json` via `$schema`:
 
 - https://flisk.sh/schema.service.json
 
-Source of truth is [`engine/schemas/service-schema.json`](https://github.com/flisk-sh/flisk/blob/main/engine/schemas/service-schema.json) in tdk-cli-core; copy changes here to republish.
+Source of truth is [`engine/schemas/service-schema.json`](https://github.com/flisk-sh/flisk/blob/main/engine/schemas/service-schema.json) in flisk; copy changes here to republish.
 
 ### VS Code: validation and autocomplete for `service.json`
 
