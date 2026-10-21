@@ -8,7 +8,7 @@ Short install URL and JSON schema host for [TDK CLI](https://github.com/flisk-sh
 curl -fsSL https://flisk.sh/install.sh | sh
 ```
 
-The script downloads the latest binary from [tdk-cli-releases](https://github.com/flisk-sh/releases/releases/latest). Prefer npm? `npm install -g @tdk-landscape/tdk-cli-core`.
+The script downloads the latest binary from [flisk-sh/releases](https://github.com/flisk-sh/releases/releases/latest). Prefer npm? `npm install -g flisk`.
 
 ### Windows AMD64: CLI inspection
 
@@ -73,4 +73,4 @@ Reopen (or just click into) a `service.json` file and VS Code will underline inv
 
 ---
 
-⭐ **Using TDK?** [Star tdk-cli-core](https://github.com/flisk-sh/flisk) so other developers can find it.
+⭐ **Using TDK?** [Star flisk](https://github.com/flisk-sh/flisk) so other developers can find it.
