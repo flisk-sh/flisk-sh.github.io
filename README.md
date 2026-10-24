@@ -1,6 +1,6 @@
 # flisk.sh
 
-Short install URL and JSON schema host for [TDK CLI](https://github.com/flisk-sh/flisk).
+Short install URL and JSON schema host for [Flisk CLI](https://github.com/flisk-sh/flisk).
 
 ## Install
 
@@ -21,19 +21,19 @@ irm https://flisk.sh/install.ps1 | iex
 Or download and inspect the script first:
 
 ```powershell
-Invoke-WebRequest https://flisk.sh/install.ps1 -OutFile install-tdk.ps1
-powershell -ExecutionPolicy Bypass -File .\install-tdk.ps1
+Invoke-WebRequest https://flisk.sh/install.ps1 -OutFile install-flisk.ps1
+powershell -ExecutionPolicy Bypass -File .\install-flisk.ps1
 ```
 
 After installing, open a new PowerShell window and run:
 
 ```powershell
-tdk --version
-tdk runtime --check-assets
-tdk doctor
+flisk --version
+flisk runtime --check-assets
+flisk doctor
 ```
 
-Native Windows supports CLI inspection only. `tdk doctor` explains that running a landscape requires Ubuntu in WSL2; use the [WSL2 setup guide](https://github.com/flisk-sh/flisk/blob/main/docs/wsl2.md) for `tdk project` and `tdk up`. Windows ARM64 is not supported.
+Native Windows supports CLI inspection only. `flisk doctor` explains that running a landscape requires Ubuntu in WSL2; use the [WSL2 setup guide](https://github.com/flisk-sh/flisk/blob/main/docs/wsl2.md) for `flisk project` and `flisk up`. Windows ARM64 is not supported.
 
 ## JSON Schema
 
@@ -73,4 +73,4 @@ Reopen (or just click into) a `service.json` file and VS Code will underline inv
 
 ---
 
-⭐ **Using TDK?** [Star flisk](https://github.com/flisk-sh/flisk) so other developers can find it.
+⭐ **Using Flisk?** [Star flisk](https://github.com/flisk-sh/flisk) so other developers can find it.
