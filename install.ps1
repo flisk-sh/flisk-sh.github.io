@@ -3,11 +3,11 @@ $ErrorActionPreference = 'Stop'
 $processArchitecture = $env:PROCESSOR_ARCHITECTURE
 $isX64Emulated = $env:PROCESSOR_ARCHITEW6432 -eq 'AMD64'
 if ($processArchitecture -eq 'ARM64' -and -not $isX64Emulated) {
-    Write-Error 'TDK Windows v1 supports AMD64 only. Use WSL2 Ubuntu or a 64-bit Intel/AMD PC.'
+    Write-Error 'Flisk Windows v1 supports AMD64 only. Use WSL2 Ubuntu or a 64-bit Intel/AMD PC.'
     exit 1
 }
 if ($processArchitecture -ne 'AMD64' -and -not $isX64Emulated) {
-    Write-Error "Unsupported Windows architecture: $processArchitecture. TDK Windows v1 supports AMD64 only."
+    Write-Error "Unsupported Windows architecture: $processArchitecture. Flisk Windows v1 supports AMD64 only."
     exit 1
 }
 
@@ -51,7 +51,7 @@ try {
 
     $tar = Get-Command tar.exe -ErrorAction SilentlyContinue
     if (-not $tar) {
-        throw 'tar.exe is required to unpack the TDK engine. Install a supported Windows version with tar.exe and retry.'
+        throw 'tar.exe is required to unpack the Flisk engine. Install a supported Windows version with tar.exe and retry.'
     }
 
     & $tar.Source -xzf $engineArchive -C $extractDir --strip-components=1
@@ -61,7 +61,7 @@ try {
         Get-ChildItem -Force $extractDir | Remove-Item -Recurse -Force
         & $tar.Source -xzf $engineArchive -C $extractDir
         if ($LASTEXITCODE -ne 0) {
-            throw 'Could not extract flisk-cli-engine.tar.gz with tar.exe.'
+            throw 'Could not extract tdk-cli-engine.tar.gz with tar.exe.'
         }
         $children = @(Get-ChildItem -Force $extractDir)
         if ($children.Count -eq 1 -and $children[0].PSIsContainer) {
