@@ -12,8 +12,8 @@ if ($processArchitecture -ne 'AMD64' -and -not $isX64Emulated) {
 }
 
 $baseUrl = 'https://github.com/flisk-sh/releases/releases/latest/download'
-$installDir = if ($env:TDK_INSTALL_DIR) {
-    $env:TDK_INSTALL_DIR
+$installDir = if ($env:FLISK_INSTALL_DIR) {
+    $env:FLISK_INSTALL_DIR
 } else {
     Join-Path $env:LOCALAPPDATA 'flisk\bin'
 }

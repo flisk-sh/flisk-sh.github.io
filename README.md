@@ -12,7 +12,7 @@ The script downloads the latest binary from [flisk-sh/releases](https://github.c
 
 ### Windows AMD64: CLI inspection
 
-The latest release includes `tdk-windows-amd64.exe` and its bundled runtime assets. Install the CLI from PowerShell:
+The latest release includes `flisk-windows-amd64.exe` and its bundled runtime assets. Install the CLI from PowerShell:
 
 ```powershell
 irm https://flisk.sh/install.ps1 | iex

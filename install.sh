@@ -47,9 +47,9 @@ engine_url="https://github.com/${OWNER}/${REPO}/releases/latest/download/${engin
 
 checksums_url="https://github.com/${OWNER}/${REPO}/releases/latest/download/checksums.txt"
 
-# Never runs sudo. Uses FLISK_INSTALL_DIR (or the older TDK_INSTALL_DIR) if
-# set, else /usr/local/bin when it's writable, else ~/.local/bin.
-install_dir="${FLISK_INSTALL_DIR:-${TDK_INSTALL_DIR:-}}"
+# Never runs sudo. Uses FLISK_INSTALL_DIR if set, else /usr/local/bin when
+# it's writable, else ~/.local/bin.
+install_dir="${FLISK_INSTALL_DIR:-}"
 if [ -n "$install_dir" ]; then
   mkdir -p "$install_dir" 2>/dev/null || true
   [ -w "$install_dir" ] || fail "$install_dir is not writable. Pick another FLISK_INSTALL_DIR, or download the script and run it with sudo yourself."
