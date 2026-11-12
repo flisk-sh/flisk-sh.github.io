@@ -267,7 +267,7 @@ footer a{color:var(--dim)}
       [t.flaky ?? "–", "flaky workflows", t.flaky ? "warn" : "ok"],
       [t.runs ?? "–", "runs read", ""],
       [t.ciMinutes == null ? "–" : (t.ciMinutes / 60).toFixed(0) + " h", "CI time in window", ""],
-      [s.length ? failing + "/" + gated : "–", "Flisk gates failing", s.length ? (failing ? "bad" : "ok") : ""],
+      [s.length ? failing + "/" + gated : "–", "gated scorers failing", s.length ? (failing ? "bad" : "ok") : ""],
     ];
     const box = $("kp"); box.textContent = "";
     for (const [v, l, c] of cells) { const d = el("div", c); d.append(el("b", "", String(v)), l); box.appendChild(d); }
@@ -424,7 +424,7 @@ footer a{color:var(--dim)}
     if (!sc || !sc.rows.length) { $("scores-n").textContent = ""; return wait(box, "No scoreboard in this snapshot.", "The workflow adds it when Flisk's scorers run."); }
     const order = { error: 0, fail: 1, pass: 2, report: 3, skip: 4 };
     const rows = sc.rows.slice().sort((a, b) => (order[a.status] ?? 5) - (order[b.status] ?? 5) || a.id.localeCompare(b.id));
-    $("scores-n").textContent = rows.length;
+    $("scores-n").textContent = rows.length + " · " + rows.filter((r) => r.mode !== "report").length + " gated";
     box.textContent = "";
     const wrap = el("div", "rows");
     const th = el("div", "row srow th"); th.append(el("span", "", "Scorer"), el("span", "", "Status"), el("span", "n opt", "Value / ref"));
