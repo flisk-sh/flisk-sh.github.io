@@ -141,6 +141,13 @@ export function summarizeRuns(runs, now = Date.now()) {
 	};
 }
 
+// Pure: names in a repo's root folder -> the AI-SDLC harness flags Cilytics shows. ci comes from the workflow runs.
+export function sdlcFlags(rootNames, workflowCount) {
+	const has = (n) => rootNames.includes(n);
+	const flags = { agents: has("AGENTS.md"), claude: has("CLAUDE.md"), settings: has(".claude"), ci: workflowCount > 0 };
+	return { ...flags, score: Object.values(flags).filter(Boolean).length };
+}
+
 export function totals(repos) {
 	const runs = repos.reduce((n, r) => n + r.runs, 0);
 	const passed = repos.reduce((n, r) => n + (r.passRate === null ? 0 : (r.passRate / 100) * r.runs), 0);
@@ -154,6 +161,7 @@ export function totals(repos) {
 		runs,
 		ciMinutes: repos.reduce((n, r) => n + (r.ciMinutes ?? 0), 0),
 		flaky: repos.reduce((n, r) => n + r.workflows.filter((w) => w.flaky).length, 0),
+		sdlcReady: repos.filter((r) => r.sdlc?.score === 4).length,
 	};
 }
 
@@ -167,6 +175,11 @@ async function collect(now) {
 			await gh(`/repos/${ORG}/${r.name}/actions/runs?branch=${encodeURIComponent(r.default_branch)}&per_page=100&exclude_pull_requests=true`)
 		).workflow_runs;
 		const prs = await ghAll(`/repos/${ORG}/${r.name}/pulls?state=open`);
+		let rootNames = [];
+		try {
+			rootNames = (await gh(`/repos/${ORG}/${r.name}/contents/?ref=${encodeURIComponent(r.default_branch)}`)).map((f) => f.name);
+		} catch {}
+		const summary = summarizeRuns(runs, now);
 		repos.push({
 			name: r.name,
 			url: r.html_url,
@@ -174,7 +187,8 @@ async function collect(now) {
 			pushedAt: r.pushed_at,
 			stars: r.stargazers_count,
 			openPRs: prs.length,
-			...summarizeRuns(runs, now),
+			...summary,
+			sdlc: sdlcFlags(rootNames, summary.workflows.length),
 		});
 	}
 	repos.sort((a, b) => b.red - a.red || (a.passRate ?? 101) - (b.passRate ?? 101) || a.name.localeCompare(b.name));

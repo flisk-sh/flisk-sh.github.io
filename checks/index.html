@@ -47,7 +47,7 @@ main{min-width:0;border-right:1px solid var(--line)}
 .stamp{font:12px var(--mono);color:var(--faint);margin-top:8px}
 .focus{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:5px 6px 5px 10px;border:1px solid var(--line);background:var(--panel);font:12.5px var(--mono)}
 .focus b{font-weight:500;color:var(--ink)}
-.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));margin-top:16px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));margin-top:16px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .kp div{padding:12px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:12px;color:var(--dim);min-width:0}
 .kp b{display:block;font:500 22px/1.2 var(--mono);color:var(--ink);margin-bottom:2px}
 .kp .bad b{color:var(--red)}.kp .ok b{color:var(--green)}.kp .warn b{color:var(--amber)}
@@ -137,6 +137,7 @@ footer a{color:var(--dim)}
     <a href="#flaky">Flaky</a>
     <a href="#slow">Slow</a>
     <a href="#outcomes">Outcomes</a>
+    <a href="#sdlc">AI-SDLC</a>
     <a href="#scores">Scoreboard</a>
   </nav>
   <div class="tools">
@@ -180,6 +181,10 @@ footer a{color:var(--dim)}
       <div class="ch"><div><h2>Outcomes</h2><p>Runs per day on default branches, and how every run in the window ended.</p></div></div>
       <div class="plot" id="c-daily"></div>
       <div class="plot" id="c-concl"></div>
+    </section>
+    <section class="chart" id="sdlc">
+      <div class="ch"><div><h2>AI-SDLC<small id="sdlc-n"></small></h2><p>Is each repo ready for coding agents, and do Flisk's deterministic checks hold the harness together? Instructions, specs, tools, guardrails and verification, after Anthropic's AI-SDLC guidance. Repo flags are read from each repo's root folder; scorers come from flisk-sh/flisk.</p></div></div>
+      <div id="c-sdlc"></div>
     </section>
     <section class="chart" id="scores">
       <div class="ch"><div><h2>Scoreboard<small id="scores-n"></small></h2><p>Flisk's deterministic scorers from <code>scripts/scores/run.mjs</code> in flisk-sh/flisk, the same set every PR runs. Gates and ratchets fail CI; reports only inform.</p></div></div>
@@ -267,7 +272,8 @@ footer a{color:var(--dim)}
       [t.flaky ?? "–", "flaky workflows", t.flaky ? "warn" : "ok"],
       [t.runs ?? "–", "runs read", ""],
       [t.ciMinutes == null ? "–" : (t.ciMinutes / 60).toFixed(0) + " h", "CI time in window", ""],
-      [s.length ? failing + "/" + gated : "–", "gated scorers failing", s.length ? (failing ? "bad" : "ok") : ""],
+      [t.sdlcReady == null ? "–" : t.sdlcReady + "/" + t.repos, "agent-ready", t.sdlcReady ? "ok" : "warn"],
+      [s.length ? failing + "/" + gated : "–", "gates failing", s.length ? (failing ? "bad" : "ok") : ""],
     ];
     const box = $("kp"); box.textContent = "";
     for (const [v, l, c] of cells) { const d = el("div", c); d.append(el("b", "", String(v)), l); box.appendChild(d); }
@@ -419,6 +425,46 @@ footer a{color:var(--dim)}
     cbox.append(bar, legend);
   }
 
+  const SDLC_GROUPS = [
+    ["Instructions", ["agents-md-paths", "agents-md-size", "memory-size", "skills-parity"]],
+    ["Specs", ["openspec-unarchived", "doc-links", "llms-freshness"]],
+    ["Tools", ["mcp-parity", "mcp-tool-tests", "tool-consistency"]],
+    ["Guardrails", ["claims-guard", "local-only", "tracked-secrets", "public-env-secrets", "workflow-permissions"]],
+    ["Verification", ["skipped-tests", "workflow-timeouts", "workflow-pr-speed", "github-script-retries", "ade"]],
+  ];
+  function sdlc() {
+    const box = $("c-sdlc"); box.textContent = "";
+    const byId = new Map((st.d.scores ? st.d.scores.rows : []).map((r) => [r.id, r]));
+    const repos = allRepos().filter((r) => r.sdlc);
+    $("sdlc-n").textContent = repos.length ? " " + repos.filter((r) => r.sdlc.score === 4).length + "/" + repos.length + " repos ready" : "";
+    const g = el("div", "rows");
+    const gh = el("div", "row srow th"); gh.append(el("span", "", "Harness check (flisk-sh/flisk)"), el("span", "", "Status"), el("span", "n opt", "Value"));
+    g.appendChild(gh);
+    for (const [name, ids] of SDLC_GROUPS) {
+      const head = el("div", "row srow"); head.append(el("div", "nm", name), el("span"), el("span", "n opt")); head.firstChild.style.fontWeight = "600"; g.appendChild(head);
+      for (const id of ids) {
+        const r = byId.get(id); if (!r) continue;
+        const row = el("div", "row srow"), nm = el("div", "nm");
+        nm.append(link(`https://github.com/flisk-sh/flisk/blob/main/scripts/scores/${encodeURIComponent(id)}.mjs`, id), el("small", "", r.summary || r.title || ""));
+        const c = el("span"); c.appendChild(el("span", "pill " + (r.status || ""), r.status));
+        row.append(nm, c, el("span", "n opt", `${r.value ?? "–"}${r.unit && r.value != null ? " " + r.unit : ""}`)); g.appendChild(row);
+      }
+    }
+    box.appendChild(g);
+    if (!repos.length) return;
+    const t = el("div", "rows");
+    t.style.marginTop = "28px";
+    const th = el("div", "row th"); th.append(el("span", "", "Repo agent-readiness"), el("span", "", "Files"), el("span", "n opt", "Score"));
+    t.appendChild(th);
+    const mark = (ok, label) => ok ? "✓ " + label : "· " + label;
+    for (const r of repos.slice().sort((a, b) => a.sdlc.score - b.sdlc.score || a.name.localeCompare(b.name))) {
+      const row = el("div", "row"), nm = el("div", "nm");
+      nm.append(link(r.url, r.name), el("small", "", [mark(r.sdlc.agents, "AGENTS.md"), mark(r.sdlc.claude, "CLAUDE.md"), mark(r.sdlc.settings, ".claude"), mark(r.sdlc.ci, "CI")].join("   ")));
+      row.append(nm, el("span", "", ""), el("span", "n", r.sdlc.score + "/4")); t.appendChild(row);
+    }
+    box.appendChild(t);
+  }
+
   function scores() {
     const box = $("c-scores"), sc = st.d.scores;
     if (!sc || !sc.rows.length) { $("scores-n").textContent = ""; return wait(box, "No scoreboard in this snapshot.", "The workflow adds it when Flisk's scorers run."); }
@@ -468,7 +514,7 @@ footer a{color:var(--dim)}
   function render() {
     if (!st.d) return;
     $("focus").hidden = !st.focus; $("focus-name").textContent = st.focus || "";
-    kpis(); trend(); redNow(); perRepo(); flaky(); slow(); outcomes(); scores(); side();
+    kpis(); trend(); redNow(); perRepo(); flaky(); slow(); outcomes(); sdlc(); scores(); side();
   }
 
   function noData(msg) {
