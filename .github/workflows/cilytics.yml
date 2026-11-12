@@ -1,0 +1,84 @@
+# Cilytics: an hourly snapshot of CI across the flisk-sh org plus Flisk's deterministic scoreboard.
+# Writes data.json and history.json to the cilytics-data branch (force-pushed, one commit), which checks/index.html
+# reads from raw.githubusercontent.com. main gets no commits from this workflow.
+name: Cilytics
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/cilytics/**", ".github/workflows/cilytics.yml"]
+  pull_request:
+    paths: ["scripts/cilytics/**", ".github/workflows/cilytics.yml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cilytics
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write # push the cilytics-data branch
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22.23.5
+      - name: Test the collector
+        run: node --test scripts/cilytics/collect.test.mjs
+
+      - name: Check out Flisk for its scoreboard
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: flisk-sh/flisk
+          path: flisk
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+      # The files scorers read the CLI's command tree from cli/dist and parse cli/src with TypeScript.
+      - run: bun install --frozen-lockfile
+        working-directory: flisk/cli
+      - name: Flisk scoreboard (files scorers, the set every PR runs)
+        run: node flisk/scripts/scores/run.mjs --root flisk --json > scores.json
+
+      - name: Previous history
+        run: |
+          if git fetch --depth=1 origin cilytics-data 2>/dev/null; then
+            git show FETCH_HEAD:history.json > history.json || echo '[]' > history.json
+          else
+            echo '[]' > history.json
+          fi
+      - name: Collect org CI
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/cilytics/collect.mjs --out data.json --scores scores.json --history history.json
+
+      - name: Summary
+        run: |
+          node -e '
+            const d = JSON.parse(require("fs").readFileSync("data.json", "utf8"));
+            const t = d.totals;
+            const lines = [`### Cilytics ${d.generatedAt}`, "", `${t.repos} active repos, ${t.red} red workflows in ${t.redRepos} repos, pass rate ${t.passRate}%`, ""];
+            for (const r of d.repos.filter((r) => r.red)) lines.push(`- **${r.name}**: ` + r.workflows.filter((w) => w.red).map((w) => `[${w.name}](${w.url})`).join(", "));
+            console.log(lines.join("\n"));
+          ' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish to cilytics-data
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir out && cp data.json history.json out/
+          cd out
+          git init -q -b cilytics-data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json history.json
+          git commit -q -m "cilytics: $(date -u +%FT%TZ)"
+          git push -q -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" cilytics-data
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

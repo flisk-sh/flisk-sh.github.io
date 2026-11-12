@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cilytics · flisk-sh CI</title>
+<meta name="description" content="Hourly CI health for every active flisk-sh repository: pass rate, red, flaky and slow workflows, plus Flisk's deterministic scoreboard. From the GitHub API only, no model, no account.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* After Stacklytics (flisk.sh/benchmarks): sticky header with the product switcher and chart tabs, charts in ruled
+   sections, a sidebar list to filter by. Dark by default like Stacklytics, light when the system asks for it. */
+:root{--bg:#0b0b0d;--panel:#101013;--line:#222228;--ink:#ececf1;--dim:#8a8a96;--faint:#55555f;--green:#3ddc84;--red:#ff6b6b;--amber:#ffc94d;--blue:#6fa8ff;--hd:rgba(11,11,13,.92);--on-accent:#0b0b0d;
+  --mono:'Geist Mono',ui-monospace,Menlo,monospace;--sans:Geist,system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:dark}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fafaf9;--panel:#f1f1ef;--line:#dcdcd8;--ink:#141417;--dim:#5f5f69;--faint:#9a9aa3;--green:#14894b;--red:#c8322b;--amber:#a46b00;--blue:#2f6fd6;--hd:rgba(250,250,249,.92);--on-accent:#fff;color-scheme:light}}
+:root[data-theme="light"]{--bg:#fafaf9;--panel:#f1f1ef;--line:#dcdcd8;--ink:#141417;--dim:#5f5f69;--faint:#9a9aa3;--green:#14894b;--red:#c8322b;--amber:#a46b00;--blue:#2f6fd6;--hd:rgba(250,250,249,.92);--on-accent:#fff;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 var(--sans);font-feature-settings:'ss01','tnum';-webkit-font-smoothing:antialiased}
+a{color:inherit}
+code{font:12.5px var(--mono)}
+button{font:inherit;color:inherit}
+.hd{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:22px;height:56px;padding:0 22px;border-bottom:1px solid var(--line);background:var(--hd);backdrop-filter:blur(8px)}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;font:700 21px/1 var(--sans);letter-spacing:-.04em;white-space:nowrap}
+.brand .mk{display:inline-grid;place-items:center;width:22px;height:22px;background:var(--green);color:var(--on-accent);font:600 10px/1 var(--mono);letter-spacing:-.05em}
+.sw{display:flex;padding:3px;gap:2px;border:1px solid var(--line);background:var(--panel);font:500 12.5px/1 var(--mono);white-space:nowrap}
+.sw a{display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--dim);padding:7px 12px}
+.sw a:hover{color:var(--ink)}.sw a.on{background:var(--ink);color:var(--bg)}
+.sw a i{width:6px;height:6px;border-radius:50%;background:var(--faint)}.sw a.on i{background:var(--green)}
+.tabs{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;align-self:stretch;border-left:1px solid var(--line);padding-left:20px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{display:flex;align-items:center;text-decoration:none;color:var(--dim);font-size:13.5px;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a:hover{color:var(--ink)}.tabs a.on{color:var(--ink);border-bottom-color:var(--green)}
+.tools{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--dim);white-space:nowrap}
+.tools label{display:flex;align-items:center;gap:7px;cursor:pointer}
+.tools input{accent-color:var(--green)}
+.ib{background:none;border:1px solid var(--line);color:var(--dim);font:12px/1 var(--mono);padding:7px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.ib:hover{color:var(--ink);border-color:var(--faint)}
+.app{display:grid;grid-template-columns:minmax(0,1fr) 300px}
+main{min-width:0;border-right:1px solid var(--line)}
+.intro{padding:22px 26px;border-bottom:1px solid var(--line)}
+.intro h1{margin:0;font:600 22px/1.2 var(--sans);letter-spacing:-.02em}
+.intro h1 span{color:var(--green)}
+.intro p{margin:6px 0 0;color:var(--dim);font-size:13.5px;max-width:720px}
+.stamp{font:12px var(--mono);color:var(--faint);margin-top:8px}
+.focus{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:5px 6px 5px 10px;border:1px solid var(--line);background:var(--panel);font:12.5px var(--mono)}
+.focus b{font-weight:500;color:var(--ink)}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));margin-top:16px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.kp div{padding:12px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:12px;color:var(--dim);min-width:0}
+.kp b{display:block;font:500 22px/1.2 var(--mono);color:var(--ink);margin-bottom:2px}
+.kp .bad b{color:var(--red)}.kp .ok b{color:var(--green)}.kp .warn b{color:var(--amber)}
+.chart{padding:22px 26px 26px;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+.ch{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.ch h2{margin:0;font:600 17px/1.2 var(--sans)}
+.ch h2 small{color:var(--faint);font:400 12px var(--mono);margin-left:6px}
+.ch p{margin:2px 0 0;color:var(--dim);font-size:13px;max-width:640px}
+.seg{display:flex;gap:2px;font-size:12.5px;flex-wrap:wrap}
+.seg button{background:none;border:0;border-bottom:1.5px solid transparent;color:var(--dim);padding:4px 7px;cursor:pointer}
+.seg button:hover{color:var(--ink)}.seg button.on{color:var(--green);border-bottom-color:var(--green)}
+.cap{color:var(--dim);font:11.5px var(--mono);margin:12px 0 4px}
+.plot svg{display:block;width:100%;overflow:visible}
+.grid{stroke:var(--line);stroke-dasharray:2 4}
+.base{stroke:var(--faint)}
+.tick{fill:var(--dim);font:11.5px var(--mono)}
+.lbl{fill:var(--ink);font:500 12.5px var(--sans)}
+.val{fill:var(--ink);font:500 12px var(--mono)}
+.f-green{fill:var(--green)}.f-red{fill:var(--red)}.f-amber{fill:var(--amber)}.f-blue{fill:var(--blue)}.f-faint{fill:var(--faint)}
+.s-green{stroke:var(--green)}.s-red{stroke:var(--red)}.s-amber{stroke:var(--amber)}
+.ghost{fill:none;stroke:var(--faint);stroke-dasharray:4 3}
+.grow{transform-box:fill-box;transform-origin:left;animation:grow .5s cubic-bezier(.2,.7,.2,1) both}
+.rise{transform-box:fill-box;transform-origin:bottom;animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}}@keyframes rise{from{transform:scaleY(0)}}
+.wait{padding:34px 16px;color:var(--dim);text-align:center;border:1px dashed var(--line);margin-top:12px}
+.wait b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px}
+.rows{display:grid;margin-top:12px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(0,1.6fr) 150px 120px 70px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);min-width:0}
+.row.th{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--faint);padding:6px 0}
+.row .nm{min-width:0;overflow:hidden}
+.row .nm a{font-weight:600;text-decoration:none}.row .nm a:hover{text-decoration:underline}
+.row .nm small{display:block;color:var(--dim);font:11.5px var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .n{font:500 12.5px var(--mono);text-align:right}
+.strip{display:flex;gap:2px;height:14px}
+.strip i{flex:1;max-width:6px;min-width:3px;background:var(--faint)}
+.strip i.s{background:var(--green)}.strip i.f{background:var(--red)}.strip i.c{background:var(--line)}
+.tc{position:relative;height:26px;border:1px solid var(--line);background:var(--panel);overflow:hidden}
+.tc i{position:absolute;left:0;top:0;bottom:0;opacity:.35}
+.tc em{position:relative;display:block;font:500 12px/26px var(--mono);font-style:normal;padding:0 8px}
+.tc.none em{color:var(--faint)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex-shrink:0;background:var(--faint)}
+.dot.red{background:var(--red)}.dot.ok{background:var(--green)}.dot.flaky{background:var(--amber)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font:12px var(--mono);color:var(--dim)}
+.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{width:9px;height:9px;display:inline-block}
+.legend b{color:var(--ink);font-weight:500}
+.pill{display:inline-block;font:600 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1px solid var(--line);color:var(--dim)}
+.pill.pass{color:var(--green);border-color:currentColor}.pill.fail,.pill.error{color:var(--red);border-color:currentColor}.pill.report{color:var(--blue)}
+.srow{grid-template-columns:minmax(0,1fr) 64px 170px}
+aside{padding:20px 20px 30px;position:sticky;top:56px;align-self:start;max-height:calc(100vh - 56px);overflow:auto}
+.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.sh h3{margin:0;font:600 16px var(--sans)}.sh h3 small{color:var(--faint);font:400 12px var(--mono);margin-left:6px}
+.find{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:0 10px;height:34px;color:var(--faint);font:12px var(--mono)}
+.find input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--ink);font:13px var(--sans)}
+.sub{display:flex;justify-content:space-between;margin:18px 0 8px;font-size:13px;font-weight:600}
+.sub small{color:var(--faint);font-weight:400;font-size:12px}
+.kinds{display:flex;flex-wrap:wrap;gap:4px 14px;font:13px var(--sans)}
+.kinds button{background:none;border:0;padding:2px 0;color:var(--dim);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.kinds button.on{color:var(--green)}
+.list{display:grid;grid-template-columns:minmax(0,1fr);gap:1px}
+.it{min-width:0;display:flex;align-items:center;gap:10px;width:100%;background:none;border:0;font:13.5px var(--sans);padding:6px 4px;cursor:pointer;text-align:left}
+.it:hover,.it.on{background:var(--panel)}.it.on .nm{color:var(--green)}
+.it .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.it .pr{font:500 11px var(--mono);color:var(--dim);width:42px;text-align:right}
+.it svg{flex-shrink:0}
+.about{margin-top:22px;color:var(--dim);font-size:12.5px;line-height:1.55}
+.about h4{margin:0 0 6px;color:var(--ink);font-size:13px}
+.about p{margin:0 0 8px}
+.cta{display:block;margin-top:12px;padding:10px 12px;background:var(--green);color:var(--on-accent)!important;font:600 13px var(--sans);text-decoration:none;text-align:center}
+footer{padding:16px 26px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+footer a{color:var(--dim)}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.grow,.rise{animation:none}}
+@media (max-width:1100px){.tools label{display:none}}
+@media (max-width:900px){.app{grid-template-columns:1fr}main{border-right:0}aside{position:static;max-height:none;border-top:1px solid var(--line)}.hd{gap:12px;padding:0 16px}.hd .sw{display:none}}
+@media (max-width:600px){.intro,.chart,footer{padding-left:16px;padding-right:16px}aside{padding-left:16px;padding-right:16px}.tools{gap:0}
+  .row{grid-template-columns:minmax(0,1fr) 92px 64px;gap:8px}.row .opt{display:none}.srow{grid-template-columns:minmax(0,1fr) 56px}.srow .opt{display:none}}
+</style>
+</head>
+<body>
+<header class="hd">
+  <a class="brand" href="https://flisk.sh/"><span class="mk">&gt;_</span>flisk</a>
+  <nav class="sw" aria-label="Site"><a href="https://flisk.sh/"><i></i>flisk cli</a><a href="https://flisk.sh/benchmarks/"><i></i>stacklytics</a><a class="on" href="/checks/"><i></i>cilytics</a></nav>
+  <nav class="tabs" id="tabs" aria-label="Charts">
+    <a href="#trend" class="on">Trend</a>
+    <a href="#red">Red now</a>
+    <a href="#repos">Per repo</a>
+    <a href="#flaky">Flaky</a>
+    <a href="#slow">Slow</a>
+    <a href="#outcomes">Outcomes</a>
+    <a href="#scores">Scoreboard</a>
+  </nav>
+  <div class="tools">
+    <label><input type="checkbox" id="redonly"> Red only</label>
+    <a class="ib" id="csv" href="#" download="cilytics.csv">CSV ↓</a>
+  </div>
+</header>
+
+<div class="app">
+  <main>
+    <section class="intro">
+      <h1>Cilytics. <span>CI health across flisk-sh, every hour.</span></h1>
+      <p>Every active public repository in the flisk-sh org, read from the GitHub API once an hour: what is red on the default branch right now, which workflows flip between pass and fail, which are slow, and Flisk's own deterministic scoreboard. No model, no account.</p>
+      <div class="stamp" id="stamp">Loading the latest snapshot…</div>
+      <div class="focus" id="focus" hidden>Showing <b id="focus-name"></b><button class="ib" id="focus-x" title="Show every repo">×</button></div>
+      <div class="kp" id="kp"></div>
+    </section>
+
+    <section class="chart" id="trend">
+      <div class="ch"><div><h2>Trend</h2><p id="trend-sub">One point per hourly snapshot, whole org.</p></div>
+        <div class="seg" id="trend-seg"><button data-v="passRate" class="on" aria-pressed="true">Pass rate</button><button data-v="red" aria-pressed="false">Red workflows</button><button data-v="flaky" aria-pressed="false">Flaky</button></div></div>
+      <div class="plot" id="c-trend"></div>
+    </section>
+    <section class="chart" id="red">
+      <div class="ch"><div><h2>Red now<small id="red-n"></small></h2><p>Workflows whose newest completed run on the default branch failed or timed out. The strip is the last 20 runs, oldest left.</p></div></div>
+      <div id="c-red"></div>
+    </section>
+    <section class="chart" id="repos">
+      <div class="ch"><div><h2>Per repo<small id="repos-n"></small></h2><p>Runs per day for the last 14 days (green passed, red failed), pass rate of the last 100 runs and median run time. Red repos first.</p></div></div>
+      <div id="c-repos"></div>
+    </section>
+    <section class="chart" id="flaky">
+      <div class="ch"><div><h2>Flaky<small id="flaky-n"></small></h2><p>Workflows that went from pass to fail or back at least three times in their last 100 runs, with no change in between that we can see. Most flips on top.</p></div></div>
+      <div id="c-flaky"></div>
+    </section>
+    <section class="chart" id="slow">
+      <div class="ch"><div><h2>Slow</h2><p>The slowest workflows by median run time. The dashed outline is the 90th percentile run.</p></div></div>
+      <div class="plot" id="c-slow"></div>
+    </section>
+    <section class="chart" id="outcomes">
+      <div class="ch"><div><h2>Outcomes</h2><p>Runs per day on default branches, and how every run in the window ended.</p></div></div>
+      <div class="plot" id="c-daily"></div>
+      <div class="plot" id="c-concl"></div>
+    </section>
+    <section class="chart" id="scores">
+      <div class="ch"><div><h2>Scoreboard<small id="scores-n"></small></h2><p>Flisk's deterministic scorers from <code>scripts/scores/run.mjs</code> in flisk-sh/flisk, the same set every PR runs. Gates and ratchets fail CI; reports only inform.</p></div></div>
+      <div id="c-scores"></div>
+    </section>
+    <footer>From the GitHub API and <a href="https://github.com/flisk-sh/flisk/tree/main/scripts/scores">flisk-sh/flisk scripts/scores</a> by the <a href="https://github.com/flisk-sh/flisk-sh.github.io/actions/workflows/cilytics.yml">Cilytics workflow</a> · <a id="raw" href="#">raw JSON</a> · <a href="https://flisk.sh/benchmarks/">stacklytics</a> · <a href="https://flisk.sh/">flisk.sh</a></footer>
+  </main>
+
+  <aside>
+    <div class="sh"><h3>Repos<small id="count"></small></h3><button class="ib" id="reset" title="Show every repo">↺</button></div>
+    <label class="find">⌕<input id="find" type="search" placeholder="Find a repo" aria-label="Find a repo"></label>
+    <div class="sub">Show <small>filter</small></div>
+    <div class="kinds" id="kinds">
+      <button data-k="all" class="on" aria-pressed="true">All</button>
+      <button data-k="red" aria-pressed="false"><span class="dot red"></span>Red</button>
+      <button data-k="flaky" aria-pressed="false"><span class="dot flaky"></span>Flaky</button>
+      <button data-k="noci" aria-pressed="false"><span class="dot"></span>No CI</button>
+    </div>
+    <div class="sub">Repos <small>click to focus</small></div>
+    <div class="list" id="list"></div>
+    <div class="about">
+      <h4>About the numbers</h4>
+      <p>A repo is active when it is public, not archived, not a fork and was pushed in the last 90 days. Each repo's last 100 workflow runs on its default branch are read; pull-request runs are left out.</p>
+      <p>Pass rate counts passed against failed and timed-out runs; cancelled and skipped runs are left out. A workflow is red when its newest completed run failed.</p>
+      <a class="cta" href="https://flisk.sh/docs/quickstart/">Try Flisk →</a>
+    </div>
+  </aside>
+</div>
+
+<script>
+(() => {
+  const BASE = "https://raw.githubusercontent.com/flisk-sh/flisk-sh.github.io/cilytics-data/";
+  const q = new URLSearchParams(location.search);
+  // ?data= and ?history= are for local testing: a same-site path or a flisk-sh raw URL only.
+  const okUrl = (u) => u && /^(https:\/\/raw\.githubusercontent\.com\/flisk-sh\/|\/|\.\.?\/)/.test(u) && !u.startsWith("//");
+  const DATA = okUrl(q.get("data")) ? q.get("data") : BASE + "data.json";
+  const HIST = okUrl(q.get("history")) ? q.get("history") : BASE + "history.json";
+  const NS = "http://www.w3.org/2000/svg";
+  const $ = (id) => document.getElementById(id);
+  const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+  const link = (href, text, c) => { const a = el("a", c, text); a.href = href; return a; };
+  const svg = (w, h) => { const s = document.createElementNS(NS, "svg"); s.setAttribute("role", "img"); s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.setAttribute("width", w); s.setAttribute("height", h); return s; };
+  const add = (p, tag, attrs, text) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; p.appendChild(e); return e; };
+  const tip = (node, text) => { add(node, "title", {}, text); return node; };
+  const nice = (max) => { const raw = max / 4, p = 10 ** Math.floor(Math.log10(raw)), m = raw / p; const step = (m <= 1 ? 1 : m <= 2 ? 2 : m <= 2.5 ? 2.5 : m <= 5 ? 5 : 10) * p; return { step, top: Math.ceil(max / step) * step }; };
+  const mins = (m) => (m == null ? "–" : m < 1 ? Math.round(m * 60) + " s" : m < 60 ? (m < 10 ? m.toFixed(1) : Math.round(m)) + " min" : (m / 60).toFixed(1) + " h");
+  const pct = (v) => (v == null ? "–" : v + "%");
+  const ago = (iso) => { const m = Math.round((Date.now() - Date.parse(iso)) / 60000); return m < 60 ? m + " min ago" : m < 2880 ? Math.round(m / 60) + " h ago" : Math.round(m / 1440) + " d ago"; };
+  const wait = (box, title, text) => { box.textContent = ""; const w = el("div", "wait"); w.append(el("b", "", title), text); box.appendChild(w); };
+  const width = (box) => box.clientWidth || 760;
+  const st = { d: null, h: [], kind: "all", find: "", focus: null, redOnly: false, trend: "passRate" };
+
+  const allRepos = () => st.d.repos;
+  const isFlaky = (r) => r.workflows.some((w) => w.flaky);
+  // Repos the charts show: the focused one, or every repo that passes the header toggle.
+  const scope = () => allRepos().filter((r) => (st.focus ? r.name === st.focus : !st.redOnly || r.red > 0));
+  const flows = () => scope().flatMap((r) => r.workflows.map((w) => ({ r, w })));
+
+  function strip(recent) {
+    const s = el("div", "strip");
+    for (const c of recent || "") s.appendChild(el("i", c === "s" || c === "f" || c === "c" ? c : ""));
+    s.title = (recent || "").length + " runs, oldest left: green passed, red failed, grey cancelled or other";
+    return s;
+  }
+  function spark(days, w, h) {
+    const s = svg(w, h), max = Math.max(1, ...days.map((d) => d.pass + d.fail)), bw = w / days.length;
+    days.forEach((d, i) => {
+      const ph = (d.pass / max) * h, fh = (d.fail / max) * h;
+      if (!d.pass && !d.fail) add(s, "rect", { x: i * bw + 0.5, y: h - 1, width: bw - 1, height: 1, class: "f-faint" });
+      if (d.pass) add(s, "rect", { x: i * bw + 0.5, y: h - ph, width: bw - 1, height: ph, class: "f-green" });
+      if (d.fail) add(s, "rect", { x: i * bw + 0.5, y: h - ph - fh, width: bw - 1, height: fh, class: "f-red" });
+    });
+    s.setAttribute("aria-label", "Runs per day, last " + days.length + " days: " + days.map((d) => d.pass + " passed " + d.fail + " failed").join(", "));
+    return s;
+  }
+  const passCell = (v) => { const c = el("div", "tc" + (v == null ? " none" : "")); if (v != null) { const i = el("i"); i.style.width = v + "%"; i.style.background = v >= 95 ? "var(--green)" : v >= 80 ? "var(--amber)" : "var(--red)"; c.appendChild(i); } c.appendChild(el("em", "", v == null ? "no runs" : v + "%")); return c; };
+
+  function kpis() {
+    const t = st.d.totals, s = st.d.scores ? st.d.scores.rows : [];
+    const failing = s.filter((r) => r.status === "fail" || r.status === "error").length, gated = s.filter((r) => r.mode !== "report").length;
+    const cells = [
+      [t.repos, "active repos", ""],
+      [t.red, `red in ${t.redRepos} repos`, t.red ? "bad" : "ok"],
+      [pct(t.passRate), "pass rate", t.passRate >= 95 ? "ok" : t.passRate < 85 ? "bad" : "warn"],
+      [t.flaky ?? "–", "flaky workflows", t.flaky ? "warn" : "ok"],
+      [t.runs ?? "–", "runs read", ""],
+      [t.ciMinutes == null ? "–" : (t.ciMinutes / 60).toFixed(0) + " h", "CI time in window", ""],
+      [s.length ? failing + "/" + gated : "–", "Flisk gates failing", s.length ? (failing ? "bad" : "ok") : ""],
+    ];
+    const box = $("kp"); box.textContent = "";
+    for (const [v, l, c] of cells) { const d = el("div", c); d.append(el("b", "", String(v)), l); box.appendChild(d); }
+  }
+
+  function trend() {
+    const box = $("c-trend"), key = st.trend;
+    const pts = st.h.filter((p) => p[key] != null).map((p) => ({ t: Date.parse(p.at), v: p[key] }));
+    $("trend-sub").textContent = "One point per hourly snapshot, whole org" + (st.focus ? " (the trend is org-wide, not per repo)" : "") + ".";
+    if (pts.length < 2) return wait(box, "The trend starts after the second hourly snapshot.", pts.length ? `One snapshot so far: ${key === "passRate" ? pct(pts[0].v) : pts[0].v}.` : "No snapshots yet.");
+    box.textContent = "";
+    const W = width(box), H = W < 520 ? 180 : 220, L = 44, R = 14, T = 12, B = 26;
+    const isPct = key === "passRate", lo = isPct ? Math.max(0, Math.floor(Math.min(...pts.map((p) => p.v)) / 10) * 10 - 10) : 0;
+    const { step, top } = isPct ? { step: (100 - lo) / 4, top: 100 } : nice(Math.max(4, ...pts.map((p) => p.v)));
+    const t0 = pts[0].t, t1 = pts.at(-1).t, x = (t) => L + ((t - t0) / (t1 - t0 || 1)) * (W - L - R), y = (v) => H - B - ((v - lo) / (top - lo)) * (H - B - T);
+    box.appendChild(el("div", "cap", isPct ? "% of runs that passed, last 100 runs per repo" : key === "red" ? "workflows red on their default branch" : "workflows that flipped pass/fail 3+ times"));
+    const s = svg(W, H);
+    for (let v = lo; v <= top + 1e-9; v += step) { add(s, "line", { x1: L, x2: W - R, y1: y(v), y2: y(v), class: "grid" }); add(s, "text", { x: L - 8, y: y(v) + 4, "text-anchor": "end", class: "tick" }, isPct ? Math.round(v) + "%" : Math.round(v)); }
+    const fmtT = (t) => new Date(t).toISOString().slice(5, 16).replace("T", " ");
+    [[t0, "start"], [t1, "end"]].forEach(([t, a]) => add(s, "text", { x: x(t), y: H - 6, "text-anchor": a, class: "tick" }, fmtT(t)));
+    const cls = key === "passRate" ? "green" : key === "red" ? "red" : "amber";
+    const line = pts.map((p, i) => (i ? "L" : "M") + x(p.t).toFixed(1) + " " + y(p.v).toFixed(1)).join(" ");
+    add(s, "path", { d: `${line} L${x(t1).toFixed(1)} ${y(lo)} L${x(t0).toFixed(1)} ${y(lo)}Z`, class: "f-" + cls, "fill-opacity": 0.12 });
+    add(s, "path", { d: line, fill: "none", class: "s-" + cls, "stroke-width": 2, "stroke-linejoin": "round" });
+    const last = pts.at(-1);
+    tip(add(s, "circle", { cx: x(last.t), cy: y(last.v), r: 4, class: "f-" + cls }), fmtT(last.t) + " UTC: " + last.v);
+    add(s, "text", { x: Math.min(x(last.t), W - R) - 6, y: y(last.v) - 9, "text-anchor": "end", class: "val" }, isPct ? last.v + "%" : last.v);
+    s.setAttribute("aria-label", `Trend of ${key}: ${pts.length} snapshots, from ${pts[0].v} to ${last.v}`);
+    box.appendChild(s);
+  }
+
+  function redNow() {
+    const box = $("c-red"), list = flows().filter((f) => f.w.red);
+    $("red-n").textContent = list.length;
+    if (!list.length) return wait(box, "Nothing is red.", st.focus ? `Every workflow in ${st.focus} passes on its default branch.` : "Every workflow passes on its default branch.");
+    box.textContent = "";
+    const rows = el("div", "rows");
+    const th = el("div", "row th"); th.append(el("span", "", "Repo · workflow"), el("span", "", "Last 20 runs"), el("span", "opt", "Pass rate"), el("span", "n opt", "Since"));
+    rows.appendChild(th);
+    list.sort((a, b) => Date.parse(b.w.at) - Date.parse(a.w.at));
+    for (const { r, w } of list) {
+      const row = el("div", "row"), nm = el("div", "nm");
+      nm.append(link(w.url, r.name + " · " + w.name), el("small", "", `${w.conclusion} · ${w.sha || ""} · ${mins(w.minutes)}`));
+      const pc = passCell(w.passRate); pc.classList.add("opt");
+      row.append(nm, strip(w.recent), pc, el("span", "n opt", ago(w.at)));
+      rows.appendChild(row);
+    }
+    box.appendChild(rows);
+  }
+
+  function perRepo() {
+    const box = $("c-repos"), list = scope();
+    $("repos-n").textContent = list.length;
+    if (!list.length) return wait(box, "No repo matches.", "Clear the filter to see every repo.");
+    box.textContent = "";
+    const rows = el("div", "rows");
+    const th = el("div", "row th"); th.append(el("span", "", "Repo"), el("span", "", "14 days"), el("span", "", "Pass rate"), el("span", "n opt", "Median"));
+    rows.appendChild(th);
+    for (const r of list) {
+      const row = el("div", "row"), nm = el("div", "nm");
+      const red = r.workflows.filter((w) => w.red).length, fl = r.workflows.filter((w) => w.flaky).length;
+      nm.append(link(r.url + "/actions", r.name), el("small", "", r.workflows.length ? `${r.workflows.length} workflows · ${red ? red + " red" : "all green"}${fl ? " · " + fl + " flaky" : ""} · ${r.openPRs} PRs` : "no workflow runs on " + r.defaultBranch));
+      const sp = el("div"); if (r.days) sp.appendChild(spark(r.days, 150, 26));
+      row.append(nm, sp, passCell(r.passRate), el("span", "n opt", mins(r.medianMinutes)));
+      if (red) row.querySelector("a").prepend(Object.assign(el("span", "dot red"), { style: "margin-right:8px;vertical-align:1px" }));
+      rows.appendChild(row);
+    }
+    box.appendChild(rows);
+  }
+
+  function flaky() {
+    const box = $("c-flaky"), list = flows().filter((f) => f.w.flaky).sort((a, b) => b.w.flips - a.w.flips || a.w.passRate - b.w.passRate);
+    $("flaky-n").textContent = list.length;
+    if (!list.length) return wait(box, "No flaky workflows.", "No workflow flipped between pass and fail three or more times.");
+    box.textContent = "";
+    const rows = el("div", "rows");
+    const th = el("div", "row th"); th.append(el("span", "", "Repo · workflow"), el("span", "", "Last 20 runs"), el("span", "opt", "Pass rate"), el("span", "n opt", "Flips"));
+    rows.appendChild(th);
+    for (const { r, w } of list) {
+      const row = el("div", "row"), nm = el("div", "nm");
+      nm.append(link(w.url, r.name + " · " + w.name), el("small", "", `${w.runs} runs · ${w.flips} flips · now ${w.conclusion}`));
+      const pc = passCell(w.passRate); pc.classList.add("opt");
+      row.append(nm, strip(w.recent), pc, el("span", "n opt", String(w.flips)));
+      rows.appendChild(row);
+    }
+    box.appendChild(rows);
+  }
+
+  function slow() {
+    const box = $("c-slow"), list = flows().filter((f) => f.w.medianMinutes != null && f.w.runs >= 3).sort((a, b) => b.w.medianMinutes - a.w.medianMinutes).slice(0, 12);
+    if (!list.length) return wait(box, "No durations yet.", "A workflow needs three counted runs to be ranked.");
+    box.textContent = "";
+    box.appendChild(el("div", "cap", "median run time · dashed = 90th percentile · slowest on top"));
+    const W = width(box), narrow = W < 520, L = narrow ? 150 : 260, R = narrow ? 56 : 70, T = 22, RH = 25, H = T + list.length * RH + 4;
+    const longest = Math.max(1, ...list.map((f) => Math.max(f.w.medianMinutes, f.w.p90Minutes ?? 0)));
+    // Ticks in whole hours once the axis passes 90 minutes.
+    const { step, top } = longest > 90 ? ((n) => ({ step: n.step * 60, top: n.top * 60 }))(nice(longest / 60)) : nice(longest);
+    const s = svg(W, H), x = (v) => L + (v / top) * (W - L - R);
+    for (let v = 0; v <= top + 1e-9; v += step) { add(s, "line", { x1: x(v), x2: x(v), y1: T - 4, y2: H, class: "grid" }); add(s, "text", { x: x(v), y: 12, "text-anchor": "middle", class: "tick" }, mins(v)); }
+    const cut = (t, n) => (t.length > n ? t.slice(0, n - 1) + "…" : t);
+    list.forEach(({ r, w }, i) => {
+      const y = T + i * RH;
+      tip(add(s, "text", { x: L - 10, y: y + 15, "text-anchor": "end", class: "lbl" }, cut(narrow ? w.name : r.name + " · " + w.name, narrow ? 20 : 38)), r.name + " · " + w.name);
+      if (w.p90Minutes != null) add(s, "rect", { x: L, y: y + 3, width: Math.max(2, x(w.p90Minutes) - L), height: RH - 8, class: "ghost" });
+      tip(add(s, "rect", { x: L, y: y + 3, width: Math.max(2, x(w.medianMinutes) - L), height: RH - 8, class: (w.red ? "f-red" : "f-blue") + " grow", "fill-opacity": 0.85, style: `animation-delay:${i * 15}ms` }), `median ${mins(w.medianMinutes)}, p90 ${mins(w.p90Minutes)}, ${w.runs} runs`);
+      add(s, "text", { x: Math.max(x(w.medianMinutes), w.p90Minutes != null ? x(w.p90Minutes) : 0) + 6, y: y + 15, class: "val" }, mins(w.medianMinutes));
+    });
+    s.setAttribute("aria-label", "Slowest workflows: " + list.map((f, i) => `${i + 1}. ${f.r.name} ${f.w.name} ${mins(f.w.medianMinutes)}`).join(", "));
+    box.appendChild(s);
+  }
+
+  function outcomes() {
+    const list = scope(), dbox = $("c-daily"), cbox = $("c-concl");
+    const byDay = new Map();
+    for (const r of list) for (const d of r.days || []) { const o = byDay.get(d.d) || { d: d.d, pass: 0, fail: 0 }; o.pass += d.pass; o.fail += d.fail; byDay.set(d.d, o); }
+    const days = [...byDay.values()].sort((a, b) => a.d.localeCompare(b.d));
+    if (!days.length) wait(dbox, "No daily counts in this snapshot.", "The next hourly run adds them.");
+    else {
+      dbox.textContent = "";
+      dbox.appendChild(el("div", "cap", "runs per day, last 14 days (UTC) · green passed, red failed or timed out"));
+      const W = width(dbox), H = 170, L = 36, B = 22, T = 16, R = 4;
+      const { step, top } = nice(Math.max(4, ...days.map((d) => d.pass + d.fail)));
+      const s = svg(W, H), bw = (W - L - R) / days.length, y = (v) => H - B - (v / top) * (H - B - T);
+      for (let v = 0; v <= top + 1e-9; v += step) { add(s, "line", { x1: L, x2: W - R, y1: y(v), y2: y(v), class: v ? "grid" : "base" }); add(s, "text", { x: L - 6, y: y(v) + 4, "text-anchor": "end", class: "tick" }, Math.round(v)); }
+      days.forEach((d, i) => {
+        const x0 = L + i * bw + bw * 0.15, w = bw * 0.7, g = add(s, "g", { class: "rise", style: `animation-delay:${i * 20}ms` });
+        if (d.pass) add(g, "rect", { x: x0, y: y(d.pass), width: w, height: y(0) - y(d.pass), class: "f-green", "fill-opacity": 0.85 });
+        if (d.fail) add(g, "rect", { x: x0, y: y(d.pass + d.fail), width: w, height: y(d.pass) - y(d.pass + d.fail), class: "f-red", "fill-opacity": 0.9 });
+        tip(g, `${d.d}: ${d.pass} passed, ${d.fail} failed`);
+        if (W >= 520 || i % 2 === days.length % 2 - 1 || i === days.length - 1) add(s, "text", { x: x0 + w / 2, y: H - 6, "text-anchor": "middle", class: "tick" }, d.d.slice(8));
+      });
+      s.setAttribute("aria-label", "Runs per day: " + days.map((d) => `${d.d} ${d.pass} passed ${d.fail} failed`).join(", "));
+      dbox.appendChild(s);
+    }
+    const tot = {};
+    for (const r of list) for (const [k, v] of Object.entries(r.conclusions || {})) tot[k] = (tot[k] || 0) + v;
+    const sum = Object.values(tot).reduce((a, b) => a + b, 0);
+    cbox.textContent = "";
+    if (!sum) return;
+    const COL = { success: "var(--green)", failure: "var(--red)", timed_out: "var(--amber)", startup_failure: "var(--amber)", cancelled: "var(--faint)", skipped: "var(--line)" };
+    cbox.appendChild(el("div", "cap", `how ${sum} completed runs ended`));
+    const bar = el("div"); bar.style.cssText = "display:flex;height:22px;border:1px solid var(--line);margin-top:6px";
+    const legend = el("div", "legend");
+    for (const [k, v] of Object.entries(tot).sort((a, b) => b[1] - a[1])) {
+      const seg = el("i"); seg.style.cssText = `flex:${v};background:${COL[k] || "var(--blue)"}`; seg.title = `${k}: ${v}`; bar.appendChild(seg);
+      const sp = el("span"), sw = el("i"); sw.style.background = COL[k] || "var(--blue)";
+      sp.append(sw, k.replace(/_/g, " ") + " ", el("b", "", String(v)), ` ${((v / sum) * 100).toFixed(1)}%`); legend.appendChild(sp);
+    }
+    cbox.append(bar, legend);
+  }
+
+  function scores() {
+    const box = $("c-scores"), sc = st.d.scores;
+    if (!sc || !sc.rows.length) { $("scores-n").textContent = ""; return wait(box, "No scoreboard in this snapshot.", "The workflow adds it when Flisk's scorers run."); }
+    const order = { error: 0, fail: 1, pass: 2, report: 3, skip: 4 };
+    const rows = sc.rows.slice().sort((a, b) => (order[a.status] ?? 5) - (order[b.status] ?? 5) || a.id.localeCompare(b.id));
+    $("scores-n").textContent = rows.length;
+    box.textContent = "";
+    const wrap = el("div", "rows");
+    const th = el("div", "row srow th"); th.append(el("span", "", "Scorer"), el("span", "", "Status"), el("span", "n opt", "Value / ref"));
+    wrap.appendChild(th);
+    for (const r of rows) {
+      const row = el("div", "row srow"), nm = el("div", "nm");
+      nm.append(link(`https://github.com/flisk-sh/flisk/blob/main/scripts/scores/${encodeURIComponent(r.id)}.mjs`, r.id), el("small", "", r.summary || r.title || ""));
+      const ref = r.mode === "gate" ? "target " + r.target : r.mode === "ratchet" ? (r.baseline == null ? "no baseline" : "base " + r.baseline) : r.mode;
+      const pill = el("span", "pill " + (r.status || ""), r.status);
+      row.append(nm, el("span", "", ""), el("span", "n opt", `${r.value ?? "–"}${r.unit && r.value != null ? " " + r.unit : ""} · ${ref}`));
+      row.children[1].appendChild(pill);
+      wrap.appendChild(row);
+    }
+    box.appendChild(wrap);
+  }
+
+  function side() {
+    const all = allRepos();
+    const list = all.filter((r) => (st.kind === "all" || (st.kind === "red" ? r.red > 0 : st.kind === "flaky" ? isFlaky(r) : !r.workflows.length)) && (!st.find || r.name.toLowerCase().includes(st.find)));
+    $("count").textContent = list.length + "/" + all.length;
+    const box = $("list"); box.textContent = "";
+    if (!list.length) box.appendChild(el("p", "about", "No repo matches."));
+    for (const r of list) {
+      const b = el("button", "it" + (st.focus === r.name ? " on" : ""));
+      b.type = "button"; b.setAttribute("aria-pressed", String(st.focus === r.name));
+      b.append(el("span", "dot " + (r.red ? "red" : isFlaky(r) ? "flaky" : r.workflows.length ? "ok" : "")), el("span", "nm", r.name));
+      if (r.days) b.appendChild(spark(r.days, 42, 14));
+      b.appendChild(el("span", "pr", pct(r.passRate)));
+      b.addEventListener("click", () => { st.focus = st.focus === r.name ? null : r.name; render(); if (st.focus) $("red").scrollIntoView({ behavior: "smooth" }); });
+      box.appendChild(b);
+    }
+  }
+
+  function csv() {
+    const esc = (v) => { const s = v == null ? "" : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+    const lines = [["repo", "workflow", "conclusion", "red", "flaky", "flips", "runs", "pass_rate", "median_minutes", "p90_minutes", "last_run", "url"].join(",")];
+    for (const r of allRepos()) for (const w of r.workflows) lines.push([r.name, w.name, w.conclusion, w.red, w.flaky, w.flips, w.runs, w.passRate, w.medianMinutes, w.p90Minutes, w.at, w.url].map(esc).join(","));
+    $("csv").href = "data:text/csv;charset=utf-8," + encodeURIComponent(lines.join("\n") + "\n");
+  }
+
+  function render() {
+    if (!st.d) return;
+    $("focus").hidden = !st.focus; $("focus-name").textContent = st.focus || "";
+    kpis(); trend(); redNow(); perRepo(); flaky(); slow(); outcomes(); scores(); side();
+  }
+
+  function noData(msg) {
+    $("stamp").textContent = msg;
+    $("kp").textContent = "";
+    for (const id of ["c-trend", "c-red", "c-repos", "c-flaky", "c-slow", "c-daily", "c-scores"]) wait($(id), "No snapshot yet.", "The hourly Cilytics workflow publishes the first one shortly after it is merged.");
+    $("list").textContent = ""; $("list").appendChild(el("p", "about", "Repos appear after the first snapshot."));
+    $("count").textContent = "";
+  }
+
+  // Wiring.
+  const pick = (box, attr, fn) => box.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => { box.querySelectorAll("button").forEach((x) => { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", String(x === b)); }); fn(b.dataset[attr]); }));
+  pick($("trend-seg"), "v", (v) => { st.trend = v; if (st.d) trend(); });
+  pick($("kinds"), "k", (k) => { st.kind = k; if (st.d) side(); });
+  $("find").addEventListener("input", (e) => { st.find = e.target.value.trim().toLowerCase(); if (st.d) side(); });
+  $("redonly").addEventListener("change", (e) => { st.redOnly = e.target.checked; render(); });
+  $("focus-x").addEventListener("click", () => { st.focus = null; render(); });
+  $("reset").addEventListener("click", () => { st.focus = null; st.find = ""; $("find").value = ""; $("kinds").querySelector("[data-k=all]").click(); render(); });
+  $("raw").href = DATA;
+  const tabs = [...$("tabs").querySelectorAll("a")];
+  // The tab of the last section whose top has passed the header is the current one.
+  const spy = () => { let cur = tabs[0]; for (const a of tabs) { const s = document.querySelector(a.hash); if (s && s.getBoundingClientRect().top < 140) cur = a; } tabs.forEach((a) => a.classList.toggle("on", a === cur)); };
+  addEventListener("scroll", spy, { passive: true });
+  let rw = 0, rt;
+  addEventListener("resize", () => { if (innerWidth === rw) return; rw = innerWidth; clearTimeout(rt); rt = setTimeout(render, 150); });
+  rw = innerWidth;
+
+  fetch(DATA, { cache: "no-store" })
+    .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then((d) => {
+      st.d = d;
+      $("stamp").textContent = `Snapshot ${d.generatedAt.slice(0, 16).replace("T", " ")} UTC (${ago(d.generatedAt)}) · ${d.skipped} archived, forked or quiet repos left out`;
+      csv();
+      render();
+      // The sections only get their height now, so jump to a #section link again.
+      if (location.hash && document.querySelector(location.hash)) document.querySelector(location.hash).scrollIntoView();
+      spy();
+      return fetch(HIST, { cache: "no-store" }).then((r) => (r.ok ? r.json() : [])).catch(() => []).then((h) => { st.h = Array.isArray(h) ? h : []; trend(); });
+    })
+    .catch((e) => noData(`No snapshot yet (${e.message}). The hourly workflow publishes the first one shortly after it is merged.`));
+})();
+</script>
+</body>
+</html>
