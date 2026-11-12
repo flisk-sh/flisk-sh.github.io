@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { dailyCounts, median, percentile, summarizeRuns, totals, workflowStats } from "./collect.mjs";
+import { dailyCounts, median, percentile, sdlcFlags, summarizeRuns, totals, workflowStats } from "./collect.mjs";
 
 const NOW = Date.parse("2026-11-12T12:00:00Z");
 const run = (workflow_id, name, conclusion, status = "completed", day = "2026-11-12") => ({
@@ -56,7 +56,7 @@ test("totals weights pass rate by runs", () => {
 		{ workflows: [{}, {}], red: 0, runs: 30, passRate: 100, openPRs: 0, ciMinutes: 3 },
 		{ workflows: [], red: 0, runs: 0, passRate: null, openPRs: 1 },
 	]);
-	assert.deepEqual(t, { repos: 3, workflows: 3, red: 1, redRepos: 1, passRate: 87.5, openPRs: 3, runs: 40, ciMinutes: 10, flaky: 1 });
+	assert.deepEqual(t, { repos: 3, workflows: 3, red: 1, redRepos: 1, passRate: 87.5, openPRs: 3, runs: 40, ciMinutes: 10, flaky: 1, sdlcReady: 0 });
 });
 
 test("median handles even, odd and empty", () => {
@@ -90,4 +90,9 @@ test("percentile picks the nearest-rank value", () => {
 	assert.equal(percentile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 90), 9);
 	assert.equal(percentile([4], 90), 4);
 	assert.equal(percentile([], 90), null);
+});
+
+test("sdlcFlags reads the harness files from the root folder and CI from the workflow count", () => {
+	assert.deepEqual(sdlcFlags(["README.md", "AGENTS.md", ".claude"], 2), { agents: true, claude: false, settings: true, ci: true, score: 3 });
+	assert.equal(sdlcFlags([], 0).score, 0);
 });
