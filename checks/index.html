@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cilytics · flisk-sh</title>
+<meta name="description" content="Hourly CI health for every active flisk-sh repository, plus Flisk's deterministic scoreboard. No model, no account.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Layout: ruled ledger. Status line, four counters, trend, red-now list, repo table, scoreboard. */
+:root{
+  --bg:#f5f6f4; --panel:#fff; --fg:#121513; --muted:#5b645e; --rule:#d3d8d4; --accent:#1f7a4d; --bad:#b3261e; --warn:#8a6500; --ok-soft:#e2f1e8; --bad-soft:#f8e3e1;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{--bg:#0b0d10; --panel:#11151a; --fg:#f4f1e8; --muted:#9aa39d; --rule:#262c33; --accent:#5ccf92; --bad:#ff8a7a; --warn:#e3b649; --ok-soft:#14291f; --bad-soft:#331a17; color-scheme:dark}}
+*{box-sizing:border-box}
+html{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 var(--sans)}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:26px}
+header{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--fg);padding-bottom:14px}
+h1{margin:0;font:800 clamp(28px,5vw,44px)/1 var(--sans);letter-spacing:-.02em}
+h1 span{color:var(--muted);font-weight:500}
+.meta{font:12px var(--mono);color:var(--muted)}
+h2{margin:0 0 10px;font:700 13px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.tile{background:var(--panel);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 16px;display:grid;gap:4px;min-width:0}
+.tile b{font:700 32px/1 var(--mono);font-variant-numeric:tabular-nums}
+.tile span{font-size:13px;color:var(--muted)}
+.tile.bad b{color:var(--bad)} .tile.ok b{color:var(--accent)}
+.panel{background:var(--panel);border:1px solid var(--rule)}
+.trend{padding:12px 14px}
+.trend svg{display:block;width:100%;height:90px}
+.trend p{margin:6px 0 0;font:12px var(--mono);color:var(--muted)}
+.red{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.red div{background:var(--panel);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 14px;min-width:0;border-left:3px solid var(--bad)}
+.red a{color:var(--fg)}
+.red small{display:block;color:var(--muted);font:12px var(--mono)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.bar button{font:600 12px var(--mono);border:1px solid var(--rule);background:var(--panel);color:var(--fg);padding:6px 10px;cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bar input{font:14px var(--sans);padding:6px 10px;border:1px solid var(--rule);background:var(--panel);color:var(--fg);flex:1 1 180px;min-width:0}
+.scroll{overflow-x:auto;background:var(--panel);border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+th{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n{text-align:right;font-family:var(--mono)}
+td a{color:var(--fg);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font:11px var(--mono);padding:1px 6px;border:1px solid var(--rule);text-decoration:none;color:var(--muted);white-space:nowrap}
+.chip.red{border-color:var(--bad);color:var(--bad);background:var(--bad-soft)}
+.chip.ok{color:var(--accent);background:var(--ok-soft);border-color:transparent}
+.pill{font:600 11px var(--mono);padding:1px 6px;text-transform:uppercase}
+.pill.pass{color:var(--accent);background:var(--ok-soft)} .pill.fail,.pill.error{color:var(--bad);background:var(--bad-soft)} .pill.report,.pill.skip{color:var(--muted);border:1px solid var(--rule)}
+.empty{padding:16px;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px;max-width:85ch}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Cilytics <span>flisk-sh</span></h1>
+  <span class="meta" id="stamp">Loading the latest snapshot…</span>
+</header>
+
+<section>
+  <div class="tiles" id="tiles">
+    <div class="tile"><b>–</b><span>Active repos</span></div>
+    <div class="tile"><b>–</b><span>Red workflows</span></div>
+    <div class="tile"><b>–</b><span>Pass rate, last 100 runs</span></div>
+    <div class="tile"><b>–</b><span>Flisk scores failing</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Red workflows over time</h2>
+  <div class="panel trend" id="trend"><p>The trend appears after two hourly snapshots.</p></div>
+</section>
+
+<section>
+  <h2>Red now</h2>
+  <div id="rednow" class="red"></div>
+</section>
+
+<section>
+  <h2>Repositories</h2>
+  <div class="bar" role="toolbar" aria-label="Filter repositories">
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    <button type="button" data-f="red" aria-pressed="false">Red</button>
+    <button type="button" data-f="noci" aria-pressed="false">No CI runs</button>
+    <input id="q" type="search" placeholder="Filter by name" aria-label="Filter by name">
+  </div>
+  <div class="scroll"><table>
+    <thead><tr><th>Repository</th><th>Workflows (newest run on the default branch)</th><th class="n">Pass %</th><th class="n">Median min</th><th class="n">Open PRs</th></tr></thead>
+    <tbody id="repos"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Flisk scoreboard</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Scorer</th><th>Status</th><th class="n">Value</th><th class="n">Baseline / target</th><th>Mode</th></tr></thead>
+    <tbody id="scores"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
+  </table></div>
+</section>
+
+<footer>
+  Every number comes from the GitHub API or from <code>scripts/scores/run.mjs</code> in flisk-sh/flisk; nothing is estimated and no model is involved. A repo counts as active when it is public, not archived, not a fork, and was pushed in the last 90 days. A workflow is red when its newest completed run on the default branch failed or timed out. The pass rate counts successes against failures over each repo's last 100 default-branch runs; cancelled and skipped runs are left out. The snapshot refreshes hourly from <a href="https://github.com/flisk-sh/flisk-sh.github.io/blob/main/scripts/cilytics/collect.mjs">collect.mjs</a>.
+</footer>
+</div>
+<script>
+(function(){
+  var BASE = "https://raw.githubusercontent.com/flisk-sh/flisk-sh.github.io/cilytics-data/";
+  var params = new URLSearchParams(location.search);
+  var dataUrl = params.get("data") || BASE + "data.json";
+  var histUrl = params.get("history") || BASE + "history.json";
+  var D = null, filter = "all";
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+  function ago(iso){ var m = Math.round((Date.now() - Date.parse(iso)) / 60000); return m < 60 ? m + " min ago" : m < 2880 ? Math.round(m/60) + " h ago" : Math.round(m/1440) + " d ago"; }
+  function tiles(){
+    var t = D.totals, s = D.scores ? D.scores.rows : [];
+    var failing = s.filter(function(r){ return r.status === "fail" || r.status === "error"; }).length;
+    var gated = s.filter(function(r){ return r.mode !== "report"; }).length;
+    var cells = [
+      [t.repos, "Active repos (" + D.skipped + " archived, forks or quiet left out)", ""],
+      [t.red, "Red workflows in " + t.redRepos + " repos", t.red ? "bad" : "ok"],
+      [t.passRate == null ? "–" : t.passRate + "%", "Pass rate, last 100 runs per repo", t.passRate >= 95 ? "ok" : t.passRate < 85 ? "bad" : ""],
+      [failing + "/" + gated, "Flisk gates and ratchets failing", failing ? "bad" : "ok"]
+    ];
+    document.getElementById("tiles").innerHTML = cells.map(function(c){ return '<div class="tile ' + c[2] + '"><b>' + esc(c[0]) + '</b><span>' + esc(c[1]) + '</span></div>'; }).join("");
+  }
+  function rednow(){
+    var el = document.getElementById("rednow"), out = [];
+    D.repos.forEach(function(r){ r.workflows.forEach(function(w){ if (w.red) out.push('<div><a href="' + esc(w.url) + '">' + esc(r.name) + ' · ' + esc(w.name) + '</a><small>' + esc(w.conclusion) + ' · ' + esc(w.sha || "") + ' · ' + ago(w.at) + '</small></div>'); }); });
+    el.innerHTML = out.length ? out.join("") : '<div style="border-left-color:var(--accent)">Every workflow is green on its default branch.</div>';
+  }
+  function repos(){
+    var q = document.getElementById("q").value.trim().toLowerCase();
+    var rows = D.repos.filter(function(r){
+      if (q && r.name.toLowerCase().indexOf(q) === -1) return false;
+      if (filter === "red") return r.red > 0;
+      if (filter === "noci") return r.workflows.length === 0;
+      return true;
+    });
+    document.getElementById("repos").innerHTML = rows.length ? rows.map(function(r){
+      var chips = r.workflows.length ? r.workflows.map(function(w){ return '<a class="chip ' + (w.red ? "red" : w.conclusion === "success" ? "ok" : "") + '" href="' + esc(w.url) + '" title="' + esc(w.conclusion + ", " + ago(w.at)) + '">' + esc(w.name) + '</a>'; }).join("") : '<span class="chip">no default-branch runs</span>';
+      return '<tr><td><a href="' + esc(r.url) + '/actions">' + esc(r.name) + '</a></td><td><div class="chips">' + chips + '</div></td><td class="n">' + (r.passRate == null ? "–" : r.passRate) + '</td><td class="n">' + (r.medianMinutes == null ? "–" : r.medianMinutes) + '</td><td class="n">' + r.openPRs + '</td></tr>';
+    }).join("") : '<tr><td colspan="5" class="empty">No repository matches.</td></tr>';
+  }
+  function scores(){
+    var el = document.getElementById("scores");
+    if (!D.scores) { el.innerHTML = '<tr><td colspan="5" class="empty">No scoreboard in this snapshot.</td></tr>'; return; }
+    var order = {error:0, fail:1, pass:2, report:3, skip:4};
+    var rows = D.scores.rows.slice().sort(function(a,b){ return (order[a.status] - order[b.status]) || a.id.localeCompare(b.id); });
+    el.innerHTML = rows.map(function(r){
+      var ref = r.mode === "gate" ? "target " + r.target : r.mode === "ratchet" ? (r.baseline == null ? "no baseline" : "baseline " + r.baseline) : "";
+      return '<tr><td><a href="https://github.com/flisk-sh/flisk/blob/main/scripts/scores/' + esc(r.id) + '.mjs">' + esc(r.id) + '</a><br><small style="color:var(--muted)">' + esc(r.summary || r.title) + '</small></td><td><span class="pill ' + esc(r.status) + '">' + esc(r.status) + '</span></td><td class="n">' + esc(r.value == null ? "–" : r.value) + ' ' + esc(r.unit || "") + '</td><td class="n">' + esc(ref) + '</td><td>' + esc(r.mode) + '</td></tr>';
+    }).join("");
+  }
+  function trend(h){
+    var el = document.getElementById("trend");
+    if (!h || h.length < 2) return;
+    var pts = h.slice(-24*14), W = 1000, H = 90, P = 6;
+    var max = Math.max(1, Math.max.apply(null, pts.map(function(p){ return p.red; })));
+    var x = function(i){ return P + i * (W - 2*P) / (pts.length - 1); }, y = function(v){ return H - P - v * (H - 2*P) / max; };
+    var line = pts.map(function(p,i){ return (i ? "L" : "M") + x(i).toFixed(1) + " " + y(p.red).toFixed(1); }).join(" ");
+    var last = pts[pts.length-1];
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" role="img" aria-label="Red workflows per hourly snapshot">' +
+      '<line x1="0" x2="' + W + '" y1="' + y(0) + '" y2="' + y(0) + '" stroke="var(--rule)"/>' +
+      '<path d="' + line + ' L' + x(pts.length-1).toFixed(1) + ' ' + y(0) + ' L' + x(0).toFixed(1) + ' ' + y(0) + 'Z" fill="var(--bad-soft)"/>' +
+      '<path d="' + line + '" fill="none" stroke="var(--bad)" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>' +
+      '<p>' + pts.length + ' snapshots since ' + esc(pts[0].at.slice(0,16).replace("T"," ")) + ' UTC · peak ' + max + ' · now ' + last.red + ' red · pass rate ' + last.passRate + '%</p>';
+  }
+  document.querySelectorAll(".bar button").forEach(function(b){ b.addEventListener("click", function(){ filter = b.dataset.f; document.querySelectorAll(".bar button").forEach(function(x){ x.setAttribute("aria-pressed", String(x === b)); }); repos(); }); });
+  document.getElementById("q").addEventListener("input", function(){ if (D) repos(); });
+  fetch(dataUrl, {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(function(d){
+    D = d;
+    document.getElementById("stamp").textContent = "Snapshot " + d.generatedAt.slice(0,16).replace("T"," ") + " UTC (" + ago(d.generatedAt) + ")";
+    tiles(); rednow(); repos(); scores();
+    return fetch(histUrl, {cache:"no-store"}).then(function(r){ return r.ok ? r.json() : []; }).then(trend).catch(function(){});
+  }).catch(function(e){
+    document.getElementById("stamp").textContent = "Could not load the snapshot (" + e.message + "). The first hourly run may not have finished yet.";
+    document.getElementById("repos").innerHTML = '<tr><td colspan="5" class="empty">No data yet.</td></tr>';
+    document.getElementById("scores").innerHTML = '<tr><td colspan="5" class="empty">No data yet.</td></tr>';
+  });
+})();
+</script>
+</body>
+</html>
