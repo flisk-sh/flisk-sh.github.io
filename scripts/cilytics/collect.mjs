@@ -51,19 +51,69 @@ export function median(values) {
 	return v.length % 2 ? v[m] : Math.round(((v[m - 1] + v[m]) / 2) * 100) / 100;
 }
 
+const DAYS = 14; // per-repo daily pass/fail bars
+const RECENT = 20; // per-workflow outcome strip
+
+// One letter per run for the outcome strip: s success, f red, c cancelled, - anything else.
+const letter = (c) => (c === "success" ? "s" : RED.has(c) ? "f" : c === "cancelled" ? "c" : "-");
+
+export function percentile(values, p) {
+	const v = values.filter((x) => x !== null).sort((a, b) => a - b);
+	if (!v.length) return null;
+	return v[Math.min(v.length - 1, Math.ceil((p / 100) * v.length) - 1)];
+}
+
+// Pure: one workflow's completed runs (newest first) -> pass rate, durations, outcome strip and flakiness.
+// A flip is a pass followed by a red run or the other way round, in run order; cancelled and skipped runs are ignored.
+// A workflow is flaky when it flipped at least three times in its window.
+export function workflowStats(runs) {
+	const counted = runs.filter((r) => COUNTED.has(r.conclusion));
+	const pass = counted.filter((r) => r.conclusion === "success").length;
+	const order = counted.map((r) => r.conclusion === "success").reverse();
+	let flips = 0;
+	for (let i = 1; i < order.length; i++) if (order[i] !== order[i - 1]) flips++;
+	const mins = runs.map(minutes);
+	return {
+		runs: counted.length,
+		passRate: counted.length ? Math.round((pass / counted.length) * 1000) / 10 : null,
+		medianMinutes: median(mins),
+		p90Minutes: percentile(mins, 90),
+		flips,
+		flaky: flips >= 3,
+		recent: runs
+			.slice(0, RECENT)
+			.reverse()
+			.map((r) => letter(r.conclusion))
+			.join(""),
+	};
+}
+
+// Pure: completed runs -> the last DAYS UTC days, oldest first, with pass and red counts per day.
+export function dailyCounts(runs, now) {
+	const day = (t) => new Date(t).toISOString().slice(0, 10);
+	const days = Array.from({ length: DAYS }, (_, i) => ({ d: day(now - (DAYS - 1 - i) * 86400e3), pass: 0, fail: 0 }));
+	const at = new Map(days.map((x) => [x.d, x]));
+	for (const r of runs) {
+		const slot = at.get(day(Date.parse(r.run_started_at || r.created_at)));
+		if (!slot) continue;
+		if (r.conclusion === "success") slot.pass++;
+		else if (RED.has(r.conclusion)) slot.fail++;
+	}
+	return days;
+}
+
 // Pure: runs (newest first, as the API returns them) -> per-workflow latest state and repo totals.
-export function summarizeRuns(runs) {
-	const latest = new Map();
-	let pass = 0;
-	let counted = 0;
-	for (const run of runs) {
-		if (run.status === "completed" && COUNTED.has(run.conclusion)) {
-			counted++;
-			if (run.conclusion === "success") pass++;
-		}
-		if (run.status !== "completed") continue;
-		if (!latest.has(run.workflow_id))
-			latest.set(run.workflow_id, {
+export function summarizeRuns(runs, now = Date.now()) {
+	const done = runs.filter((r) => r.status === "completed");
+	const byWorkflow = new Map();
+	for (const run of done) {
+		if (!byWorkflow.has(run.workflow_id)) byWorkflow.set(run.workflow_id, []);
+		byWorkflow.get(run.workflow_id).push(run);
+	}
+	const workflows = [...byWorkflow.values()]
+		.map((list) => {
+			const run = list[0];
+			return {
 				name: run.name,
 				conclusion: run.conclusion,
 				red: RED.has(run.conclusion),
@@ -71,15 +121,23 @@ export function summarizeRuns(runs) {
 				at: run.updated_at,
 				minutes: minutes(run),
 				sha: run.head_sha?.slice(0, 7),
-			});
-	}
-	const workflows = [...latest.values()].sort((a, b) => Number(b.red) - Number(a.red) || a.name.localeCompare(b.name));
+				...workflowStats(list),
+			};
+		})
+		.sort((a, b) => Number(b.red) - Number(a.red) || a.name.localeCompare(b.name));
+	const counted = done.filter((r) => COUNTED.has(r.conclusion));
+	const pass = counted.filter((r) => r.conclusion === "success").length;
+	const conclusions = {};
+	for (const r of done) conclusions[r.conclusion] = (conclusions[r.conclusion] || 0) + 1;
 	return {
 		workflows,
 		red: workflows.filter((w) => w.red).length,
-		runs: counted,
-		passRate: counted ? Math.round((pass / counted) * 1000) / 10 : null,
-		medianMinutes: median(runs.filter((r) => r.status === "completed").map(minutes)),
+		runs: counted.length,
+		passRate: counted.length ? Math.round((pass / counted.length) * 1000) / 10 : null,
+		medianMinutes: median(done.map(minutes)),
+		ciMinutes: Math.round(done.reduce((n, r) => n + (minutes(r) ?? 0), 0)),
+		conclusions,
+		days: dailyCounts(done, now),
 	};
 }
 
@@ -93,6 +151,9 @@ export function totals(repos) {
 		redRepos: repos.filter((r) => r.red > 0).length,
 		passRate: runs ? Math.round((passed / runs) * 1000) / 10 : null,
 		openPRs: repos.reduce((n, r) => n + r.openPRs, 0),
+		runs,
+		ciMinutes: repos.reduce((n, r) => n + (r.ciMinutes ?? 0), 0),
+		flaky: repos.reduce((n, r) => n + r.workflows.filter((w) => w.flaky).length, 0),
 	};
 }
 
@@ -113,7 +174,7 @@ async function collect(now) {
 			pushedAt: r.pushed_at,
 			stars: r.stargazers_count,
 			openPRs: prs.length,
-			...summarizeRuns(runs),
+			...summarizeRuns(runs, now),
 		});
 	}
 	repos.sort((a, b) => b.red - a.red || (a.passRate ?? 101) - (b.passRate ?? 101) || a.name.localeCompare(b.name));
@@ -150,6 +211,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 			redRepos: t.redRepos,
 			passRate: t.passRate,
 			openPRs: t.openPRs,
+			runs: t.runs,
+			flaky: t.flaky,
 			scoresFailing: data.scores ? data.scores.rows.filter((r) => ["fail", "error"].includes(r.status)).length : null,
 		});
 		writeFileSync(values.history, `${JSON.stringify(history.slice(-HISTORY_MAX))}\n`);
