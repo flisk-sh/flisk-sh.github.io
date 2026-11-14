@@ -32,7 +32,7 @@ jobs:
         with:
           node-version: 22.23.5
       - name: Test the collector
-        run: node --test scripts/cilytics/collect.test.mjs
+        run: node --test scripts/cilytics/collect.test.mjs scripts/analytics.test.mjs
 
       - name: Check out Flisk for its scoreboard
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
