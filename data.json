@@ -1,0 +1,8982 @@
+{
+ "org": "flisk-sh",
+ "generatedAt": "2026-11-14T15:03:51.385Z",
+ "activeDays": 90,
+ "skipped": 5,
+ "totals": {
+  "repos": 68,
+  "workflows": 115,
+  "red": 7,
+  "redRepos": 7,
+  "passRate": 86.7,
+  "openPRs": 14,
+  "runs": 1746,
+  "ciMinutes": 6224,
+  "flaky": 19,
+  "sdlcReady": 1
+ },
+ "repos": [
+  {
+   "name": "readme-diagram",
+   "url": "https://github.com/flisk-sh/readme-diagram",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:23:38Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "deploy",
+     "conclusion": "failure",
+     "red": true,
+     "url": "https://github.com/flisk-sh/readme-diagram/actions/runs/43533888139",
+     "at": "2026-11-14T00:24:13Z",
+     "minutes": 0.53,
+     "sha": "cdb421c",
+     "runs": 23,
+     "passRate": 0,
+     "medianMinutes": 0.65,
+     "p90Minutes": 1.32,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ffffffffffffffffffff"
+    }
+   ],
+   "red": 1,
+   "runs": 23,
+   "passRate": 0,
+   "medianMinutes": 0.65,
+   "ciMinutes": 17,
+   "conclusions": {
+    "failure": 23
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 17
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 3
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 1
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-cli-starter",
+   "url": "https://github.com/flisk-sh/flisk-cli-starter",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:34:49Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Build app with TDK on CI",
+     "conclusion": "failure",
+     "red": true,
+     "url": "https://github.com/flisk-sh/flisk-cli-starter/actions/runs/39677839926",
+     "at": "2026-10-21T21:20:45Z",
+     "minutes": 1.28,
+     "sha": "a0a16d9",
+     "runs": 54,
+     "passRate": 0,
+     "medianMinutes": 5.32,
+     "p90Minutes": 5.43,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ffffffffffffffffffff"
+    },
+    {
+     "name": "Build app with Flisk on CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-cli-starter/actions/runs/43338179800",
+     "at": "2026-11-13T00:36:23Z",
+     "minutes": 1.52,
+     "sha": "64f652e",
+     "runs": 5,
+     "passRate": 20,
+     "medianMinutes": 1.68,
+     "p90Minutes": 9.37,
+     "flips": 1,
+     "flaky": false,
+     "recent": "ffffs"
+    }
+   ],
+   "red": 1,
+   "runs": 59,
+   "passRate": 1.7,
+   "medianMinutes": 5.32,
+   "ciMinutes": 294,
+   "conclusions": {
+    "success": 1,
+    "failure": 58,
+    "cancelled": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 1,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": true,
+    "claude": true,
+    "settings": false,
+    "ci": true,
+    "score": 3
+   }
+  },
+  {
+   "name": "flisk-labs",
+   "url": "https://github.com/flisk-sh/flisk-labs",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:05:35Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Build and publish Flisk Labs",
+     "conclusion": "failure",
+     "red": true,
+     "url": "https://github.com/flisk-sh/flisk-labs/actions/runs/43590194979",
+     "at": "2026-11-14T11:29:16Z",
+     "minutes": 0.6,
+     "sha": "63e4988",
+     "runs": 70,
+     "passRate": 60,
+     "medianMinutes": 0.74,
+     "p90Minutes": 0.95,
+     "flips": 6,
+     "flaky": true,
+     "recent": "ffffffffffffffffffff"
+    }
+   ],
+   "red": 1,
+   "runs": 70,
+   "passRate": 60,
+   "medianMinutes": 0.74,
+   "ciMinutes": 56,
+   "conclusions": {
+    "failure": 28,
+    "success": 42
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 2
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 2
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 2
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 3
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 2
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "pages",
+   "url": "https://github.com/flisk-sh/pages",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T01:37:02Z",
+   "stars": 1,
+   "openPRs": 1,
+   "workflows": [
+    {
+     "name": "docker in /. - Update #1694825962",
+     "conclusion": "failure",
+     "red": true,
+     "url": "https://github.com/flisk-sh/pages/actions/runs/42962230807",
+     "at": "2026-11-11T04:54:40Z",
+     "minutes": 0.35,
+     "sha": "36e450e",
+     "runs": 8,
+     "passRate": 75,
+     "medianMinutes": 0.79,
+     "p90Minutes": 1.08,
+     "flips": 3,
+     "flaky": true,
+     "recent": "ssfssssf"
+    },
+    {
+     "name": "anon ci odykyi",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/pages/actions/runs/43541634236",
+     "at": "2026-11-14T01:37:28Z",
+     "minutes": 0.57,
+     "sha": "ff0a6ae",
+     "runs": 13,
+     "passRate": 84.6,
+     "medianMinutes": 0.62,
+     "p90Minutes": 0.77,
+     "flips": 4,
+     "flaky": true,
+     "recent": "sssssfssssfss"
+    },
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/pages/actions/runs/43335423092",
+     "at": "2026-11-13T00:16:50Z",
+     "minutes": 2.67,
+     "sha": "ff0a6ae",
+     "runs": 28,
+     "passRate": 71.4,
+     "medianMinutes": 0.67,
+     "p90Minutes": 1.92,
+     "flips": 4,
+     "flaky": true,
+     "recent": "ssssssfffffssssffcfs"
+    },
+    {
+     "name": "Deploy",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/pages/actions/runs/43586181378",
+     "at": "2026-11-14T10:38:05Z",
+     "minutes": 0.38,
+     "sha": "ff0a6ae",
+     "runs": 44,
+     "passRate": 70.5,
+     "medianMinutes": 0.41,
+     "p90Minutes": 1.3,
+     "flips": 6,
+     "flaky": true,
+     "recent": "ffffssssssssfffffsss"
+    },
+    {
+     "name": "Remove",
+     "conclusion": "skipped",
+     "red": false,
+     "url": "https://github.com/flisk-sh/pages/actions/runs/43319528537",
+     "at": "2026-11-12T22:24:09Z",
+     "minutes": 0.12,
+     "sha": "e7a1d15",
+     "runs": 3,
+     "passRate": 33.3,
+     "medianMinutes": 0.17,
+     "p90Minutes": 0.55,
+     "flips": 1,
+     "flaky": false,
+     "recent": "sf-f-"
+    }
+   ],
+   "red": 1,
+   "runs": 96,
+   "passRate": 71.9,
+   "medianMinutes": 0.52,
+   "ciMinutes": 69,
+   "conclusions": {
+    "success": 69,
+    "failure": 27,
+    "cancelled": 2,
+    "skipped": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 20,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 10,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 6,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 3,
+     "fail": 9
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 2,
+     "fail": 4
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 4,
+     "fail": 3
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 9
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 2,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": true,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 2
+   }
+  },
+  {
+   "name": "flisk-tools",
+   "url": "https://github.com/flisk-sh/flisk-tools",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:55:24Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "failure",
+     "red": true,
+     "url": "https://github.com/flisk-sh/flisk-tools/actions/runs/43607365727",
+     "at": "2026-11-14T14:55:33Z",
+     "minutes": 0.25,
+     "sha": "cd7dc50",
+     "runs": 32,
+     "passRate": 93.8,
+     "medianMinutes": 0.25,
+     "p90Minutes": 0.32,
+     "flips": 3,
+     "flaky": true,
+     "recent": "sfssssscsssssssssccf"
+    },
+    {
+     "name": "github_actions in /. - Update #1701271989",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-tools/actions/runs/43414505668",
+     "at": "2026-11-13T11:08:13Z",
+     "minutes": 0.68,
+     "sha": "1f9d7e0",
+     "runs": 12,
+     "passRate": 91.7,
+     "medianMinutes": 0.65,
+     "p90Minutes": 0.93,
+     "flips": 2,
+     "flaky": false,
+     "recent": "sssssssssfss"
+    },
+    {
+     "name": "Listings",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-tools/actions/runs/42822943366",
+     "at": "2026-11-10T13:16:11Z",
+     "minutes": 0.22,
+     "sha": "cfc7691",
+     "runs": 10,
+     "passRate": 100,
+     "medianMinutes": 0.19,
+     "p90Minutes": 0.37,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssss"
+    }
+   ],
+   "red": 1,
+   "runs": 54,
+   "passRate": 94.4,
+   "medianMinutes": 0.25,
+   "ciMinutes": 20,
+   "conclusions": {
+    "failure": 3,
+    "cancelled": 3,
+    "success": 51
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 8,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 5,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 2,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 3,
+     "fail": 1
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "command-comparer",
+   "url": "https://github.com/flisk-sh/command-comparer",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:09:32Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Source links",
+     "conclusion": "failure",
+     "red": true,
+     "url": "https://github.com/flisk-sh/command-comparer/actions/runs/42653149057",
+     "at": "2026-11-13T00:28:53Z",
+     "minutes": 2.87,
+     "sha": "4d3d04d",
+     "runs": 3,
+     "passRate": 66.7,
+     "medianMinutes": 1.83,
+     "p90Minutes": 2.87,
+     "flips": 1,
+     "flaky": false,
+     "recent": "ssf"
+    },
+    {
+     "name": "github_actions in /. - Update #1671370299",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/command-comparer/actions/runs/41357254618",
+     "at": "2026-11-01T22:29:12Z",
+     "minutes": 1.37,
+     "sha": "c300734",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 1.12,
+     "p90Minutes": 1.42,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    },
+    {
+     "name": "Site",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/command-comparer/actions/runs/43603387587",
+     "at": "2026-11-14T14:10:00Z",
+     "minutes": 0.45,
+     "sha": "99379ac",
+     "runs": 28,
+     "passRate": 100,
+     "medianMinutes": 0.53,
+     "p90Minutes": 1.17,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    }
+   ],
+   "red": 1,
+   "runs": 35,
+   "passRate": 97.1,
+   "medianMinutes": 0.59,
+   "ciMinutes": 32,
+   "conclusions": {
+    "success": 34,
+    "failure": 1,
+    "cancelled": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 1,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 2,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk",
+   "url": "https://github.com/flisk-sh/flisk",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:58:59Z",
+   "stars": 46,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🏷️ RELEASE | Package | Publish existing npm version to GitHub Packages",
+     "conclusion": "failure",
+     "red": true,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43605477706",
+     "at": "2026-11-14T14:33:40Z",
+     "minutes": 0.23,
+     "sha": "66a1c19",
+     "runs": 1,
+     "passRate": 0,
+     "medianMinutes": 0.23,
+     "p90Minutes": 0.23,
+     "flips": 0,
+     "flaky": false,
+     "recent": "f"
+    },
+    {
+     "name": "🏷️ RELEASE | Package | Sign an existing release",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43605474391",
+     "at": "2026-11-14T14:33:50Z",
+     "minutes": 0.45,
+     "sha": "66a1c19",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 0.45,
+     "p90Minutes": 0.48,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    },
+    {
+     "name": "🔀 PR | CI | Checks",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43604107269",
+     "at": "2026-11-14T14:25:18Z",
+     "minutes": 7.55,
+     "sha": "66a1c19",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 7.55,
+     "p90Minutes": 8.85,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    },
+    {
+     "name": "🔀 PR | E2E | Journeys",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607675306",
+     "at": "2026-11-14T14:59:21Z",
+     "minutes": 0.32,
+     "sha": "afe2600",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 0.6,
+     "p90Minutes": 8.68,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    },
+    {
+     "name": "🔀 PR | Security | CodeQL",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607675344",
+     "at": "2026-11-14T15:02:50Z",
+     "minutes": 3.8,
+     "sha": "afe2600",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 2.58,
+     "p90Minutes": 3.8,
+     "flips": 0,
+     "flaky": false,
+     "recent": "cscss"
+    },
+    {
+     "name": "🔀 PR | Security | Scans",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607675326",
+     "at": "2026-11-14T15:00:11Z",
+     "minutes": 1.15,
+     "sha": "afe2600",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 1.18,
+     "p90Minutes": 2.07,
+     "flips": 0,
+     "flaky": false,
+     "recent": "cssss"
+    },
+    {
+     "name": "🤖 BOT | Automation | Keep PR branches current",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607675308",
+     "at": "2026-11-14T14:59:07Z",
+     "minutes": 0.08,
+     "sha": "afe2600",
+     "runs": 5,
+     "passRate": 100,
+     "medianMinutes": 0.12,
+     "p90Minutes": 0.17,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssss"
+    },
+    {
+     "name": "🤖 BOT | CI | Cancel dead queue runs",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43605396030",
+     "at": "2026-11-14T14:33:12Z",
+     "minutes": 0.68,
+     "sha": "66a1c19",
+     "runs": 1,
+     "passRate": 100,
+     "medianMinutes": 0.68,
+     "p90Minutes": 0.68,
+     "flips": 0,
+     "flaky": false,
+     "recent": "s"
+    },
+    {
+     "name": "🤖 BOT | CI | Report post-merge failures",
+     "conclusion": "skipped",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607641812",
+     "at": "2026-11-14T14:58:38Z",
+     "minutes": 0.02,
+     "sha": "66a1c19",
+     "runs": 0,
+     "passRate": null,
+     "medianMinutes": 0.02,
+     "p90Minutes": 0.13,
+     "flips": 0,
+     "flaky": false,
+     "recent": "--------------------"
+    },
+    {
+     "name": "🤖 BOT | Community | Contributor welcome",
+     "conclusion": "skipped",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607678595",
+     "at": "2026-11-14T14:59:11Z",
+     "minutes": 0.1,
+     "sha": "afe2600",
+     "runs": 0,
+     "passRate": null,
+     "medianMinutes": 0.02,
+     "p90Minutes": 0.1,
+     "flips": 0,
+     "flaky": false,
+     "recent": "---"
+    },
+    {
+     "name": "🤖 BOT | Community | Discord founding role",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607853402",
+     "at": "2026-11-14T15:01:09Z",
+     "minutes": 0.17,
+     "sha": "afe2600",
+     "runs": 20,
+     "passRate": 100,
+     "medianMinutes": 0.2,
+     "p90Minutes": 0.38,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    },
+    {
+     "name": "🤖 BOT | Community | Hall of fame",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43606331250",
+     "at": "2026-11-14T14:43:43Z",
+     "minutes": 0.4,
+     "sha": "66a1c19",
+     "runs": 1,
+     "passRate": 100,
+     "medianMinutes": 0.4,
+     "p90Minutes": 0.4,
+     "flips": 0,
+     "flaky": false,
+     "recent": "s"
+    },
+    {
+     "name": "🤖 BOT | Community | Issue claims",
+     "conclusion": "skipped",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43606109914",
+     "at": "2026-11-14T14:40:45Z",
+     "minutes": 0.02,
+     "sha": "66a1c19",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 0.02,
+     "p90Minutes": 0.1,
+     "flips": 0,
+     "flaky": false,
+     "recent": "--ss-"
+    },
+    {
+     "name": "🤖 BOT | Security | Alert issues",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607775719",
+     "at": "2026-11-14T15:00:59Z",
+     "minutes": 0.77,
+     "sha": "afe2600",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 0.71,
+     "p90Minutes": 2.17,
+     "flips": 0,
+     "flaky": false,
+     "recent": "-sss-s"
+    },
+    {
+     "name": "🚀 PUSH | CI | OSS score gate",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607675321",
+     "at": "2026-11-14T14:59:12Z",
+     "minutes": 0.17,
+     "sha": "afe2600",
+     "runs": 5,
+     "passRate": 100,
+     "medianMinutes": 0.13,
+     "p90Minutes": 0.17,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssss"
+    },
+    {
+     "name": "🚀 PUSH | CI | Packed CLI lifecycle smoke",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk/actions/runs/43607675358",
+     "at": "2026-11-14T14:59:12Z",
+     "minutes": 0.17,
+     "sha": "afe2600",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 0.74,
+     "p90Minutes": 0.83,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    }
+   ],
+   "red": 1,
+   "runs": 60,
+   "passRate": 98.3,
+   "medianMinutes": 0.17,
+   "ciMinutes": 68,
+   "conclusions": {
+    "success": 59,
+    "skipped": 36,
+    "failure": 1,
+    "cancelled": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 59,
+     "fail": 1
+    }
+   ],
+   "sdlc": {
+    "agents": true,
+    "claude": false,
+    "settings": true,
+    "ci": true,
+    "score": 3
+   }
+  },
+  {
+   "name": "live-preview",
+   "url": "https://github.com/flisk-sh/live-preview",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:41:30Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "flisk-wolf",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/live-preview/actions/runs/41117709562",
+     "at": "2026-10-30T20:19:42Z",
+     "minutes": 35.18,
+     "sha": "894188b",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 31.28,
+     "p90Minutes": 47.73,
+     "flips": 0,
+     "flaky": false,
+     "recent": "csss"
+    },
+    {
+     "name": "self-test",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/live-preview/actions/runs/43338665975",
+     "at": "2026-11-13T00:41:34Z",
+     "minutes": 3.02,
+     "sha": "4bdf68d",
+     "runs": 7,
+     "passRate": 28.6,
+     "medianMinutes": 3.13,
+     "p90Minutes": 4.47,
+     "flips": 2,
+     "flaky": false,
+     "recent": "sfffffs"
+    }
+   ],
+   "red": 0,
+   "runs": 10,
+   "passRate": 50,
+   "medianMinutes": 3.27,
+   "ciMinutes": 137,
+   "conclusions": {
+    "success": 5,
+    "failure": 5,
+    "cancelled": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 1,
+     "fail": 2
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-example",
+   "url": "https://github.com/flisk-sh/flisk-example",
+   "defaultBranch": "master",
+   "pushedAt": "2026-11-13T00:56:25Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🧪 Flisk Example CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-example/actions/runs/43341041976",
+     "at": "2026-11-13T00:59:13Z",
+     "minutes": 2.75,
+     "sha": "6106c41",
+     "runs": 15,
+     "passRate": 100,
+     "medianMinutes": 1.67,
+     "p90Minutes": 2.75,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssssssss"
+    },
+    {
+     "name": "npm_and_yarn in /services/identity/identity-api - Update #1704015451",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-example/actions/runs/43567645538",
+     "at": "2026-11-14T06:43:27Z",
+     "minutes": 1.08,
+     "sha": "6106c41",
+     "runs": 29,
+     "passRate": 41.4,
+     "medianMinutes": 1.08,
+     "p90Minutes": 3.83,
+     "flips": 3,
+     "flaky": true,
+     "recent": "fffffffssssfssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 44,
+   "passRate": 61.4,
+   "medianMinutes": 1.47,
+   "ciMinutes": 75,
+   "conclusions": {
+    "success": 27,
+    "failure": 17
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 11,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 4,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-restaurant-example",
+   "url": "https://github.com/flisk-sh/flisk-restaurant-example",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:59:35Z",
+   "stars": 3,
+   "openPRs": 6,
+   "workflows": [
+    {
+     "name": "🍽️ Restaurant Example CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-restaurant-example/actions/runs/43341022066",
+     "at": "2026-11-13T00:58:57Z",
+     "minutes": 2.63,
+     "sha": "9856c64",
+     "runs": 20,
+     "passRate": 70,
+     "medianMinutes": 1.83,
+     "p90Minutes": 3.37,
+     "flips": 6,
+     "flaky": true,
+     "recent": "fsfssssfcfffssssssss"
+    },
+    {
+     "name": "bun in /services/guest/reservation-app for gsap - Update #1699835058",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-restaurant-example/actions/runs/43341037158",
+     "at": "2026-11-13T00:59:01Z",
+     "minutes": 2.58,
+     "sha": "9856c64",
+     "runs": 28,
+     "passRate": 57.1,
+     "medianMinutes": 2.73,
+     "p90Minutes": 7.12,
+     "flips": 11,
+     "flaky": true,
+     "recent": "sfffsfsfsfssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 48,
+   "passRate": 62.5,
+   "medianMinutes": 2.62,
+   "ciMinutes": 228,
+   "conclusions": {
+    "success": 30,
+    "failure": 18,
+    "cancelled": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 19,
+     "fail": 8
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-docker-compose-example",
+   "url": "https://github.com/flisk-sh/flisk-docker-compose-example",
+   "defaultBranch": "master",
+   "pushedAt": "2026-10-26T22:25:55Z",
+   "stars": 1,
+   "openPRs": 2,
+   "workflows": [
+    {
+     "name": "🐳 Docker Compose Example CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-docker-compose-example/actions/runs/40412377941",
+     "at": "2026-10-26T22:26:32Z",
+     "minutes": 0.58,
+     "sha": "cfa7e6d",
+     "runs": 8,
+     "passRate": 50,
+     "medianMinutes": 0.59,
+     "p90Minutes": 1.42,
+     "flips": 2,
+     "flaky": false,
+     "recent": "sffffsss"
+    },
+    {
+     "name": "github_actions in /. - Update #1688097538",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-docker-compose-example/actions/runs/42540539974",
+     "at": "2026-11-09T00:31:50Z",
+     "minutes": 1.52,
+     "sha": "cfa7e6d",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 0.77,
+     "p90Minutes": 1.52,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    }
+   ],
+   "red": 0,
+   "runs": 12,
+   "passRate": 66.7,
+   "medianMinutes": 0.69,
+   "ciMinutes": 9,
+   "conclusions": {
+    "success": 8,
+    "failure": 4
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-template-bati",
+   "url": "https://github.com/flisk-sh/flisk-template-bati",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:40:06Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "e2e",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-bati/actions/runs/43338877625",
+     "at": "2026-11-13T00:41:45Z",
+     "minutes": 1.6,
+     "sha": "16b10c2",
+     "runs": 3,
+     "passRate": 66.7,
+     "medianMinutes": 5.27,
+     "p90Minutes": 12.93,
+     "flips": 1,
+     "flaky": false,
+     "recent": "fscs"
+    },
+    {
+     "name": "verify",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-bati/actions/runs/43338876946",
+     "at": "2026-11-13T00:40:53Z",
+     "minutes": 0.73,
+     "sha": "16b10c2",
+     "runs": 4,
+     "passRate": 75,
+     "medianMinutes": 0.95,
+     "p90Minutes": 2.18,
+     "flips": 1,
+     "flaky": false,
+     "recent": "fsss"
+    }
+   ],
+   "red": 0,
+   "runs": 7,
+   "passRate": 71.4,
+   "medianMinutes": 1.58,
+   "ciMinutes": 30,
+   "conclusions": {
+    "success": 5,
+    "cancelled": 1,
+    "failure": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-stack",
+   "url": "https://github.com/flisk-sh/flisk-stack",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-12T23:34:42Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-stack/actions/runs/43330034190",
+     "at": "2026-11-12T23:35:13Z",
+     "minutes": 0.45,
+     "sha": "b392352",
+     "runs": 8,
+     "passRate": 100,
+     "medianMinutes": 0.29,
+     "p90Minutes": 0.45,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssss"
+    },
+    {
+     "name": "github_actions in /. - Update #1692108657",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-stack/actions/runs/42750317129",
+     "at": "2026-11-10T03:34:59Z",
+     "minutes": 0.53,
+     "sha": "fff53f3",
+     "runs": 8,
+     "passRate": 50,
+     "medianMinutes": 0.8,
+     "p90Minutes": 0.88,
+     "flips": 7,
+     "flaky": true,
+     "recent": "fsfsfsfs"
+    }
+   ],
+   "red": 0,
+   "runs": 16,
+   "passRate": 75,
+   "medianMinutes": 0.49,
+   "ciMinutes": 9,
+   "conclusions": {
+    "success": 12,
+    "failure": 4
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 1,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 1,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-erp-system",
+   "url": "https://github.com/flisk-sh/flisk-erp-system",
+   "defaultBranch": "master",
+   "pushedAt": "2026-10-26T22:26:02Z",
+   "stars": 4,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🏭 ERP System CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-erp-system/actions/runs/40412393340",
+     "at": "2026-10-26T22:28:34Z",
+     "minutes": 2.5,
+     "sha": "3a568ef",
+     "runs": 12,
+     "passRate": 83.3,
+     "medianMinutes": 2.58,
+     "p90Minutes": 3.07,
+     "flips": 4,
+     "flaky": true,
+     "recent": "sssscsfsssfss"
+    }
+   ],
+   "red": 0,
+   "runs": 12,
+   "passRate": 83.3,
+   "medianMinutes": 2.58,
+   "ciMinutes": 34,
+   "conclusions": {
+    "success": 10,
+    "failure": 2,
+    "cancelled": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-saas-starter",
+   "url": "https://github.com/flisk-sh/flisk-saas-starter",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-26T22:26:18Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🚀 SaaS Starter CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-saas-starter/actions/runs/40412429578",
+     "at": "2026-10-26T22:29:08Z",
+     "minutes": 2.8,
+     "sha": "ba229b1",
+     "runs": 12,
+     "passRate": 83.3,
+     "medianMinutes": 2.67,
+     "p90Minutes": 3.25,
+     "flips": 4,
+     "flaky": true,
+     "recent": "sfssssssfsss"
+    }
+   ],
+   "red": 0,
+   "runs": 12,
+   "passRate": 83.3,
+   "medianMinutes": 2.67,
+   "ciMinutes": 32,
+   "conclusions": {
+    "success": 10,
+    "failure": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "run-my-agents",
+   "url": "https://github.com/flisk-sh/run-my-agents",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:56:24Z",
+   "stars": 2,
+   "openPRs": 1,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/run-my-agents/actions/runs/43537636899",
+     "at": "2026-11-14T00:59:06Z",
+     "minutes": 0.72,
+     "sha": "f96c84c",
+     "runs": 31,
+     "passRate": 64.5,
+     "medianMinutes": 0.72,
+     "p90Minutes": 5.58,
+     "flips": 4,
+     "flaky": true,
+     "recent": "ssfssffffffffcffssss"
+    },
+    {
+     "name": "docker in /. - Update #1687872002",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/run-my-agents/actions/runs/42525744611",
+     "at": "2026-11-08T21:33:16Z",
+     "minutes": 0.48,
+     "sha": "077f992",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 0.48,
+     "p90Minutes": 0.98,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    },
+    {
+     "name": "pages build and deployment",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/run-my-agents/actions/runs/43537444255",
+     "at": "2026-11-14T00:57:07Z",
+     "minutes": 0.67,
+     "sha": "e6243f8",
+     "runs": 33,
+     "passRate": 97,
+     "medianMinutes": 0.72,
+     "p90Minutes": 1.78,
+     "flips": 2,
+     "flaky": false,
+     "recent": "ssfsssssssssscssssss"
+    },
+    {
+     "name": "Release | Mac app",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/run-my-agents/actions/runs/43338098958",
+     "at": "2026-11-13T00:35:44Z",
+     "minutes": 1.48,
+     "sha": "d7ae51a",
+     "runs": 21,
+     "passRate": 90.5,
+     "medianMinutes": 1.13,
+     "p90Minutes": 15.22,
+     "flips": 4,
+     "flaky": true,
+     "recent": "ssssssfccsssfsssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 88,
+   "passRate": 84.1,
+   "medianMinutes": 0.8,
+   "ciMinutes": 189,
+   "conclusions": {
+    "success": 74,
+    "failure": 14,
+    "cancelled": 12
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 14,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 9,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 33,
+     "fail": 8
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 4,
+     "fail": 4
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 5,
+     "fail": 2
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 6,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": true,
+    "ci": true,
+    "score": 2
+   }
+  },
+  {
+   "name": "fliskos",
+   "url": "https://github.com/flisk-sh/fliskos",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:57:07Z",
+   "stars": 2,
+   "openPRs": 1,
+   "workflows": [
+    {
+     "name": "Release | Desktop apps",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/fliskos/actions/runs/43330651431",
+     "at": "2026-11-12T23:40:51Z",
+     "minutes": 1.67,
+     "sha": "c6c6342",
+     "runs": 9,
+     "passRate": 77.8,
+     "medianMinutes": 1.67,
+     "p90Minutes": 2.43,
+     "flips": 1,
+     "flaky": false,
+     "recent": "ffsssssss"
+    },
+    {
+     "name": "Windows",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/fliskos/actions/runs/43538142433",
+     "at": "2026-11-14T01:03:44Z",
+     "minutes": 0.82,
+     "sha": "4963fe8",
+     "runs": 9,
+     "passRate": 100,
+     "medianMinutes": 0.85,
+     "p90Minutes": 1.32,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 18,
+   "passRate": 88.9,
+   "medianMinutes": 1.16,
+   "ciMinutes": 24,
+   "conclusions": {
+    "success": 16,
+    "failure": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 6,
+     "fail": 2
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 2,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-template-next-app",
+   "url": "https://github.com/flisk-sh/flisk-template-next-app",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:40:18Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "e2e",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-next-app/actions/runs/43338906101",
+     "at": "2026-11-13T00:43:21Z",
+     "minutes": 3,
+     "sha": "8efad4e",
+     "runs": 4,
+     "passRate": 75,
+     "medianMinutes": 3,
+     "p90Minutes": 10.98,
+     "flips": 2,
+     "flaky": false,
+     "recent": "ssfcs"
+    },
+    {
+     "name": "verify",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-next-app/actions/runs/43338905512",
+     "at": "2026-11-13T00:41:49Z",
+     "minutes": 1.47,
+     "sha": "8efad4e",
+     "runs": 6,
+     "passRate": 100,
+     "medianMinutes": 1.3,
+     "p90Minutes": 2.23,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 10,
+   "passRate": 90,
+   "medianMinutes": 1.52,
+   "ciMinutes": 35,
+   "conclusions": {
+    "success": 9,
+    "cancelled": 1,
+    "failure": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-template-vue",
+   "url": "https://github.com/flisk-sh/flisk-template-vue",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:40:22Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "e2e",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-vue/actions/runs/43338913965",
+     "at": "2026-11-13T00:41:31Z",
+     "minutes": 1.1,
+     "sha": "a3a13a8",
+     "runs": 4,
+     "passRate": 75,
+     "medianMinutes": 1.68,
+     "p90Minutes": 10.47,
+     "flips": 2,
+     "flaky": false,
+     "recent": "ssfcs"
+    },
+    {
+     "name": "verify",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-vue/actions/runs/43338913353",
+     "at": "2026-11-13T00:40:56Z",
+     "minutes": 0.53,
+     "sha": "a3a13a8",
+     "runs": 7,
+     "passRate": 100,
+     "medianMinutes": 0.63,
+     "p90Minutes": 1.07,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 11,
+   "passRate": 90.9,
+   "medianMinutes": 1.02,
+   "ciMinutes": 28,
+   "conclusions": {
+    "success": 10,
+    "cancelled": 1,
+    "failure": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "scoop-bucket",
+   "url": "https://github.com/flisk-sh/scoop-bucket",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T06:58:25Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Update and test the manifest",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/scoop-bucket/actions/runs/43604844096",
+     "at": "2026-11-14T14:26:17Z",
+     "minutes": 0.13,
+     "sha": "5d619a8",
+     "runs": 22,
+     "passRate": 90.9,
+     "medianMinutes": 1.19,
+     "p90Minutes": 1.98,
+     "flips": 3,
+     "flaky": true,
+     "recent": "sssssfssssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 22,
+   "passRate": 90.9,
+   "medianMinutes": 1.19,
+   "ciMinutes": 28,
+   "conclusions": {
+    "success": 20,
+    "failure": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 1,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 3,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 2,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-skills",
+   "url": "https://github.com/flisk-sh/flisk-skills",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:05:58Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🤖 AI review buttons",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-skills/actions/runs/39295137563",
+     "at": "2026-10-19T17:33:42Z",
+     "minutes": 0.17,
+     "sha": "41d4e01",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 0.25,
+     "p90Minutes": 0.33,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ss"
+    },
+    {
+     "name": "Refresh .agents/skills symlinks",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-skills/actions/runs/41299567172",
+     "at": "2026-11-01T10:55:25Z",
+     "minutes": 0.13,
+     "sha": "1043a8e",
+     "runs": 29,
+     "passRate": 89.7,
+     "medianMinutes": 0.15,
+     "p90Minutes": 0.27,
+     "flips": 2,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    },
+    {
+     "name": "Validate skills",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-skills/actions/runs/43531849811",
+     "at": "2026-11-14T00:06:16Z",
+     "minutes": 0.23,
+     "sha": "149d0fc",
+     "runs": 5,
+     "passRate": 100,
+     "medianMinutes": 0.18,
+     "p90Minutes": 1.05,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssss"
+    }
+   ],
+   "red": 0,
+   "runs": 36,
+   "passRate": 91.7,
+   "medianMinutes": 0.15,
+   "ciMinutes": 8,
+   "conclusions": {
+    "success": 33,
+    "failure": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 1,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": true,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 2
+   }
+  },
+  {
+   "name": "homebrew-tap",
+   "url": "https://github.com/flisk-sh/homebrew-tap",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T06:21:31Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Update and test the formula",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/homebrew-tap/actions/runs/43603265362",
+     "at": "2026-11-14T14:08:16Z",
+     "minutes": 0.12,
+     "sha": "036618d",
+     "runs": 24,
+     "passRate": 91.7,
+     "medianMinutes": 1.62,
+     "p90Minutes": 4.35,
+     "flips": 3,
+     "flaky": true,
+     "recent": "ssssfsssssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 24,
+   "passRate": 91.7,
+   "medianMinutes": 1.62,
+   "ciMinutes": 48,
+   "conclusions": {
+    "success": 22,
+    "failure": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 3,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 3,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 2,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "create-microservices",
+   "url": "https://github.com/flisk-sh/create-microservices",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:40:29Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/create-microservices/actions/runs/43338930309",
+     "at": "2026-11-13T00:40:53Z",
+     "minutes": 0.35,
+     "sha": "799a939",
+     "runs": 17,
+     "passRate": 94.1,
+     "medianMinutes": 0.37,
+     "p90Minutes": 0.53,
+     "flips": 2,
+     "flaky": false,
+     "recent": "sssscscscscsssssssfs"
+    }
+   ],
+   "red": 0,
+   "runs": 17,
+   "passRate": 94.1,
+   "medianMinutes": 0.37,
+   "ciMinutes": 9,
+   "conclusions": {
+    "success": 16,
+    "failure": 1,
+    "cancelled": 4
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 1,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "chat",
+   "url": "https://github.com/flisk-sh/chat",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:59:49Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Check",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/chat/actions/runs/43607741691",
+     "at": "2026-11-14T15:00:05Z",
+     "minutes": 0.22,
+     "sha": "5f6eb94",
+     "runs": 91,
+     "passRate": 94.5,
+     "medianMinutes": 0.2,
+     "p90Minutes": 0.45,
+     "flips": 4,
+     "flaky": true,
+     "recent": "fsssssssssssssssssss"
+    },
+    {
+     "name": "Live e2e",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/chat/actions/runs/43602506832",
+     "at": "2026-11-14T13:59:44Z",
+     "minutes": 0.12,
+     "sha": "000cc86",
+     "runs": 9,
+     "passRate": 100,
+     "medianMinutes": 0.12,
+     "p90Minutes": 0.33,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 100,
+   "passRate": 95,
+   "medianMinutes": 0.2,
+   "ciMinutes": 31,
+   "conclusions": {
+    "success": 95,
+    "failure": 5
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 49,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 46,
+     "fail": 4
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-template-launch",
+   "url": "https://github.com/flisk-sh/flisk-template-launch",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-12T23:35:15Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-launch/actions/runs/43330116629",
+     "at": "2026-11-12T23:35:33Z",
+     "minutes": 0.23,
+     "sha": "dde4597",
+     "runs": 14,
+     "passRate": 100,
+     "medianMinutes": 0.26,
+     "p90Minutes": 0.37,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sscssssssssccsscss"
+    },
+    {
+     "name": "docker in /. - Update #1695109124",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-launch/actions/runs/42975662715",
+     "at": "2026-11-11T06:54:43Z",
+     "minutes": 0.47,
+     "sha": "973d6b4",
+     "runs": 9,
+     "passRate": 88.9,
+     "medianMinutes": 0.67,
+     "p90Minutes": 0.97,
+     "flips": 2,
+     "flaky": false,
+     "recent": "sssssssfs"
+    }
+   ],
+   "red": 0,
+   "runs": 23,
+   "passRate": 95.7,
+   "medianMinutes": 0.33,
+   "ciMinutes": 11,
+   "conclusions": {
+    "success": 22,
+    "cancelled": 4,
+    "failure": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 3,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": true,
+    "claude": true,
+    "settings": true,
+    "ci": true,
+    "score": 4
+   }
+  },
+  {
+   "name": "roadmap",
+   "url": "https://github.com/flisk-sh/roadmap",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:24:17Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "github_actions in /. - Update #1669949701",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/roadmap/actions/runs/41295353611",
+     "at": "2026-11-01T09:58:35Z",
+     "minutes": 0.75,
+     "sha": "f03692e",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 0.75,
+     "p90Minutes": 0.87,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    },
+    {
+     "name": "Site",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/roadmap/actions/runs/43533961257",
+     "at": "2026-11-14T00:29:08Z",
+     "minutes": 4.8,
+     "sha": "7f781c1",
+     "runs": 51,
+     "passRate": 96.1,
+     "medianMinutes": 3.73,
+     "p90Minutes": 5.05,
+     "flips": 3,
+     "flaky": true,
+     "recent": "sssssssssscsssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 55,
+   "passRate": 96.4,
+   "medianMinutes": 3.55,
+   "ciMinutes": 195,
+   "conclusions": {
+    "success": 53,
+    "cancelled": 6,
+    "failure": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 8,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 1,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "website",
+   "url": "https://github.com/flisk-sh/website",
+   "defaultBranch": "master",
+   "pushedAt": "2026-11-14T00:58:38Z",
+   "stars": 3,
+   "openPRs": 1,
+   "workflows": [
+    {
+     "name": "pages build and deployment",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/website/actions/runs/43537668072",
+     "at": "2026-11-14T00:59:20Z",
+     "minutes": 0.62,
+     "sha": "1671631",
+     "runs": 47,
+     "passRate": 100,
+     "medianMinutes": 0.78,
+     "p90Minutes": 2.17,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssscssssssssssssss"
+    },
+    {
+     "name": "Site",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/website/actions/runs/43538085587",
+     "at": "2026-11-14T01:02:45Z",
+     "minutes": 0.32,
+     "sha": "1671631",
+     "runs": 50,
+     "passRate": 96,
+     "medianMinutes": 0.31,
+     "p90Minutes": 0.7,
+     "flips": 4,
+     "flaky": true,
+     "recent": "sssssssssfssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 97,
+   "passRate": 97.9,
+   "medianMinutes": 0.66,
+   "ciMinutes": 83,
+   "conclusions": {
+    "success": 95,
+    "failure": 2,
+    "cancelled": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 28,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 40,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 19,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 4,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": true,
+    "ci": true,
+    "score": 2
+   }
+  },
+  {
+   "name": "flisk-import",
+   "url": "https://github.com/flisk-sh/flisk-import",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:05:52Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "ci",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-import/actions/runs/43531836371",
+     "at": "2026-11-14T00:06:46Z",
+     "minutes": 0.85,
+     "sha": "f6c2df1",
+     "runs": 67,
+     "passRate": 98.5,
+     "medianMinutes": 0.52,
+     "p90Minutes": 0.95,
+     "flips": 2,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 67,
+   "passRate": 98.5,
+   "medianMinutes": 0.52,
+   "ciMinutes": 44,
+   "conclusions": {
+    "success": 66,
+    "failure": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 14,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 1,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "readme-score",
+   "url": "https://github.com/flisk-sh/readme-score",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:55:41Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/readme-score/actions/runs/43607403106",
+     "at": "2026-11-14T14:56:07Z",
+     "minutes": 0.38,
+     "sha": "0c905d4",
+     "runs": 30,
+     "passRate": 100,
+     "medianMinutes": 0.28,
+     "p90Minutes": 0.7,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssscccsssssssssss"
+    },
+    {
+     "name": "github_actions in /. - Update #1694805037",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/readme-score/actions/runs/42961180295",
+     "at": "2026-11-11T04:44:52Z",
+     "minutes": 0.42,
+     "sha": "90dae2e",
+     "runs": 6,
+     "passRate": 83.3,
+     "medianMinutes": 0.67,
+     "p90Minutes": 0.93,
+     "flips": 2,
+     "flaky": false,
+     "recent": "ssssfs"
+    },
+    {
+     "name": "Keep awake",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/readme-score/actions/runs/43257328322",
+     "at": "2026-11-12T16:20:14Z",
+     "minutes": 1.15,
+     "sha": "bd959d1",
+     "runs": 61,
+     "passRate": 100,
+     "medianMinutes": 0.1,
+     "p90Minutes": 0.43,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 97,
+   "passRate": 99,
+   "medianMinutes": 0.22,
+   "ciMinutes": 61,
+   "conclusions": {
+    "success": 96,
+    "failure": 1,
+    "cancelled": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 10,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 5,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 7,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 5,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 7,
+     "fail": 1
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 4,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "awesome-model-training",
+   "url": "https://github.com/flisk-sh/awesome-model-training",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-30T20:24:32Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "check",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/awesome-model-training/actions/runs/41305261903",
+     "at": "2026-11-01T12:11:34Z",
+     "minutes": 0.33,
+     "sha": "c2ca15a",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 0.52,
+     "p90Minutes": 2.6,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    }
+   ],
+   "red": 0,
+   "runs": 3,
+   "passRate": 100,
+   "medianMinutes": 0.52,
+   "ciMinutes": 3,
+   "conclusions": {
+    "success": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "citable",
+   "url": "https://github.com/flisk-sh/citable",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:55:56Z",
+   "stars": 1,
+   "openPRs": 1,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/citable/actions/runs/43537399232",
+     "at": "2026-11-14T00:56:12Z",
+     "minutes": 0.22,
+     "sha": "459d4a0",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 0.23,
+     "p90Minutes": 0.25,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    }
+   ],
+   "red": 0,
+   "runs": 3,
+   "passRate": 100,
+   "medianMinutes": 0.23,
+   "ciMinutes": 1,
+   "conclusions": {
+    "success": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 2,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "codeql-goose",
+   "url": "https://github.com/flisk-sh/codeql-goose",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-23T22:33:50Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🧪 CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/codeql-goose/actions/runs/40033984530",
+     "at": "2026-10-23T22:30:23Z",
+     "minutes": 0.48,
+     "sha": "e02b72b",
+     "runs": 7,
+     "passRate": 100,
+     "medianMinutes": 0.3,
+     "p90Minutes": 0.48,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssss"
+    },
+    {
+     "name": "🪿 Self test",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/codeql-goose/actions/runs/40033984529",
+     "at": "2026-10-23T22:30:17Z",
+     "minutes": 0.38,
+     "sha": "e02b72b",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 0.31,
+     "p90Minutes": 0.38,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ss"
+    }
+   ],
+   "red": 0,
+   "runs": 9,
+   "passRate": 100,
+   "medianMinutes": 0.3,
+   "ciMinutes": 3,
+   "conclusions": {
+    "success": 9
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "codeql-lobster",
+   "url": "https://github.com/flisk-sh/codeql-lobster",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-23T22:33:49Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🔬 Self-test",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/codeql-lobster/actions/runs/40034344309",
+     "at": "2026-10-23T22:33:25Z",
+     "minutes": 0.27,
+     "sha": "8d9f348",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 0.28,
+     "p90Minutes": 0.5,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    },
+    {
+     "name": "🧪 CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/codeql-lobster/actions/runs/40034344321",
+     "at": "2026-10-23T22:33:25Z",
+     "minutes": 0.27,
+     "sha": "8d9f348",
+     "runs": 7,
+     "passRate": 100,
+     "medianMinutes": 0.27,
+     "p90Minutes": 0.62,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 10,
+   "passRate": 100,
+   "medianMinutes": 0.28,
+   "ciMinutes": 3,
+   "conclusions": {
+    "success": 10
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "codeql-starlark",
+   "url": "https://github.com/flisk-sh/codeql-starlark",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-23T22:36:20Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🧪 CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/codeql-starlark/actions/runs/40034682671",
+     "at": "2026-10-23T22:36:27Z",
+     "minutes": 0.18,
+     "sha": "2dfbd61",
+     "runs": 12,
+     "passRate": 100,
+     "medianMinutes": 0.21,
+     "p90Minutes": 0.25,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 12,
+   "passRate": 100,
+   "medianMinutes": 0.21,
+   "ciMinutes": 3,
+   "conclusions": {
+    "success": 12
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "comparer",
+   "url": "https://github.com/flisk-sh/comparer",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:25:12Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "bundler in /. - Update #1670146641",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/comparer/actions/runs/41303478592",
+     "at": "2026-11-01T11:48:41Z",
+     "minutes": 0.73,
+     "sha": "57f0972",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 0.69,
+     "p90Minutes": 0.73,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    },
+    {
+     "name": "Site",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/comparer/actions/runs/43534062341",
+     "at": "2026-11-14T00:26:06Z",
+     "minutes": 0.85,
+     "sha": "f83d213",
+     "runs": 5,
+     "passRate": 100,
+     "medianMinutes": 0.85,
+     "p90Minutes": 1.2,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssss"
+    },
+    {
+     "name": "Source links",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/comparer/actions/runs/42656387829",
+     "at": "2026-11-09T16:36:03Z",
+     "minutes": 0.17,
+     "sha": "d0e78df",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 0.23,
+     "p90Minutes": 0.28,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ss"
+    }
+   ],
+   "red": 0,
+   "runs": 11,
+   "passRate": 100,
+   "medianMinutes": 0.7,
+   "ciMinutes": 7,
+   "conclusions": {
+    "success": 11
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 1,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "create-flisk",
+   "url": "https://github.com/flisk-sh/create-flisk",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:24:49Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/create-flisk/actions/runs/43534016437",
+     "at": "2026-11-14T00:25:09Z",
+     "minutes": 0.28,
+     "sha": "ef0fd53",
+     "runs": 13,
+     "passRate": 100,
+     "medianMinutes": 0.27,
+     "p90Minutes": 0.5,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssssss"
+    },
+    {
+     "name": "Deploy GitHub Pages",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/create-flisk/actions/runs/43534016346",
+     "at": "2026-11-14T00:25:21Z",
+     "minutes": 0.48,
+     "sha": "ef0fd53",
+     "runs": 27,
+     "passRate": 100,
+     "medianMinutes": 0.58,
+     "p90Minutes": 1.13,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    },
+    {
+     "name": "pages build and deployment",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/create-flisk/actions/runs/34710268375",
+     "at": "2026-09-12T18:09:14Z",
+     "minutes": 1.2,
+     "sha": "0cc3070",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 1.24,
+     "p90Minutes": 1.28,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ss"
+    }
+   ],
+   "red": 0,
+   "runs": 42,
+   "passRate": 100,
+   "medianMinutes": 0.52,
+   "ciMinutes": 26,
+   "conclusions": {
+    "success": 42
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 2,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "demos",
+   "url": "https://github.com/flisk-sh/demos",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T11:28:07Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "live ai-app-1009e4",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/demos/actions/runs/43580490652",
+     "at": "2026-11-14T11:28:16Z",
+     "minutes": 122.73,
+     "sha": "21b177f",
+     "runs": 31,
+     "passRate": 100,
+     "medianMinutes": 122.58,
+     "p90Minutes": 123.42,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssssccsssssss"
+    },
+    {
+     "name": "retry live demos",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/demos/actions/runs/43577487253",
+     "at": "2026-11-14T08:47:56Z",
+     "minutes": 0.28,
+     "sha": "9336c8a",
+     "runs": 67,
+     "passRate": 100,
+     "medianMinutes": 0.18,
+     "p90Minutes": 0.53,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 98,
+   "passRate": 100,
+   "medianMinutes": 0.21,
+   "ciMinutes": 3997,
+   "conclusions": {
+    "success": 98,
+    "cancelled": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 12,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 5,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 7,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 7,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 7,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 3,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "fleet",
+   "url": "https://github.com/flisk-sh/fleet",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:38:43Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/fleet/actions/runs/43605942704",
+     "at": "2026-11-14T14:39:00Z",
+     "minutes": 0.25,
+     "sha": "d086c9e",
+     "runs": 26,
+     "passRate": 100,
+     "medianMinutes": 0.25,
+     "p90Minutes": 0.58,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    },
+    {
+     "name": "fleetd image",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/fleet/actions/runs/43467086607",
+     "at": "2026-11-13T16:54:42Z",
+     "minutes": 2.13,
+     "sha": "a963084",
+     "runs": 1,
+     "passRate": 100,
+     "medianMinutes": 2.13,
+     "p90Minutes": 2.13,
+     "flips": 0,
+     "flaky": false,
+     "recent": "s"
+    }
+   ],
+   "red": 0,
+   "runs": 27,
+   "passRate": 100,
+   "medianMinutes": 0.25,
+   "ciMinutes": 12,
+   "conclusions": {
+    "success": 27
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 18,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 6,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": true,
+    "claude": false,
+    "settings": true,
+    "ci": true,
+    "score": 3
+   }
+  },
+  {
+   "name": "flisk-agent-stack",
+   "url": "https://github.com/flisk-sh/flisk-agent-stack",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-12T23:35:59Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-agent-stack/actions/runs/43330219827",
+     "at": "2026-11-12T23:36:26Z",
+     "minutes": 0.38,
+     "sha": "944164d",
+     "runs": 1,
+     "passRate": 100,
+     "medianMinutes": 0.38,
+     "p90Minutes": 0.38,
+     "flips": 0,
+     "flaky": false,
+     "recent": "s"
+    }
+   ],
+   "red": 0,
+   "runs": 1,
+   "passRate": 100,
+   "medianMinutes": 0.38,
+   "ciMinutes": 0,
+   "conclusions": {
+    "success": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-demo-animation",
+   "url": "https://github.com/flisk-sh/flisk-demo-animation",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:23:15Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Deploy to GitHub Pages",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-demo-animation/actions/runs/43533847203",
+     "at": "2026-11-14T00:23:39Z",
+     "minutes": 0.33,
+     "sha": "b61f0dd",
+     "runs": 9,
+     "passRate": 100,
+     "medianMinutes": 0.33,
+     "p90Minutes": 1.55,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssss"
+    },
+    {
+     "name": "pages build and deployment",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-demo-animation/actions/runs/43533846058",
+     "at": "2026-11-14T00:23:54Z",
+     "minutes": 0.58,
+     "sha": "b61f0dd",
+     "runs": 15,
+     "passRate": 100,
+     "medianMinutes": 0.68,
+     "p90Minutes": 2.05,
+     "flips": 0,
+     "flaky": false,
+     "recent": "scssscssssssssccsss"
+    }
+   ],
+   "red": 0,
+   "runs": 24,
+   "passRate": 100,
+   "medianMinutes": 0.65,
+   "ciMinutes": 22,
+   "conclusions": {
+    "success": 24,
+    "cancelled": 4
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 2,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-export",
+   "url": "https://github.com/flisk-sh/flisk-export",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:05:46Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "ci",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-export/actions/runs/43531825350",
+     "at": "2026-11-14T00:06:01Z",
+     "minutes": 0.2,
+     "sha": "7b09a77",
+     "runs": 18,
+     "passRate": 100,
+     "medianMinutes": 0.35,
+     "p90Minutes": 0.93,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 18,
+   "passRate": 100,
+   "medianMinutes": 0.35,
+   "ciMinutes": 11,
+   "conclusions": {
+    "success": 18
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 13,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 1,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-inference",
+   "url": "https://github.com/flisk-sh/flisk-inference",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T13:58:06Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-inference/actions/runs/43602393411",
+     "at": "2026-11-14T13:58:22Z",
+     "minutes": 0.22,
+     "sha": "bdedc97",
+     "runs": 36,
+     "passRate": 100,
+     "medianMinutes": 0.23,
+     "p90Minutes": 0.75,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssssscssscsss"
+    }
+   ],
+   "red": 0,
+   "runs": 36,
+   "passRate": 100,
+   "medianMinutes": 0.23,
+   "ciMinutes": 13,
+   "conclusions": {
+    "success": 36,
+    "cancelled": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 21,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 3,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-marketplaces",
+   "url": "https://github.com/flisk-sh/flisk-marketplaces",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-12T23:34:32Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-marketplaces/actions/runs/43330011103",
+     "at": "2026-11-12T23:34:45Z",
+     "minutes": 0.17,
+     "sha": "9d04a32",
+     "runs": 1,
+     "passRate": 100,
+     "medianMinutes": 0.17,
+     "p90Minutes": 0.17,
+     "flips": 0,
+     "flaky": false,
+     "recent": "s"
+    }
+   ],
+   "red": 0,
+   "runs": 1,
+   "passRate": 100,
+   "medianMinutes": 0.17,
+   "ciMinutes": 0,
+   "conclusions": {
+    "success": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-model",
+   "url": "https://github.com/flisk-sh/flisk-model",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-12T23:34:52Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-model/actions/runs/43330056159",
+     "at": "2026-11-12T23:35:16Z",
+     "minutes": 0.35,
+     "sha": "d0403b4",
+     "runs": 1,
+     "passRate": 100,
+     "medianMinutes": 0.35,
+     "p90Minutes": 0.35,
+     "flips": 0,
+     "flaky": false,
+     "recent": "s"
+    }
+   ],
+   "red": 0,
+   "runs": 1,
+   "passRate": 100,
+   "medianMinutes": 0.35,
+   "ciMinutes": 0,
+   "conclusions": {
+    "success": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-service-definitions",
+   "url": "https://github.com/flisk-sh/flisk-service-definitions",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-26T22:26:21Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "validate",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-service-definitions/actions/runs/40412435632",
+     "at": "2026-10-26T22:28:04Z",
+     "minutes": 1.68,
+     "sha": "a196717",
+     "runs": 12,
+     "passRate": 100,
+     "medianMinutes": 0.38,
+     "p90Minutes": 1.47,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 12,
+   "passRate": 100,
+   "medianMinutes": 0.38,
+   "ciMinutes": 7,
+   "conclusions": {
+    "success": 12
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-sh.github.io",
+   "url": "https://github.com/flisk-sh/flisk-sh.github.io",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T13:46:12Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Cilytics",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-sh.github.io/actions/runs/43571884252",
+     "at": "2026-11-14T07:38:09Z",
+     "minutes": 1.83,
+     "sha": "b0d9d6b",
+     "runs": 9,
+     "passRate": 100,
+     "medianMinutes": 1.83,
+     "p90Minutes": 2.32,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sscsssssss"
+    },
+    {
+     "name": "pages build and deployment",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-sh.github.io/actions/runs/43601422573",
+     "at": "2026-11-14T13:46:37Z",
+     "minutes": 0.38,
+     "sha": "492b037",
+     "runs": 46,
+     "passRate": 100,
+     "medianMinutes": 0.68,
+     "p90Minutes": 1.67,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssscsssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 55,
+   "passRate": 100,
+   "medianMinutes": 0.72,
+   "ciMinutes": 65,
+   "conclusions": {
+    "success": 55,
+    "cancelled": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 5,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-template-adonisjs",
+   "url": "https://github.com/flisk-sh/flisk-template-adonisjs",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:40:10Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "e2e",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-adonisjs/actions/runs/43338886199",
+     "at": "2026-11-13T00:42:22Z",
+     "minutes": 2.15,
+     "sha": "fba6801",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 7.68,
+     "p90Minutes": 8.95,
+     "flips": 0,
+     "flaky": false,
+     "recent": "scs"
+    },
+    {
+     "name": "verify",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-adonisjs/actions/runs/43338885775",
+     "at": "2026-11-13T00:41:44Z",
+     "minutes": 1.52,
+     "sha": "fba6801",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 1.52,
+     "p90Minutes": 8.1,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    }
+   ],
+   "red": 0,
+   "runs": 5,
+   "passRate": 100,
+   "medianMinutes": 4.92,
+   "ciMinutes": 30,
+   "conclusions": {
+    "success": 5,
+    "cancelled": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-template-analog",
+   "url": "https://github.com/flisk-sh/flisk-template-analog",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-13T00:40:14Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "e2e",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-analog/actions/runs/43338895124",
+     "at": "2026-11-13T00:42:50Z",
+     "minutes": 2.55,
+     "sha": "35cc94b",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 2.55,
+     "p90Minutes": 8.92,
+     "flips": 0,
+     "flaky": false,
+     "recent": "scs"
+    },
+    {
+     "name": "verify",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-analog/actions/runs/43338894784",
+     "at": "2026-11-13T00:41:37Z",
+     "minutes": 1.35,
+     "sha": "35cc94b",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 1.35,
+     "p90Minutes": 2.58,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    }
+   ],
+   "red": 0,
+   "runs": 5,
+   "passRate": 100,
+   "medianMinutes": 2.19,
+   "ciMinutes": 19,
+   "conclusions": {
+    "success": 5,
+    "cancelled": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-template-portal",
+   "url": "https://github.com/flisk-sh/flisk-template-portal",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-30T14:32:19Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-template-portal/actions/runs/41072427430",
+     "at": "2026-10-30T14:32:34Z",
+     "minutes": 0.22,
+     "sha": "0d57988",
+     "runs": 3,
+     "passRate": 100,
+     "medianMinutes": 0.22,
+     "p90Minutes": 0.23,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sss"
+    }
+   ],
+   "red": 0,
+   "runs": 3,
+   "passRate": 100,
+   "medianMinutes": 0.22,
+   "ciMinutes": 1,
+   "conclusions": {
+    "success": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-thor-storefront",
+   "url": "https://github.com/flisk-sh/flisk-thor-storefront",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-10T11:47:06Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "Check",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-thor-storefront/actions/runs/42810280716",
+     "at": "2026-11-10T11:47:45Z",
+     "minutes": 0.63,
+     "sha": "442f10f",
+     "runs": 13,
+     "passRate": 100,
+     "medianMinutes": 0.4,
+     "p90Minutes": 0.9,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 13,
+   "passRate": 100,
+   "medianMinutes": 0.4,
+   "ciMinutes": 7,
+   "conclusions": {
+    "success": 13
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-user-management",
+   "url": "https://github.com/flisk-sh/flisk-user-management",
+   "defaultBranch": "master",
+   "pushedAt": "2026-10-26T22:26:44Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "🔐 User Management CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk-user-management/actions/runs/40412484675",
+     "at": "2026-10-26T22:28:59Z",
+     "minutes": 2.22,
+     "sha": "ed49520",
+     "runs": 11,
+     "passRate": 100,
+     "medianMinutes": 1.28,
+     "p90Minutes": 2.35,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 11,
+   "passRate": 100,
+   "medianMinutes": 1.28,
+   "ciMinutes": 18,
+   "conclusions": {
+    "success": 11
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk.si",
+   "url": "https://github.com/flisk-sh/flisk.si",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:09:20Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk.si/actions/runs/43603370512",
+     "at": "2026-11-14T14:09:40Z",
+     "minutes": 0.32,
+     "sha": "bb873cd",
+     "runs": 16,
+     "passRate": 100,
+     "medianMinutes": 0.3,
+     "p90Minutes": 0.63,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssss"
+    },
+    {
+     "name": "pages build and deployment",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/flisk.si/actions/runs/43603370182",
+     "at": "2026-11-14T14:09:56Z",
+     "minutes": 0.58,
+     "sha": "bb873cd",
+     "runs": 35,
+     "passRate": 100,
+     "medianMinutes": 0.67,
+     "p90Minutes": 1.03,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 51,
+   "passRate": 100,
+   "medianMinutes": 0.64,
+   "ciMinutes": 33,
+   "conclusions": {
+    "success": 51,
+    "cancelled": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 10,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 6,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 5,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 26,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "gardener",
+   "url": "https://github.com/flisk-sh/gardener",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:24:41Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/gardener/actions/runs/43534003546",
+     "at": "2026-11-14T00:25:03Z",
+     "minutes": 0.32,
+     "sha": "4953bc1",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 0.28,
+     "p90Minutes": 0.32,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ss"
+    }
+   ],
+   "red": 0,
+   "runs": 2,
+   "passRate": 100,
+   "medianMinutes": 0.28,
+   "ciMinutes": 1,
+   "conclusions": {
+    "success": 2
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 1,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "helpdock",
+   "url": "https://github.com/flisk-sh/helpdock",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:26:01Z",
+   "stars": 1,
+   "openPRs": 1,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/helpdock/actions/runs/43330147080",
+     "at": "2026-11-12T23:36:16Z",
+     "minutes": 0.75,
+     "sha": "ff97446",
+     "runs": 47,
+     "passRate": 100,
+     "medianMinutes": 0.5,
+     "p90Minutes": 0.75,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssssssssssscs"
+    },
+    {
+     "name": "Keep awake",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/helpdock/actions/runs/43300598586",
+     "at": "2026-11-12T20:28:46Z",
+     "minutes": 0.63,
+     "sha": "9523c10",
+     "runs": 11,
+     "passRate": 100,
+     "medianMinutes": 0.3,
+     "p90Minutes": 0.68,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 58,
+   "passRate": 100,
+   "medianMinutes": 0.5,
+   "ciMinutes": 32,
+   "conclusions": {
+    "success": 58,
+    "cancelled": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 2,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 17,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 4,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 8,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "md2html",
+   "url": "https://github.com/flisk-sh/md2html",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-27T22:48:44Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "CI",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/md2html/actions/runs/40597618260",
+     "at": "2026-10-27T22:49:00Z",
+     "minutes": 0.23,
+     "sha": "27faea7",
+     "runs": 2,
+     "passRate": 100,
+     "medianMinutes": 0.25,
+     "p90Minutes": 0.27,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ss"
+    },
+    {
+     "name": "Release",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/md2html/actions/runs/40597653487",
+     "at": "2026-10-27T22:49:28Z",
+     "minutes": 0.42,
+     "sha": "27faea7",
+     "runs": 1,
+     "passRate": 100,
+     "medianMinutes": 0.42,
+     "p90Minutes": 0.42,
+     "flips": 0,
+     "flaky": false,
+     "recent": "s"
+    }
+   ],
+   "red": 0,
+   "runs": 3,
+   "passRate": 100,
+   "medianMinutes": 0.27,
+   "ciMinutes": 1,
+   "conclusions": {
+    "success": 3
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": "vercel-store",
+   "url": "https://github.com/flisk-sh/vercel-store",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-10T11:46:59Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [
+    {
+     "name": "check",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/flisk-sh/vercel-store/actions/runs/42810264419",
+     "at": "2026-11-10T11:47:36Z",
+     "minutes": 0.6,
+     "sha": "a00fa85",
+     "runs": 9,
+     "passRate": 100,
+     "medianMinutes": 0.32,
+     "p90Minutes": 1.55,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssss"
+    }
+   ],
+   "red": 0,
+   "runs": 9,
+   "passRate": 100,
+   "medianMinutes": 0.32,
+   "ciMinutes": 5,
+   "conclusions": {
+    "success": 9
+   },
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 1,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "score": 1
+   }
+  },
+  {
+   "name": ".github",
+   "url": "https://github.com/flisk-sh/.github",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T00:00:43Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "analytics",
+   "url": "https://github.com/flisk-sh/analytics",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T12:12:01Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "awesome-flisk-framework",
+   "url": "https://github.com/flisk-sh/awesome-flisk-framework",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-10T11:46:44Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "awesome-rea-flisk-cases",
+   "url": "https://github.com/flisk-sh/awesome-rea-flisk-cases",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-26T22:25:30Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "flisk-auth-queue-email-example",
+   "url": "https://github.com/flisk-sh/flisk-auth-queue-email-example",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-26T22:25:43Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "flisk-bot",
+   "url": "https://github.com/flisk-sh/flisk-bot",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:09:26Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": true,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 1
+   }
+  },
+  {
+   "name": "flisk-ecommerce-example",
+   "url": "https://github.com/flisk-sh/flisk-ecommerce-example",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-26T22:25:58Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "flisk-emoji",
+   "url": "https://github.com/flisk-sh/flisk-emoji",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T12:27:15Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "flisk-person-crud-example",
+   "url": "https://github.com/flisk-sh/flisk-person-crud-example",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-26T22:26:13Z",
+   "stars": 1,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "flisk-task-starter",
+   "url": "https://github.com/flisk-sh/flisk-task-starter",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-10T00:30:34Z",
+   "stars": 2,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "host",
+   "url": "https://github.com/flisk-sh/host",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:09:54Z",
+   "stars": 0,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "releases",
+   "url": "https://github.com/flisk-sh/releases",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-14T14:28:08Z",
+   "stars": 3,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-01",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-02",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "score": 0
+   }
+  }
+ ],
+ "scores": {
+  "repo": "flisk-sh/flisk",
+  "rows": [
+   {
+    "id": "action-consistency",
+    "title": "Workflow pins, node versions and runners agree",
+    "mode": "ratchet",
+    "unit": "anomalies",
+    "value": 0,
+    "baseline": 0,
+    "status": "pass",
+    "summary": "71 workflow and action files, 0 anomalies",
+    "better": "lower"
+   },
+   {
+    "id": "ade",
+    "title": "Agentic development environment checks",
+    "mode": "ratchet",
+    "unit": "points",
+    "value": 50,
+    "baseline": 50,
+    "status": "pass",
+    "summary": "substrate 50/50, workspace 0/50",
+    "better": "higher"
+   },
+   {
+    "id": "agents-md-paths",
+    "title": "Paths in agent guidance files that exist",
+    "mode": "gate",
+    "unit": "stale paths",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "107 repo paths in 14 agent guidance files, 0 stale",
+    "better": "lower"
+   },
+   {
+    "id": "agents-md-size",
+    "title": "Lines in the largest AGENTS.md",
+    "mode": "ratchet",
+    "unit": "lines",
+    "value": 706,
+    "baseline": 706,
+    "status": "pass",
+    "summary": "13 guidance files; largest is runtime/engine/AGENTS.md (706 lines)",
+    "better": "lower"
+   },
+   {
+    "id": "claims-guard",
+    "title": "Public wording follows the claims registry",
+    "mode": "gate",
+    "unit": "violations",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "0 forbidden, 0 without caveat, in 426 public texts",
+    "better": "lower"
+   },
+   {
+    "id": "command-drift",
+    "title": "Documented flisk commands exist in the CLI",
+    "mode": "gate",
+    "unit": "violations",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "3677 flisk commands in 437 docs, 0 that the CLI would reject",
+    "better": "lower"
+   },
+   {
+    "id": "competitor-coverage",
+    "title": "Competitor features Flisk covers",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 57.2,
+    "baseline": 57.2,
+    "status": "pass",
+    "summary": "warp 55% (4 covered, 3 partial, 3 missing, 14 out-of-scope); superset 66.7% (6 covered, 4 partial, 2 missing, 12 out-of-scope); skills-sh 50% (4 covered, 6 partial, 4 missing, 10 out-of-scope); tilt 67.4% (12 covered, 7 partial, 4 missing, 3 out-of-scope); docker-compose 59.1% (10 covered, 6 partial, 6 missing, 2 out-of-scope); dev-containers 67.6% (10 covered, 3 partial, 4 missing, 7 out-of-scope); coder 45.5% (1 covered, 8 partial, 2 missing, 16 out-of-scope); process-compose 43.8% (3 covered, 8 partial, 5 missing, 6 out-of-scope); garden 60% (8 covered, 8 partial, 4 missing, 9 out-of-scope)",
+    "better": "higher"
+   },
+   {
+    "id": "dist-line-endings",
+    "title": "Committed cli/dist files with CRLF line endings",
+    "mode": "gate",
+    "unit": "files",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "534 committed build files, 0 with CRLF",
+    "better": "lower"
+   },
+   {
+    "id": "doc-links",
+    "title": "Relative links in Markdown resolve",
+    "mode": "gate",
+    "unit": "broken links",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "9423 relative links in 532 Markdown files, 0 broken",
+    "better": "lower"
+   },
+   {
+    "id": "doctor-check-docs",
+    "title": "Doctor checks documented in troubleshooting.md",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 28.6,
+    "baseline": 27.8,
+    "status": "pass",
+    "summary": "18/63 doctor checks named in docs/troubleshooting.md",
+    "better": "higher"
+   },
+   {
+    "id": "env-var-consistency",
+    "title": "Environment variables agree between code and docs",
+    "mode": "ratchet",
+    "unit": "inconsistencies",
+    "value": 0,
+    "baseline": 0,
+    "status": "pass",
+    "summary": "75 documented, 172 mentioned in code, 0 inconsistencies",
+    "better": "lower"
+   },
+   {
+    "id": "error-contract",
+    "title": "Throws that are FliskError with suggestions",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 97.1,
+    "baseline": 96.8,
+    "status": "pass",
+    "summary": "237 of 244 throws are FliskError with a suggestion",
+    "better": "higher"
+   },
+   {
+    "id": "github-script-retries",
+    "title": "actions/github-script steps that retry transient GitHub errors",
+    "mode": "gate",
+    "unit": "steps",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "8 github-script steps, 0 without a retry",
+    "better": "lower"
+   },
+   {
+    "id": "json-coverage",
+    "title": "Leaf commands with --json",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 100,
+    "baseline": 100,
+    "status": "pass",
+    "summary": "26 of 26 leaf commands accept --json",
+    "better": "higher"
+   },
+   {
+    "id": "json-docs",
+    "title": "Commands with --json documented in machine-readable-cli.md",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 100,
+    "baseline": 100,
+    "status": "pass",
+    "summary": "26 of 26 commands with --json are in docs/reference/machine-readable-cli.md",
+    "better": "higher"
+   },
+   {
+    "id": "legacy-names",
+    "title": "No leftover tdk names from the flisk rename",
+    "mode": "ratchet",
+    "unit": "leftovers",
+    "value": 0,
+    "baseline": 0,
+    "status": "pass",
+    "summary": "2655 files scanned, 0 leftover old names",
+    "better": "lower"
+   },
+   {
+    "id": "llms-freshness",
+    "title": "Agent contracts that name every command and MCP tool",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 100,
+    "baseline": 100,
+    "status": "pass",
+    "summary": "88 of 88 (document, item) pairs named: llms.txt 44/44, llms-full.txt 44/44",
+    "better": "higher"
+   },
+   {
+    "id": "local-only",
+    "title": "No cluster deployment generated by default",
+    "mode": "gate",
+    "unit": "violations",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "532 generator, template and engine files, 0 cluster deployments",
+    "better": "lower"
+   },
+   {
+    "id": "lockfile-drift",
+    "title": "cli/package.json ranges that cli/pnpm-lock.yaml does not match",
+    "mode": "gate",
+    "unit": "specifiers",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "15 declared dependencies, 0 the pnpm lockfile does not match",
+    "better": "lower"
+   },
+   {
+    "id": "mcp-parity",
+    "title": "CLI commands reachable through an MCP tool",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 100,
+    "baseline": 100,
+    "status": "pass",
+    "summary": "20 of 20 commands reachable through MCP",
+    "better": "higher"
+   },
+   {
+    "id": "mcp-tool-tests",
+    "title": "MCP tools a test calls by name",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 100,
+    "baseline": 100,
+    "status": "pass",
+    "summary": "24 of 24 MCP tools named by a test",
+    "better": "higher"
+   },
+   {
+    "id": "memory-size",
+    "title": "Size of the repository memory file",
+    "mode": "ratchet",
+    "unit": "KB",
+    "value": 50.2,
+    "baseline": 50.2,
+    "status": "pass",
+    "summary": ".claude/memory/MEMORY.md: 50.2 KB, 132 entries, 7 turned into a gate",
+    "better": "lower"
+   },
+   {
+    "id": "migrator-contract",
+    "title": "Database migrations only in migrator resources",
+    "mode": "gate",
+    "unit": "violations",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "83 start files and 262 CLI sources read, 0 migrations outside a migrator",
+    "better": "lower"
+   },
+   {
+    "id": "openspec-unarchived",
+    "title": "Finished OpenSpec changes not archived",
+    "mode": "ratchet",
+    "unit": "changes",
+    "value": 17,
+    "baseline": 17,
+    "status": "pass",
+    "summary": "17 of 42 open changes have every task done",
+    "better": "lower"
+   },
+   {
+    "id": "public-env-heuristic",
+    "title": "Public-env secret heuristic agrees with its labelled corpus",
+    "mode": "gate",
+    "unit": "%",
+    "value": 100,
+    "target": 100,
+    "status": "pass",
+    "summary": "35/35 cases right (16 credentials, 19 public values)",
+    "better": "higher"
+   },
+   {
+    "id": "public-env-secrets",
+    "title": "No secret-looking values in tracked NEXT_PUBLIC_* / VITE_* examples",
+    "mode": "gate",
+    "unit": "findings",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "11 public variable assignments in 1604 files, 0 secret-looking",
+    "better": "lower"
+   },
+   {
+    "id": "readme-first-screen",
+    "title": "README first screen",
+    "mode": "report",
+    "unit": "checks",
+    "value": 3,
+    "status": "report",
+    "summary": "H1 near the top: non-empty line 3; install command: line 48; image: line 3; badges before the first code block: 7; prose words before the first code block: 208",
+    "better": "higher"
+   },
+   {
+    "id": "readme-readability",
+    "title": "README reading ease (Flesch)",
+    "mode": "report",
+    "unit": "/100",
+    "value": 71.7,
+    "status": "report",
+    "summary": "3833 words; 2.7% infrastructure words",
+    "better": "higher"
+   },
+   {
+    "id": "schema-coverage",
+    "title": "service.json settings read by a generator and named in a test",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 100,
+    "baseline": 100,
+    "status": "pass",
+    "summary": "86 of 86 schema items read by a generator and named in a test (52 property, 10 appType, 24 featuresEnabled)",
+    "better": "higher"
+   },
+   {
+    "id": "schema-surface",
+    "title": "service.json top-level settings (new ones need a baseline bump)",
+    "mode": "ratchet",
+    "unit": "settings",
+    "value": 52,
+    "baseline": 52,
+    "status": "pass",
+    "summary": "52 top-level settings in runtime/engine/schemas/service-schema.json",
+    "better": "lower"
+   },
+   {
+    "id": "skills-parity",
+    "title": "Agent skills whose flisk commands all exist",
+    "mode": "ratchet",
+    "unit": "%",
+    "value": 100,
+    "baseline": 100,
+    "status": "pass",
+    "summary": "34 of 34 skills clean, 483 flisk commands checked",
+    "better": "higher"
+   },
+   {
+    "id": "skipped-tests",
+    "title": "Skipped tests without a reason",
+    "mode": "gate",
+    "unit": "unexplained skips",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "0 skipped or todo tests, 0 without a reason",
+    "better": "lower"
+   },
+   {
+    "id": "sparse-checkout-paths",
+    "title": "Repository paths a sparse-checkout job runs but does not check out",
+    "mode": "gate",
+    "unit": "paths",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "5 sparse-checkout jobs, 0 paths they run but do not check out",
+    "better": "lower"
+   },
+   {
+    "id": "starlark-loads",
+    "title": "Starlark load() targets that exist",
+    "mode": "gate",
+    "unit": "missing",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "459 load() calls in 182 Starlark files, 0 pointing at a missing file",
+    "better": "lower"
+   },
+   {
+    "id": "starlark-strings",
+    "title": "Starlark strings with an invalid escape or implicit concatenation",
+    "mode": "gate",
+    "unit": "literals",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "182 Starlark files, 0 literals Starlark rejects",
+    "better": "lower"
+   },
+   {
+    "id": "steps-to-first-healthy",
+    "title": "Commands from install to flisk up in the README quickstart",
+    "mode": "ratchet",
+    "unit": "commands",
+    "value": 6,
+    "baseline": 7,
+    "status": "pass",
+    "summary": "README.md:51: mkdir my-shop → cd my-shop → flisk project --yes → flisk resource orders-api --type backend --stack shop --yes → flisk resource shop-web --type frontend --stack shop --yes → flisk up shop",
+    "better": "lower"
+   },
+   {
+    "id": "tagline-consistency",
+    "title": "Distinct taglines across public surfaces",
+    "mode": "report",
+    "unit": "taglines",
+    "value": 1,
+    "status": "report",
+    "summary": "1 distinct across 5 sources",
+    "better": "lower"
+   },
+   {
+    "id": "test-ports",
+    "title": "Tests that guess a port instead of asking the OS",
+    "mode": "gate",
+    "unit": "guesses",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "587 test files, 0 guessed ports",
+    "better": "lower"
+   },
+   {
+    "id": "tool-consistency",
+    "title": "MCP tools, CLI and docs agree with each other",
+    "mode": "ratchet",
+    "unit": "inconsistencies",
+    "value": 0,
+    "baseline": 0,
+    "status": "pass",
+    "summary": "24 MCP tools, 0 inconsistencies; tool lists in docs/agent-hosts.md, docs/agent-tooling/README.md, docs/agent-tooling/flisk-mcp-setup.md, docs/agents/flisk-for-agents.md, docs/agents/llms-full.txt, docs/agents/llms.txt",
+    "better": "lower"
+   },
+   {
+    "id": "tracked-build-output",
+    "title": "Tracked node_modules, coverage or test output",
+    "mode": "gate",
+    "unit": "paths",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "3770 tracked paths, 0 dependency or test-output paths among them",
+    "better": "lower"
+   },
+   {
+    "id": "tracked-secrets",
+    "title": "No .env files or credentials in tracked files",
+    "mode": "gate",
+    "unit": "findings",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "3770 tracked files, 0 secrets or .env files",
+    "better": "lower"
+   },
+   {
+    "id": "translation-drift",
+    "title": "Translated READMEs whose quickstart drifted from README.md",
+    "mode": "ratchet",
+    "unit": "translations",
+    "value": 0,
+    "baseline": 0,
+    "status": "pass",
+    "summary": "0 of 20 translations differ from README.md:51",
+    "better": "lower"
+   },
+   {
+    "id": "warm-start-time",
+    "title": "Warm flisk up to healthy (newest committed benchmark)",
+    "mode": "report",
+    "unit": "s",
+    "value": 40,
+    "status": "report",
+    "summary": "tdk-restaurant-example, 3 warm runs, cold 281 s, flisk 1.3.144, Darwin 25.5.0 arm64, 8 CPUs, benchmark of 2026-10-11, 34 days old",
+    "better": "lower"
+   },
+   {
+    "id": "workflow-permissions",
+    "title": "Workflows declare least-privilege token permissions",
+    "mode": "gate",
+    "unit": "problems",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "65 workflows, 0 without least-privilege token permissions",
+    "better": "lower"
+   },
+   {
+    "id": "workflow-pr-speed",
+    "title": "Pull request workflows that cancel superseded runs and keep jobs under 30 minutes",
+    "mode": "gate",
+    "unit": "problems",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "13 pull request workflows, 0 that hold runners longer than they need",
+    "better": "lower"
+   },
+   {
+    "id": "workflow-timeouts",
+    "title": "Workflow jobs with no timeout-minutes",
+    "mode": "gate",
+    "unit": "jobs",
+    "value": 0,
+    "target": 0,
+    "status": "pass",
+    "summary": "120 jobs (1 reusable-workflow calls exempt), 0 without timeout-minutes",
+    "better": "lower"
+   }
+  ]
+ }
+}
