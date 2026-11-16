@@ -47,6 +47,8 @@ runs:
       run: |
         node "$ACTION_PATH/scripts/cilytics/collect.mjs" --out cilytics-out/data.json --history cilytics-out/history.json
         cp "$ACTION_PATH/checks/index.html" cilytics-out/index.html
+        # Flisk's own analytics and org bar stay on flisk-sh.github.io only
+        sed -i -e '/flisk\.sh\/a\.js/d' -e '/flisk\.si\/assets\/bar\.js/d' cilytics-out/index.html
     - name: Publish
       if: inputs.publish == 'true'
       shell: bash

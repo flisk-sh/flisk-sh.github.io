@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script defer data-domain="flisk-sh.github.io" src="https://flisk.sh/a.js"></script>
 <title>Cilytics · CI health</title>
 <meta name="description" content="Hourly CI health for every active repository of a GitHub org or user: pass rate, red, flaky and slow workflows, GEL guards and AI-SDLC flags. From the GitHub API only, no model, no account.">
 <link rel="canonical" href="https://flisk-sh.github.io/checks/">
@@ -137,6 +138,7 @@ footer a{color:var(--dim)}
   .row{grid-template-columns:minmax(0,1fr) 92px 64px;gap:8px}.row .opt{display:none}.srow{grid-template-columns:minmax(0,1fr) 56px}.srow .opt{display:none}}
 </style>
 </head>
+<script src="https://flisk.si/assets/bar.js" defer></script>
 <body>
 <header class="hd">
   <a class="brand" href="https://flisk.sh/"><span class="mk">&gt;_</span>flisk</a>
@@ -239,8 +241,6 @@ footer a{color:var(--dim)}
   const orgText = (org) => (org ? { title: `Cilytics · ${org} CI`, sub: `CI health across ${org}, every hour.`, intro: `Every active public repository of ${org}, read from the GitHub API once an hour: what is red on the default branch right now, which workflows flip between pass and fail, which are slow. No model, no account.` } : null);
   /*end-org-text*/
   if (!FLISK_HOST) document.querySelector(".sw").hidden = true; // the Flisk product switcher points at flisk-sh.github.io
-  // Flisk's own site keeps its analytics and org bar; a copy hosted by anyone else loads neither.
-  if (FLISK_HOST) for (const [src, attrs] of [["https://flisk.sh/a.js", { "data-domain": "flisk-sh.github.io" }], ["https://flisk.si/assets/bar.js", {}]]) { const sc = document.createElement("script"); sc.defer = true; sc.src = src; for (const k in attrs) sc.setAttribute(k, attrs[k]); document.head.appendChild(sc); }
   const DATA = okUrl(q.get("data")) ? q.get("data") : BASE + "data.json";
   const HIST = okUrl(q.get("history")) ? q.get("history") : BASE + "history.json";
   const NS = "http://www.w3.org/2000/svg";
