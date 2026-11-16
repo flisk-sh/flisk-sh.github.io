@@ -75,31 +75,6 @@ Reopen (or just click into) a `service.json` file and VS Code will underline inv
 
 ⭐ **Using Flisk?** [Star flisk](https://github.com/flisk-sh/flisk) so other developers can find it.
 
-## Use Cilytics for your org
+## Cilytics
 
-[Cilytics](https://flisk-sh.github.io/checks/) shows CI health for every active public repo of a GitHub org or user: red workflows, pass rate, flaky and slow runs, GEL guards. It reads the GitHub API only. To run it on your own account, add this workflow to any repo you own (a `ci-dashboard` repo works well):
-
-```yaml
-# .github/workflows/cilytics.yml
-name: Cilytics
-on:
-  schedule:
-    - cron: "17 * * * *"
-  workflow_dispatch:
-
-permissions:
-  contents: write # lets the action update the cilytics-data branch of this repo
-
-jobs:
-  cilytics:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: flisk-sh/flisk-sh.github.io@<full commit SHA of the version you trust>
-        with:
-          org: your-org-or-username # optional, defaults to this repo's owner
-```
-
-The action replaces `data.json`, `history.json` and `index.html` on the `cilytics-data` branch of your repo with one new commit each run. Turn on GitHub Pages for that branch (Settings, Pages, Deploy from a branch) and the page is at `https://<owner>.github.io/<repo>/`. The Flisk-hosted page can also show your data with `?src=owner/repo`, for example `https://flisk-sh.github.io/checks/?src=your-org/ci-dashboard`.
-
-Inputs: `org` (an org or a user; when you run `scripts/cilytics/collect.mjs` yourself, set `CILYTICS_ORG`), `branch`, `max-repos`, `publish` (`false` for a dry run) and `token`. The default token reads public repos only. Pin the action to a commit SHA, as above.
+Cilytics (hourly CI health for any GitHub org or user) moved to its own repository: [flisk-sh/cilytics](https://github.com/flisk-sh/cilytics). The page is at https://flisk-sh.github.io/cilytics/.

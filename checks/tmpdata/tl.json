@@ -1,0 +1,883 @@
+{
+ "org": "tldraw",
+ "ownerType": "Organization",
+ "generatedAt": "2026-11-16T11:39:01.184Z",
+ "activeDays": 90,
+ "skipped": 23,
+ "totals": {
+  "repos": 6,
+  "workflows": 16,
+  "red": 1,
+  "redRepos": 1,
+  "passRate": 97.2,
+  "openPRs": 178,
+  "runs": 143,
+  "ciMinutes": 570,
+  "flaky": 1,
+  "sdlcReady": 0,
+  "gelRepos": 0,
+  "gelFindings": 0,
+  "gelBlocked": 0
+ },
+ "repos": [
+  {
+   "name": "tldraw",
+   "url": "https://github.com/tldraw/tldraw",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-16T11:29:46Z",
+   "stars": 51433,
+   "openPRs": 175,
+   "workflows": [
+    {
+     "name": "i18n download strings",
+     "conclusion": "failure",
+     "red": true,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43846205212",
+     "at": "2026-11-16T10:10:20Z",
+     "minutes": 1.33,
+     "sha": "e3e1885",
+     "runs": 2,
+     "passRate": 50,
+     "medianMinutes": 2.68,
+     "p90Minutes": 4.03,
+     "flips": 1,
+     "flaky": false,
+     "recent": "sf"
+    },
+    {
+     "name": "Code Quality: Push on main",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43857995362",
+     "at": "2026-11-16T11:31:11Z",
+     "minutes": 3.15,
+     "sha": "5b0841d",
+     "runs": 11,
+     "passRate": 100,
+     "medianMinutes": 3.07,
+     "p90Minutes": 3.17,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssssssss"
+    },
+    {
+     "name": "Deploy .com",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43857996307",
+     "at": "2026-11-16T11:32:01Z",
+     "minutes": 3.98,
+     "sha": "5b0841d",
+     "runs": 10,
+     "passRate": 100,
+     "medianMinutes": 4.06,
+     "p90Minutes": 4.4,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssss"
+    },
+    {
+     "name": "Deploy analytics worker",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43857996259",
+     "at": "2026-11-16T11:29:30Z",
+     "minutes": 1.47,
+     "sha": "5b0841d",
+     "runs": 10,
+     "passRate": 100,
+     "medianMinutes": 1.48,
+     "p90Minutes": 1.63,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssss"
+    },
+    {
+     "name": "Deploy bemo",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43857996342",
+     "at": "2026-11-16T11:29:34Z",
+     "minutes": 1.53,
+     "sha": "5b0841d",
+     "runs": 10,
+     "passRate": 100,
+     "medianMinutes": 1.51,
+     "p90Minutes": 1.82,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssss"
+    },
+    {
+     "name": "End to end tests (perf)",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43857996128",
+     "at": "2026-11-16T11:31:10Z",
+     "minutes": 3.13,
+     "sha": "5b0841d",
+     "runs": 10,
+     "passRate": 100,
+     "medianMinutes": 3.14,
+     "p90Minutes": 4.12,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssss"
+    },
+    {
+     "name": "i18n upload strings",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43857996285",
+     "at": "2026-11-16T11:28:54Z",
+     "minutes": 0.87,
+     "sha": "5b0841d",
+     "runs": 10,
+     "passRate": 100,
+     "medianMinutes": 0.89,
+     "p90Minutes": 0.97,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssss"
+    },
+    {
+     "name": "Issue Triage",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43843969172",
+     "at": "2026-11-16T09:55:56Z",
+     "minutes": 1.6,
+     "sha": "f86f226",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 2.34,
+     "p90Minutes": 2.7,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    },
+    {
+     "name": "npm_and_yarn in /., /internal/scripts for @fastify/busboy, @grpc/grpc-js, @grpc/grpc-js, @hono/node-server, @hono/node-server, @modelcontextprotocol/sdk, @modelcontextprotocol/sdk, @modelcontextprotocol/sdk, @modelcontextprotocol/sdk, @modelcontextprotocol/sdk, @modelcontextprotocol/sdk, @vitest/mocker, @vitest/mocker, @vitest/ui, @vue/server-renderer, basic-ftp, body-parser, brace-expansion, brace-expansion, brace-expansion, brace-expansion, brace-expansion, decode-uri-component, dompurify, dompurify, d...",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43425920603",
+     "at": "2026-11-13T12:32:42Z",
+     "minutes": 0.97,
+     "sha": "b16ccbe",
+     "runs": 6,
+     "passRate": 100,
+     "medianMinutes": 0.89,
+     "p90Minutes": 0.98,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssss"
+    },
+    {
+     "name": "Prune preview deploys",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43777854297",
+     "at": "2026-11-16T00:03:10Z",
+     "minutes": 2.47,
+     "sha": "bed0083",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 3.03,
+     "p90Minutes": 4.38,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    },
+    {
+     "name": "Publish editor extensions",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43857996206",
+     "at": "2026-11-16T11:31:23Z",
+     "minutes": 3.35,
+     "sha": "5b0841d",
+     "runs": 10,
+     "passRate": 100,
+     "medianMinutes": 2.58,
+     "p90Minutes": 3.22,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssss"
+    },
+    {
+     "name": "Publish SDK packages",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43844448340",
+     "at": "2026-11-16T10:37:16Z",
+     "minutes": 39.77,
+     "sha": "e3e1885",
+     "runs": 8,
+     "passRate": 100,
+     "medianMinutes": 35.98,
+     "p90Minutes": 44,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssss"
+    },
+    {
+     "name": "Staging E2E Daily Cleanup",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/tldraw/actions/runs/43788435548",
+     "at": "2026-11-16T01:49:37Z",
+     "minutes": 0.78,
+     "sha": "bed0083",
+     "runs": 4,
+     "passRate": 100,
+     "medianMinutes": 0.79,
+     "p90Minutes": 0.82,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssss"
+    }
+   ],
+   "red": 1,
+   "runs": 99,
+   "passRate": 99,
+   "medianMinutes": 2.45,
+   "p95Minutes": 34.93,
+   "ciMinutes": 498,
+   "conclusions": {
+    "success": 98,
+    "failure": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 15,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 41,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 3,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-15",
+     "pass": 11,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-16",
+     "pass": 28,
+     "fail": 1
+    }
+   ],
+   "gel": {
+    "installed": false
+   },
+   "sdlc": {
+    "agents": true,
+    "claude": true,
+    "settings": true,
+    "ci": true,
+    "gel": false,
+    "score": 4
+   }
+  },
+  {
+   "name": "obsidian-plugin",
+   "url": "https://github.com/tldraw/obsidian-plugin",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-29T06:40:39Z",
+   "stars": 469,
+   "openPRs": 2,
+   "workflows": [
+    {
+     "name": "Checks",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/obsidian-plugin/actions/runs/40830445254",
+     "at": "2026-10-29T06:39:38Z",
+     "minutes": 1.02,
+     "sha": "56955a4",
+     "runs": 7,
+     "passRate": 100,
+     "medianMinutes": 1,
+     "p90Minutes": 1.05,
+     "flips": 0,
+     "flaky": false,
+     "recent": "sssssss"
+    },
+    {
+     "name": "E2E",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/obsidian-plugin/actions/runs/40830445225",
+     "at": "2026-10-29T06:40:19Z",
+     "minutes": 1.7,
+     "sha": "56955a4",
+     "runs": 23,
+     "passRate": 100,
+     "medianMinutes": 1.83,
+     "p90Minutes": 2.48,
+     "flips": 0,
+     "flaky": false,
+     "recent": "ssssssssssssssscssss"
+    },
+    {
+     "name": "Manual Release",
+     "conclusion": "success",
+     "red": false,
+     "url": "https://github.com/tldraw/obsidian-plugin/actions/runs/40830583144",
+     "at": "2026-10-29T06:40:43Z",
+     "minutes": 0.7,
+     "sha": "56955a4",
+     "runs": 14,
+     "passRate": 78.6,
+     "medianMinutes": 0.65,
+     "p90Minutes": 0.8,
+     "flips": 5,
+     "flaky": true,
+     "recent": "fssfsssssssfss"
+    }
+   ],
+   "red": 0,
+   "runs": 44,
+   "passRate": 93.2,
+   "medianMinutes": 1.55,
+   "p95Minutes": 2.6,
+   "ciMinutes": 72,
+   "conclusions": {
+    "success": 41,
+    "failure": 3,
+    "cancelled": 1
+   },
+   "days": [
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-15",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-16",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "gel": {
+    "installed": false
+   },
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": true,
+    "gel": false,
+    "score": 1
+   }
+  },
+  {
+   "name": "tldraw-office",
+   "url": "https://github.com/tldraw/tldraw-office",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-12T16:48:58Z",
+   "stars": 693,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "p95Minutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-15",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-16",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "gel": {
+    "installed": false
+   },
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "gel": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "tldraw-office-nightly",
+   "url": "https://github.com/tldraw/tldraw-office-nightly",
+   "defaultBranch": "main",
+   "pushedAt": "2026-11-15T03:28:26Z",
+   "stars": 9,
+   "openPRs": 1,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "p95Minutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-15",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-16",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "gel": {
+    "installed": false
+   },
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "gel": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "vue-template",
+   "url": "https://github.com/tldraw/vue-template",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-28T14:54:56Z",
+   "stars": 10,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "p95Minutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-15",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-16",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "gel": {
+    "installed": false
+   },
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "gel": false,
+    "score": 0
+   }
+  },
+  {
+   "name": "workflow-template",
+   "url": "https://github.com/tldraw/workflow-template",
+   "defaultBranch": "main",
+   "pushedAt": "2026-10-28T14:54:59Z",
+   "stars": 20,
+   "openPRs": 0,
+   "workflows": [],
+   "red": 0,
+   "runs": 0,
+   "passRate": null,
+   "medianMinutes": null,
+   "p95Minutes": null,
+   "ciMinutes": 0,
+   "conclusions": {},
+   "days": [
+    {
+     "d": "2026-11-03",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-04",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-05",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-06",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-07",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-08",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-09",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-10",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-11",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-12",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-13",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-14",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-15",
+     "pass": 0,
+     "fail": 0
+    },
+    {
+     "d": "2026-11-16",
+     "pass": 0,
+     "fail": 0
+    }
+   ],
+   "gel": {
+    "installed": false
+   },
+   "sdlc": {
+    "agents": false,
+    "claude": false,
+    "settings": false,
+    "ci": false,
+    "gel": false,
+    "score": 0
+   }
+  }
+ ]
+}
