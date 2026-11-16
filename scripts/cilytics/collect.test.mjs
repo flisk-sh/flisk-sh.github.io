@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { dailyCounts, findGelRun, gelFromRecord, median, percentile, sdlcFlags, summarizeRuns, totals, workflowStats } from "./collect.mjs";
+import { readFileSync } from "node:fs";
+import { collect, dailyCounts, findGelRun, gelFromRecord, median, percentile, reposPath, resolveOrg, sdlcFlags, summarizeRuns, totals, workflowStats } from "./collect.mjs";
 
 const NOW = Date.parse("2026-11-12T12:00:00Z");
 const run = (workflow_id, name, conclusion, status = "completed", day = "2026-11-12") => ({
@@ -147,4 +148,62 @@ test("summarizeRuns reports p95 next to the median", () => {
 	const s = summarizeRuns([run(1, "CI", "success"), run(1, "CI", "success")], NOW);
 	assert.equal(s.p95Minutes, 3);
 	assert.equal(summarizeRuns([], NOW).p95Minutes, null);
+});
+
+test("resolveOrg prefers CILYTICS_ORG, then the Actions repo owner, then flisk-sh", () => {
+	assert.equal(resolveOrg({ CILYTICS_ORG: "tldraw", GITHUB_REPOSITORY_OWNER: "me" }), "tldraw");
+	assert.equal(resolveOrg({ CILYTICS_ORG: "", GITHUB_REPOSITORY_OWNER: "me" }), "me");
+	assert.equal(resolveOrg({}), "flisk-sh");
+});
+
+test("reposPath lists an organization's public repos and a user's own repos", () => {
+	assert.equal(reposPath("Organization", "tldraw"), "/orgs/tldraw/repos?type=public&sort=pushed");
+	assert.equal(reposPath("User", "alice"), "/users/alice/repos?type=owner&sort=pushed");
+});
+
+// Runs collect() against a stubbed GitHub API and returns the data plus every path it asked for.
+async function collectStubbed(account, type) {
+	const paths = [];
+	const real = globalThis.fetch;
+	globalThis.fetch = async (url) => {
+		const path = String(url).replace("https://api.github.com", "");
+		paths.push(path);
+		const json = (b) => new Response(JSON.stringify(b), { status: 200 });
+		if (path === `/users/${account}`) return json({ type });
+		if (path.includes("/repos?") && path.includes("page=1")) return json([{ name: "app", html_url: `https://github.com/${account}/app`, default_branch: "main", pushed_at: new Date().toISOString(), stargazers_count: 1, archived: false, fork: false }]);
+		if (path.includes("/actions/runs?")) return json({ workflow_runs: [] });
+		if (path.includes("/contents/")) return json([{ name: "AGENTS.md" }]);
+		return json([]);
+	};
+	try {
+		return { data: await collect(Date.now(), account, Infinity), paths };
+	} finally {
+		globalThis.fetch = real;
+	}
+}
+
+test("collect reads the account it is given, whether an organization or a user", async () => {
+	const o = await collectStubbed("tldraw", "Organization");
+	assert.equal(o.data.org, "tldraw");
+	assert.equal(o.data.ownerType, "Organization");
+	assert.ok(o.paths.some((p) => p.startsWith("/orgs/tldraw/repos")));
+	assert.ok(o.paths.some((p) => p.startsWith("/repos/tldraw/app/actions/runs")));
+	assert.ok(o.paths.every((p) => !p.includes("flisk-sh")));
+	const u = await collectStubbed("alice", "User");
+	assert.equal(u.data.org, "alice");
+	assert.equal(u.data.ownerType, "User");
+	assert.ok(u.paths.some((p) => p.startsWith("/users/alice/repos")));
+	assert.ok(u.paths.every((p) => !p.includes("/orgs/") && !p.includes("flisk-sh")));
+	assert.equal(u.data.repos[0].sdlc.agents, true);
+});
+
+test("the page takes its title and header from the org in the data, not from fixed text", () => {
+	const html = readFileSync(new URL("../../checks/index.html", import.meta.url), "utf8");
+	const orgText = new Function(`${html.split("/*org-text*/")[1].split("/*end-org-text*/")[0]}; return orgText;`)();
+	const t = orgText("tldraw");
+	assert.equal(t.title, "Cilytics · tldraw CI");
+	assert.match(t.sub, /tldraw/);
+	assert.match(t.intro, /Every active public repository of tldraw/);
+	assert.equal(orgText(undefined), null); // old snapshots without an org keep the static text
+	assert.ok(!html.slice(0, html.indexOf("<script>\n(() =>")).includes("flisk-sh CI"), "no fixed org name in the static title or header");
 });

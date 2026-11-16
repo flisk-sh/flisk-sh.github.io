@@ -1,8 +1,9 @@
-// Cilytics collector: a deterministic snapshot of CI across the flisk-sh org, for checks/index.html.
+// Cilytics collector: a deterministic snapshot of CI across a GitHub org or user account, for checks/index.html.
 //
-//   GITHUB_TOKEN=... node scripts/cilytics/collect.mjs --out data.json [--scores scores.json] [--history history.json]
+//   GITHUB_TOKEN=... CILYTICS_ORG=<org or user> node scripts/cilytics/collect.mjs --out data.json [--scores scores.json] [--history history.json]
 //
-// For every public, non-archived, non-fork repo pushed in the last 90 days it reads the last 100 workflow runs on the
+// The account is CILYTICS_ORG, else the owner of the repository running in Actions, else flisk-sh. CILYTICS_MAX_REPOS caps
+// how many repos are read (most recently pushed first). For every public, non-archived, non-fork repo pushed in the last 90 days it reads the last 100 workflow runs on the
 // default branch (pull-request runs excluded) and keeps, per workflow, the newest completed run. A workflow is red when
 // that run failed or timed out. Pass rate counts success against failure and timed_out only; cancelled, skipped and
 // neutral runs are left out. No model, no guessing: the same API answers give the same file.
@@ -12,7 +13,10 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
 
-const ORG = process.env.CILYTICS_ORG || "flisk-sh";
+// Pure: which account to read. An explicit setting wins, then the Actions repo owner, then flisk-sh.
+export const resolveOrg = (env = process.env) => env.CILYTICS_ORG || env.GITHUB_REPOSITORY_OWNER || "flisk-sh";
+// Pure: the repo-list endpoint for an account type from GET /users/{name} ("Organization" or "User").
+export const reposPath = (type, name) => (type === "User" ? `/users/${name}/repos?type=owner&sort=pushed` : `/orgs/${name}/repos?type=public&sort=pushed`);
 const ACTIVE_DAYS = 90;
 const RED = new Set(["failure", "timed_out", "startup_failure"]);
 const COUNTED = new Set(["success", "failure", "timed_out", "startup_failure"]);
@@ -181,9 +185,9 @@ export function gelFromRecord(text, run = {}) {
 }
 
 // Download the gel-record artifact of a run and return gel-record.jsonl's text. Throws on any failure.
-async function fetchGelRecord(run) {
+async function fetchGelRecord(run, org) {
 	const headers = { accept: "application/vnd.github+json", "x-github-api-version": "2022-11-28", authorization: `Bearer ${process.env.GITHUB_TOKEN}` };
-	const repo = run.repository?.full_name ?? `${ORG}/${run.repository?.name}`;
+	const repo = run.repository?.full_name ?? `${org}/${run.repository?.name}`;
 	const list = await gh(`/repos/${repo}/actions/runs/${run.id}/artifacts`);
 	const art = (list.artifacts || []).find((a) => a.name === "gel-record" && !a.expired);
 	if (!art) throw new Error("no gel-record artifact");
@@ -201,11 +205,11 @@ async function fetchGelRecord(run) {
 	}
 }
 
-async function collectGel(runs) {
+async function collectGel(runs, org) {
 	const run = findGelRun(runs);
 	if (!run) return { installed: false };
 	try {
-		return gelFromRecord(await fetchGelRecord(run), run);
+		return gelFromRecord(await fetchGelRecord(run, org), run);
 	} catch {
 		return gelFromRecord(null, run);
 	}
@@ -231,22 +235,23 @@ export function totals(repos) {
 	};
 }
 
-async function collect(now) {
+export async function collect(now, org = resolveOrg(), maxRepos = Number(process.env.CILYTICS_MAX_REPOS) || Infinity) {
 	const cutoff = now - ACTIVE_DAYS * 86400e3;
-	const all = await ghAll(`/orgs/${ORG}/repos?type=public&sort=pushed`);
-	const active = all.filter((r) => !r.archived && !r.fork && Date.parse(r.pushed_at) >= cutoff);
+	const owner = await gh(`/users/${org}`); // works for organizations and users alike
+	const all = await ghAll(reposPath(owner.type, org));
+	const active = all.filter((r) => !r.archived && !r.fork && Date.parse(r.pushed_at) >= cutoff).slice(0, maxRepos);
 	const repos = [];
 	for (const r of active) {
 		const runs = (
-			await gh(`/repos/${ORG}/${r.name}/actions/runs?branch=${encodeURIComponent(r.default_branch)}&per_page=100&exclude_pull_requests=true`)
+			await gh(`/repos/${org}/${r.name}/actions/runs?branch=${encodeURIComponent(r.default_branch)}&per_page=100&exclude_pull_requests=true`)
 		).workflow_runs;
-		const prs = await ghAll(`/repos/${ORG}/${r.name}/pulls?state=open`);
+		const prs = await ghAll(`/repos/${org}/${r.name}/pulls?state=open`);
 		let rootNames = [];
 		try {
-			rootNames = (await gh(`/repos/${ORG}/${r.name}/contents/?ref=${encodeURIComponent(r.default_branch)}`)).map((f) => f.name);
+			rootNames = (await gh(`/repos/${org}/${r.name}/contents/?ref=${encodeURIComponent(r.default_branch)}`)).map((f) => f.name);
 		} catch {}
 		const summary = summarizeRuns(runs, now);
-		const gel = await collectGel(runs);
+		const gel = await collectGel(runs, org);
 		repos.push({
 			name: r.name,
 			url: r.html_url,
@@ -261,7 +266,7 @@ async function collect(now) {
 	}
 	repos.sort((a, b) => b.red - a.red || (a.passRate ?? 101) - (b.passRate ?? 101) || a.name.localeCompare(b.name));
 	const skipped = all.length - active.length;
-	return { org: ORG, generatedAt: new Date(now).toISOString(), activeDays: ACTIVE_DAYS, skipped, totals: totals(repos), repos };
+	return { org, ownerType: owner.type, generatedAt: new Date(now).toISOString(), activeDays: ACTIVE_DAYS, skipped, totals: totals(repos), repos };
 }
 
 const readJson = (file, fallback) => {

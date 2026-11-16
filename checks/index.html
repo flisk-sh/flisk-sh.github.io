@@ -3,18 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<script defer data-domain="flisk-sh.github.io" src="https://flisk.sh/a.js"></script>
-<title>Cilytics · flisk-sh CI</title>
-<meta name="description" content="Hourly CI health for every active flisk-sh repository: pass rate, red, flaky and slow workflows, plus Flisk's deterministic scoreboard. From the GitHub API only, no model, no account.">
+<title>Cilytics · CI health</title>
+<meta name="description" content="Hourly CI health for every active repository of a GitHub org or user: pass rate, red, flaky and slow workflows, GEL guards and AI-SDLC flags. From the GitHub API only, no model, no account.">
 <link rel="canonical" href="https://flisk-sh.github.io/checks/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flisk-sh.github.io/checks/">
-<meta property="og:title" content="Cilytics · flisk-sh CI">
-<meta property="og:description" content="Hourly CI health for every active flisk-sh repository: pass rate, red, flaky and slow workflows, plus Flisk's deterministic scoreboard. From the GitHub API only, no model, no account.">
+<meta property="og:title" content="Cilytics · CI health">
+<meta property="og:description" content="Hourly CI health for every active repository of a GitHub org or user: pass rate, red, flaky and slow workflows, GEL guards and AI-SDLC flags. From the GitHub API only, no model, no account.">
 <meta property="og:image" content="https://flisk.sh/assets/images/flisk-social-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cilytics · flisk-sh CI">
-<meta name="twitter:description" content="Hourly CI health for every active flisk-sh repository: pass rate, red, flaky and slow workflows, plus Flisk's deterministic scoreboard. From the GitHub API only, no model, no account.">
+<meta name="twitter:title" content="Cilytics · CI health">
+<meta name="twitter:description" content="Hourly CI health for every active repository of a GitHub org or user: pass rate, red, flaky and slow workflows, GEL guards and AI-SDLC flags. From the GitHub API only, no model, no account.">
 <meta name="twitter:image" content="https://flisk.sh/assets/images/flisk-social-card.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
@@ -137,7 +136,6 @@ footer a{color:var(--dim)}
 @media (max-width:600px){.intro,.chart,footer{padding-left:16px;padding-right:16px}aside{padding-left:16px;padding-right:16px}.tools{gap:0}
   .row{grid-template-columns:minmax(0,1fr) 92px 64px;gap:8px}.row .opt{display:none}.srow{grid-template-columns:minmax(0,1fr) 56px}.srow .opt{display:none}}
 </style>
-<script src="https://flisk.si/assets/bar.js" defer></script>
 </head>
 <body>
 <header class="hd">
@@ -162,8 +160,8 @@ footer a{color:var(--dim)}
 <div class="app">
   <main>
     <section class="intro">
-      <h1>Cilytics. <span>CI health across flisk-sh, every hour.</span></h1>
-      <p>Every active public repository in the flisk-sh org, read from the GitHub API once an hour: what is red on the default branch right now, which workflows flip between pass and fail, which are slow, and Flisk's own deterministic scoreboard. No model, no account.</p>
+      <h1>Cilytics. <span id="h1sub">CI health, every hour.</span></h1>
+      <p id="intro">Every active public repository, read from the GitHub API once an hour: what is red on the default branch right now, which workflows flip between pass and fail, which are slow. No model, no account.</p>
       <div class="stamp" id="stamp">Loading the latest snapshot…</div>
       <div class="focus" id="focus" hidden>Showing <b id="focus-name"></b><button class="ib" id="focus-x" title="Show every repo">×</button></div>
       <div class="kp" id="kp"></div>
@@ -196,7 +194,7 @@ footer a{color:var(--dim)}
       <div class="plot" id="c-concl"></div>
     </section>
     <section class="chart" id="sdlc">
-      <div class="ch"><div><h2>AI-SDLC<small id="sdlc-n"></small></h2><p>Is each repo ready for coding agents, and do Flisk's deterministic checks hold the harness together? Instructions, specs, tools, guardrails and verification, after Anthropic's AI-SDLC guidance. Repo flags are read from each repo's root folder; scorers come from flisk-sh/flisk.</p></div></div>
+      <div class="ch"><div><h2>AI-SDLC<small id="sdlc-n"></small></h2><p>Is each repo ready for coding agents, and do deterministic checks hold the harness together? Instructions, specs, tools, guardrails and verification, after Anthropic's AI-SDLC guidance. Repo flags are read from each repo's root folder; the harness checks appear when a scoreboard is supplied (Flisk's own run does).</p></div></div>
       <div id="c-sdlc"></div>
     </section>
     <section class="chart" id="scores">
@@ -229,16 +227,26 @@ footer a{color:var(--dim)}
 
 <script>
 (() => {
-  const BASE = "https://raw.githubusercontent.com/flisk-sh/flisk-sh.github.io/cilytics-data/";
   const q = new URLSearchParams(location.search);
-  // ?data= and ?history= are for local testing: a same-site path or a flisk-sh raw URL only.
-  const okUrl = (u) => u && /^(https:\/\/raw\.githubusercontent\.com\/flisk-sh\/|\/|\.\.?\/)/.test(u) && !u.startsWith("//");
+  const FLISK_HOST = location.hostname === "flisk-sh.github.io";
+  // Where the snapshot lives: ?src=owner/repo[@branch] on any repo's data branch (default cilytics-data), else the Flisk
+  // snapshot when served from flisk-sh.github.io, else next to this page (the action publishes index.html with the data).
+  const SRC = /^([\w.-]+)\/([\w.-]+)(?:@([\w./-]+))?$/.exec(q.get("src") || "");
+  const BASE = SRC ? `https://raw.githubusercontent.com/${SRC[1]}/${SRC[2]}/${SRC[3] || "cilytics-data"}/` : FLISK_HOST ? "https://raw.githubusercontent.com/flisk-sh/flisk-sh.github.io/cilytics-data/" : "./";
+  // ?data= and ?history= are for local testing: a same-site path or a raw.githubusercontent.com URL only.
+  const okUrl = (u) => u && /^(https:\/\/raw\.githubusercontent\.com\/|\/|\.\.?\/)/.test(u) && !u.startsWith("//");
+  /*org-text*/
+  const orgText = (org) => (org ? { title: `Cilytics · ${org} CI`, sub: `CI health across ${org}, every hour.`, intro: `Every active public repository of ${org}, read from the GitHub API once an hour: what is red on the default branch right now, which workflows flip between pass and fail, which are slow. No model, no account.` } : null);
+  /*end-org-text*/
+  if (!FLISK_HOST) document.querySelector(".sw").hidden = true; // the Flisk product switcher points at flisk-sh.github.io
+  // Flisk's own site keeps its analytics and org bar; a copy hosted by anyone else loads neither.
+  if (FLISK_HOST) for (const [src, attrs] of [["https://flisk.sh/a.js", { "data-domain": "flisk-sh.github.io" }], ["https://flisk.si/assets/bar.js", {}]]) { const sc = document.createElement("script"); sc.defer = true; sc.src = src; for (const k in attrs) sc.setAttribute(k, attrs[k]); document.head.appendChild(sc); }
   const DATA = okUrl(q.get("data")) ? q.get("data") : BASE + "data.json";
   const HIST = okUrl(q.get("history")) ? q.get("history") : BASE + "history.json";
   const NS = "http://www.w3.org/2000/svg";
   const $ = (id) => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
-  const link = (href, text, c) => { const a = el("a", c, text); a.href = href; return a; };
+  const link = (href, text, c) => { const a = el("a", c, text); a.href = /^https?:\/\//.test(href) ? href : "#"; return a; };
   const svg = (w, h) => { const s = document.createElementNS(NS, "svg"); s.setAttribute("role", "img"); s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.setAttribute("width", w); s.setAttribute("height", h); return s; };
   const add = (p, tag, attrs, text) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; p.appendChild(e); return e; };
   const tip = (node, text) => { add(node, "title", {}, text); return node; };
@@ -464,6 +472,7 @@ footer a{color:var(--dim)}
     const repos = allRepos().filter((r) => r.sdlc);
     $("sdlc-n").textContent = repos.length ? " " + repos.filter((r) => r.sdlc.score === sdlcMax(r)).length + "/" + repos.length + " repos ready" : "";
     const g = el("div", "rows");
+    if (byId.size) {
     const gh = el("div", "row srow th"); gh.append(el("span", "", "Harness check (flisk-sh/flisk)"), el("span", "", "Status"), el("span", "n opt", "Value"));
     g.appendChild(gh);
     for (const [name, ids] of SDLC_GROUPS) {
@@ -477,6 +486,7 @@ footer a{color:var(--dim)}
       }
     }
     box.appendChild(g);
+    }
     if (!repos.length) return;
     const t = el("div", "rows");
     t.style.marginTop = "28px";
@@ -540,6 +550,9 @@ footer a{color:var(--dim)}
 
   function render() {
     if (!st.d) return;
+    const ot = orgText(st.d.org);
+    if (ot) { document.title = ot.title; $("h1sub").textContent = ot.sub; $("intro").textContent = ot.intro; }
+    $("scores").hidden = !(st.d.scores && st.d.scores.rows.length);
     $("focus").hidden = !st.focus; $("focus-name").textContent = st.focus || "";
     kpis(); trend(); redNow(); perRepo(); flaky(); slow(); outcomes(); sdlc(); scores(); side();
   }

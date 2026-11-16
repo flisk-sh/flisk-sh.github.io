@@ -1,0 +1,63 @@
+name: Cilytics
+description: Hourly CI health for a GitHub org or user, published to a data branch of your own repository together with the page.
+author: flisk-sh
+inputs:
+  org:
+    description: GitHub org or user to read. Defaults to the owner of the repository running the workflow.
+    required: false
+    default: ""
+  token:
+    description: Token that can read the public repos and push the data branch (the workflow's github.token with contents write is enough).
+    required: false
+    default: ${{ github.token }}
+  branch:
+    description: Branch that receives data.json, history.json and index.html, replaced as a single commit on every run.
+    required: false
+    default: cilytics-data
+  max-repos:
+    description: Read at most this many repos, most recently pushed first. Empty means all.
+    required: false
+    default: ""
+  publish:
+    description: Push the data branch. Set to "false" for a dry run that only writes ./cilytics-out.
+    required: false
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - name: Previous history
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        BRANCH: ${{ inputs.branch }}
+      run: |
+        mkdir -p cilytics-out
+        if git fetch --depth=1 "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH" 2>/dev/null; then
+          git show FETCH_HEAD:history.json > cilytics-out/history.json 2>/dev/null || echo '[]' > cilytics-out/history.json
+        else
+          echo '[]' > cilytics-out/history.json
+        fi
+    - name: Collect
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        CILYTICS_ORG: ${{ inputs.org }}
+        CILYTICS_MAX_REPOS: ${{ inputs.max-repos }}
+        ACTION_PATH: ${{ github.action_path }}
+      run: |
+        node "$ACTION_PATH/scripts/cilytics/collect.mjs" --out cilytics-out/data.json --history cilytics-out/history.json
+        cp "$ACTION_PATH/checks/index.html" cilytics-out/index.html
+    - name: Publish
+      if: inputs.publish == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        BRANCH: ${{ inputs.branch }}
+      run: |
+        cd cilytics-out
+        git init -q -b "$BRANCH"
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add data.json history.json index.html
+        git commit -q -m "cilytics: $(date -u +%FT%TZ)"
+        git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
