@@ -29,7 +29,7 @@ def validate_file(path):
 
 
 def main():
-    path = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent.parent / "schema.service.json")
+    path = Path(__file__).resolve().parent.parent / "schema.service.json"
     problems = validate_file(path)
     if problems:
         for problem in problems:
