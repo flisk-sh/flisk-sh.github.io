@@ -124,11 +124,15 @@ main() {
   verify "$tmp" "$asset"
   verify "$engine_tmp" "$engine_asset"
 
+  # Unpack before touching the installed files. A checksum does not prove the archive can unpack.
+  engine_dir="${work}/flisk-cli"
+  mkdir "$engine_dir"
+  tar -xzf "$engine_tmp" -C "$engine_dir" --strip-components=1 || fail "could not unpack the bundled engine"
+
   chmod +x "$tmp"
   mv "$tmp" "${install_dir}/${BIN_NAME}"
   rm -rf "${install_dir}/flisk-cli"
-  mkdir -p "${install_dir}/flisk-cli"
-  tar -xzf "$engine_tmp" -C "${install_dir}/flisk-cli" --strip-components=1
+  mv "$engine_dir" "${install_dir}/flisk-cli"
 
   echo "Installed: ${install_dir}/${BIN_NAME}"
   "${install_dir}/${BIN_NAME}" --version || true
